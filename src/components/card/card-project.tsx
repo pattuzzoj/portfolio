@@ -1,9 +1,9 @@
 import { SquareArrowOutUpRight } from "lucide-react";
-import For from "../flow/for";
+import For from "@/components/flow/for";
 import Github from "@/assets/icons/GitHub.svg";
 import Image from "next/image";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import TechLabel from "../tech-label";
+import TechLabel from "@/components/tech-label";
 
 interface CardProjectProps {
   banner: StaticImport;

@@ -1,10 +1,10 @@
 import { ArrowRight } from "lucide-react";
-import TechsMenu from "@/components/sections/techs-menu";
-import Projects from "@/components/sections/projects";
-import Contact from "@/components/sections/contact";
-import Section from "@/components/layout/section";
+import TechsMenu from "@/components/view/sections/techs-menu";
+import Projects from "@/components/view/sections/projects";
+import Contact from "@/components/view/sections/contact";
+import Section from "@/components/view/layout/section";
 import TechLabel from "@/components/tech-label";
-import AboutSection from "@/components/sections/about";
+import AboutSection from "@/components/view/sections/about";
 import SocialMedia from "@/components/social-media";
 
 export default function Main() {

@@ -1,5 +1,5 @@
 import { Database, FlaskConical, Monitor, Settings } from "lucide-react";
-import CardStack from "../card/card-stack";
+import CardStack from "@/components/card/card-stack";
 
 export default function AboutSection() {
   return (

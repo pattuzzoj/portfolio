@@ -3,9 +3,10 @@
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Show from "./flow/show";
-import { MessageCircle, Send } from "lucide-react";
+import Show from "@/components/flow/show";
+import { LoaderCircle, MessageCircle, Send } from "lucide-react";
 import { formAction } from '@/app/actions/sendMail';
+import Input from "./input";
 
 const formSchema = z.object({
   name: z.string().nonempty("Nome obrigatório"),
@@ -32,14 +33,14 @@ export default function ContactForm() {
       <div className="flex flex-col md:flex-row justify-between md:gap-4">
         <label className="md:w-1/2 flex flex-col gap-1">
           Nome
-          <input className="rounded-md border-1 border-slate-600 p-2 bg-slate-800" type="text" placeholder="Nome" {...register("name")} />
+          <Input placeholder="Nome" {...register("name")} />
           <Show when={Boolean(errors.name?.message)}>
             <p>{errors.name?.message}</p>
           </Show>
         </label>
         <label className="md:w-1/2 flex flex-col gap-1">
           Email
-          <input className="rounded-md border-1 border-slate-600 p-2 bg-slate-800" type="text" placeholder="Email" {...register("email")} />
+          <Input placeholder="Email" {...register("email")} />
           <Show when={Boolean(errors.email?.message)}>
             <p>{errors.email?.message}</p>
           </Show>
@@ -47,7 +48,7 @@ export default function ContactForm() {
       </div>
       <label className="flex flex-col gap-1">
         Assunto
-        <input className="rounded-md border-1 border-slate-600 p-2 bg-slate-800" type="text" placeholder="Assunto" {...register("subject")} />
+        <Input placeholder="Assunto" {...register("subject")} />
         <Show when={Boolean(errors.subject?.message)}>
           <p>{errors.subject?.message}</p>
         </Show>
@@ -59,9 +60,10 @@ export default function ContactForm() {
           <p>{errors.message?.message}</p>
         </Show>
       </label>
-      <button className="flex justify-center items-center gap-2 rounded-md p-2 bg-blue-600 hover:bg-blue-700" disabled={isSubmitting} type="submit">
-        <Send/>
-        Enviar Mensagem
+      <button className="flex justify-center items-center gap-2 rounded-md p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600" disabled={isSubmitting} type="submit">
+        <Show when={isSubmitting} fallback={<><Send/>Enviar Mensagem</>}>
+          <LoaderCircle className="animate-spin" />
+        </Show>
       </button>
       <a className="flex justify-center items-center gap-2 rounded-md border-1 border-green-400 p-2 text-green-400 hover:text-black hover:bg-green-400" href="https://wa.me/5527997991592" target="_blank" rel="noopener noreferrer">
         <MessageCircle />

@@ -1,4 +1,4 @@
-import CardProject from "../card/card-project";
+import CardProject from "@/components/card/card-project";
 import Utilify from "@/assets/images/projects/utilify-banner.png";
 import NexonUtilis from "@/assets/images/projects/nexonutilis-banner.png";
 import Futuresphere from "@/assets/images/projects/futuresphere-banner.png";

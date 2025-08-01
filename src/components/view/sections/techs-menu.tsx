@@ -1,5 +1,5 @@
 import { Tabs } from "@ark-ui/react";
-import CardTech from "../card/card-tech";
+import CardTech from "@/components/card/card-tech";
 import Astro from "@/assets/icons/Astro.svg";
 import Nextjs from "@/assets/icons/Next.js.svg";
 import ReactIcon from "@/assets/icons/React.svg";

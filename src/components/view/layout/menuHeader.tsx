@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
-import Show from "../flow/show";
+import Show from "@/components/flow/show";
 import { useState } from "react";
 
 export default function MenuHeader() {

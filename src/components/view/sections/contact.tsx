@@ -1,7 +1,7 @@
 import { Mail, MapPin } from "lucide-react";
 import Linkedin from "@/assets/icons/linkedin.svg";
-import CardContact from "../card/card-contact";
-import ContactForm from "../contactForm";
+import CardContact from "@/components/card/card-contact";
+import ContactForm from "@/components/form/contactForm";
 
 export default function Contact() {
   return (
