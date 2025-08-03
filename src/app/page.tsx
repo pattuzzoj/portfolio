@@ -10,9 +10,11 @@ import SocialMedia from "@/components/social-media";
 export default function Main() {
   return (
     <>
-      <section id="inicio" className="flex flex-col justify-center items-center gap-4 text-center">
-        <h2 className="text-4xl! md:text-5xl! lg:text-6xl!">Olá, eu sou <span className="text-blue-400">Júlio Pattuzzo</span></h2>
-        <h3 className="text-2xl! text-slate-300">Desenvolvedor Full Stack, com domínio em TypeScript e especializado em criar interfaces modernas e responsivas</h3>
+      <section id="inicio" className="flex flex-col justify-center items-center gap-6 text-center">
+        <div className="space-y-4">
+          <h2 className="text-4xl! md:text-5xl! lg:text-6xl!">Olá, eu sou <span className="text-blue-400">Júlio Pattuzzo</span></h2>
+          <h3 className="text-2xl! text-slate-300">Desenvolvedor Full Stack, com domínio em TypeScript e especializado em criar interfaces modernas e responsivas</h3>
+        </div>
         <div className="space-x-4">
           <TechLabel>TypeScript</TechLabel>
           <TechLabel>Solid.js</TechLabel>

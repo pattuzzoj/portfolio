@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "@/globals.css";
+import "@/style/index.css";
 import Header from "@/components/view/layout/header";
 import Footer from "@/components/view/layout/footer";
 
@@ -55,7 +55,7 @@ export default function RootLayout({
     <html lang="pt">
       <body className={`${geistSans.variable} ${geistMono.variable} bg-slate-950 flex flex-col gap-16 md:gap-32`}>
         <Header />
-        <main className="flex flex-col gap-32 mt-16 md:mt-24 px-4">{children}</main>
+        <main className="flex flex-col gap-24 md:gap-32 mt-8 md:mt-24 px-4">{children}</main>
         <Footer />
       </body>
     </html>

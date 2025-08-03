@@ -23,11 +23,11 @@ export default function TechsMenu() {
     <div>
       <Tabs.Root className="flex flex-col items-center gap-6" defaultValue="front-end">
         <Tabs.List className="w-fit flex justify-evenly items-center gap-4 rounded-lg p-2 bg-slate-800">
-          <Tabs.Trigger className="rounded-md p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="front-end">Front-End</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="back-end">Back-End</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="database">Database</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="testes">Testes</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tools">Tools</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="front-end">Front-End</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="back-end">Back-End</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="database">Database</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tests">Tests</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tools">Tools</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="front-end" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CardTech icon={<Astro className="h-8 w-8" />} title="Astro" description="Arquitetura moderna para sites estáticos. Zero JS por padrão e interatividade apenas onde importa." />

@@ -35,14 +35,14 @@ export default function ContactForm() {
           Nome
           <Input placeholder="Nome" {...register("name")} />
           <Show when={Boolean(errors.name?.message)}>
-            <p>{errors.name?.message}</p>
+            <p className="text-red-400">{errors.name?.message}</p>
           </Show>
         </label>
         <label className="md:w-1/2 flex flex-col gap-1">
           Email
           <Input placeholder="Email" {...register("email")} />
           <Show when={Boolean(errors.email?.message)}>
-            <p>{errors.email?.message}</p>
+            <p className="text-red-400">{errors.email?.message}</p>
           </Show>
         </label>
       </div>
@@ -50,14 +50,14 @@ export default function ContactForm() {
         Assunto
         <Input placeholder="Assunto" {...register("subject")} />
         <Show when={Boolean(errors.subject?.message)}>
-          <p>{errors.subject?.message}</p>
+          <p className="text-red-400">{errors.subject?.message}</p>
         </Show>
       </label>
       <label className="flex flex-col gap-1">
         Mensagem
         <textarea className="rounded-md border-1 border-slate-600 p-2 bg-slate-800" placeholder="Mensagem" rows={5} {...register("message")} />
         <Show when={Boolean(errors.message?.message)}>
-          <p>{errors.message?.message}</p>
+          <p className="text-red-400">{errors.message?.message}</p>
         </Show>
       </label>
       <button className="flex justify-center items-center gap-2 rounded-md p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600" disabled={isSubmitting} type="submit">

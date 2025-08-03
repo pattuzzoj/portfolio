@@ -11,7 +11,7 @@ export default function Projects() {
         banner={Utilify}
         title="Utilify"
         description="Conjunto de utilitários tipados, seguros e leves para acelerar o desenvolvimento em JavaScript e TypeScript. Possui API intuitiva, documentação objetiva, testes completos e suporte nativo a Node.js, Deno, Bun e navegadores modernos."
-        techs={["VitePress", "TypeScript", "Vitest"]}
+        techs={["VitePress", "Vitest"]}
         live="https://utilify.js.org/"
         github="https://github.com/pattuzzoj/utilify"
       />
