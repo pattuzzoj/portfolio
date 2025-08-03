@@ -7,7 +7,7 @@ export default function SocialMedia() {
       <a className="group flex items-center justify-center rounded-md p-2 hover:bg-slate-800" href="https://github.com/pattuzzoj">
         <Github className="group-hover:fill-white"/>
       </a>
-      <a className="group flex items-center justify-center rounded-md p-2 hover:bg-slate-800" href="https://www.linkedin.com/in/patrick-eduardo-oliveira-junior-3a7323198/">
+      <a className="group flex items-center justify-center rounded-md p-2 hover:bg-slate-800" href="https://www.linkedin.com/in/pattuzzoj">
         <Linkedin className="group-hover:fill-blue-500"/>
       </a>
     </nav>

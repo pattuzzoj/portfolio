@@ -10,22 +10,25 @@ export default function Contact() {
         <div className="flex flex-col max-md:items-center gap-8">
           <h3 className="hidden lg:block">Informações de Contato</h3>
           <CardContact
+            title="Localização"
+            icon={<MapPin className="text-blue-400" />}
+          >
+            <span>Vitória, ES</span>
+          </CardContact>
+          <CardContact
             title="Email"
-            content="pattuzzo@proton.me"
             icon={<Mail className="text-blue-400" />}
-          />
+          >
+            <a className="text-blue-400 hover:text-blue-500" href="mailto:pattuzzo@proton.me">pattuzzo@proton.me</a>
+          </CardContact>
           <CardContact
             title="Linkedin"
-            content="https://www.linkedin.com/in/pattuzzoj"
             icon={<Linkedin className="text-blue-400" />}
-          />
-          <CardContact
-            title="Localização"
-            content="Vitória, ES"
-            icon={<MapPin className="text-blue-400" />}
-          />
+          >
+            <a className="text-blue-400 hover:text-blue-500" href="https://www.linkedin.com/in/pattuzzoj">https://www.linkedin.com/in/pattuzzoj</a>
+          </CardContact>
         </div>
-        <div className="w-full text-center rounded-md p-6 space-y-4 bg-slate-800">
+        <div className="w-full text-center rounded-md p-6 space-y-4 bg-blue-600">
           <h4>Disponível para Freelance</h4>
           <p>Vamos criar algo incrível juntos!</p>
         </div>

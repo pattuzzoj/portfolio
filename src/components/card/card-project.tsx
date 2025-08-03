@@ -21,7 +21,7 @@ export default function CardProject(props: CardProjectProps) {
       <div className="h-full flex flex-col justify-between space-y-4">
         <h3>{props.title}</h3>
         <p className="text-sm text-slate-400">{props.description}</p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center flex-wrap gap-2">
           <For each={props.techs}>
             {(tech, index) => (<TechLabel key={index}>{tech}</TechLabel>)}
           </For>

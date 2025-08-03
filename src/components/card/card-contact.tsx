@@ -1,7 +1,7 @@
 interface CardContactProps {
   title: string;
-  content: string;
   icon: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function CardContact(props: CardContactProps) {
@@ -12,7 +12,7 @@ export default function CardContact(props: CardContactProps) {
       </div>
       <div>
         <h5>{props.title}</h5>
-        <span>{props.content}</span>
+        {props.children}
       </div>
     </div>
   )

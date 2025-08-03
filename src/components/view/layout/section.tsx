@@ -7,10 +7,10 @@ interface SectionProps {
 
 export default function Section(props: SectionProps) {
   return (
-    <section id={props.id} className="space-y-8 md:space-y-16">
+    <section id={props.id} className="space-y-8">
       <div className="space-y-2">
         <h2 className="text-center">{props.title}</h2>
-        <h5 className="text-center text-slate-300">{props.description}</h5>
+        <h3 className="text-center text-slate-300">{props.description}</h3>
       </div>
       {props.children}
     </section>
