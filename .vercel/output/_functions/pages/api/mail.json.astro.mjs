@@ -51,7 +51,7 @@ Mensagem: ${message}`
     );
   } catch (error) {
     return new Response(
-      null,
+      String(error),
       {
         status: 500
       }
