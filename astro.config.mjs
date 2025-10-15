@@ -10,7 +10,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: vercel({ experimentalStaticHeaders: true }),
+  adapter: vercel(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
     locales: ["en", "pt"],
