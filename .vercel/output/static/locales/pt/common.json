@@ -1,0 +1,68 @@
+{
+  "header": {
+    "title": "Júlio Pattuzzo",
+    "menu": {
+      "home": {
+        "label": "Início",
+        "href": ""
+      },
+      "about": {
+        "label": "Sobre Mim",
+        "href": "/sobre"
+      },
+      "technologies": {
+        "label": "Tecnologias",
+        "href": "/tecnologias"
+      },
+      "projects": {
+        "label": "Projetos",
+        "href": "/projetos"
+      },
+      "contact": {
+        "label": "Contato",
+        "href": "/contato"
+      }
+    },
+    "curriculum": "Baixar CV",
+    "languages": {
+      "english": "Inglês",
+      "portuguese": "Português"
+    }
+  },
+  "footer": {
+    "title": "Júlio Pattuzzo",
+    "description": "Desenvolvedor Full Stack especializado em criar experiências web modernas e responsivas.",
+    "usefulLinks": {
+      "title": "Links Úteis",
+      "menu": [
+        {
+          "id": "home",
+          "label": "Início",
+          "href": ""
+        },
+        {
+          "id": "about",
+          "label": "Sobre Mim",
+          "href": "/sobre"
+        },
+        {
+          "id": "technologies",
+          "label": "Tecnologias",
+          "href": "/tecnologias"
+        },
+        {
+          "id": "projects",
+          "label": "Projetos",
+          "href": "/projetos"
+        },
+        {
+          "id": "contact",
+          "label": "Contato",
+          "href": "/contato"
+        }
+      ]
+    },
+    "connect": "Conecte-se",
+    "copyright": "© 2025 Júlio Pattuzzo. Todos os direitos reservados."
+  }
+}

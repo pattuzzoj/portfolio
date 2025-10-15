@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "title": "Júlio Pattuzzo - Portfolio",
+    "description": "Web developer passionate about creating innovative and functional digital experiences. Check out my projects and skills.",
+    "author": "Júlio Pattuzzo",
+    "keywords": "Full Stack Developer,TypeScript,React,Node.js,Next.js,JavaScript,Web Development,Frontend Development,Backend Development,Software Engineering,REST API,Database,SQL,NoSQL,Git,DevOps,Responsive Design,UI/UX,Portfolio,Developer"
+  },
+  "hero": {
+    "id": "home",
+    "title": "Hi, I'm ",
+    "description": "Full Stack Developer, skilled in TypeScript and specialized in building modern and responsive interfaces",
+    "skills": [
+      "TypeScript",
+      "Solid.js",
+      "NestJS",
+      "Drizzle ORM"
+    ],
+    "buttons": {
+      "projects": "View Projects",
+      "cv": "Download Resume"
+    }
+  },
+  "about": {
+    "id": "about",
+    "title": "About Me",
+    "subtitle": "Developer passionate about building innovative and functional web solutions",
+    "paragraphs": [
+      "I'm a Full Stack Developer with a degree in Systems Analysis and Development. I take a practical and direct approach to software development, focusing on writing clean, modular, and maintainable code.",
+      "I'm constantly evolving, seeking technical improvement through continuous study of new technologies, tools, and architectural patterns.",
+      "Learning is part of the process — evolving is part of the job."
+    ],
+    "cards": [
+      {
+        "icon": "lucide:monitor",
+        "title": "Front-End",
+        "description": "Development of modern and responsive interfaces with Solid.js, Astro, React, and Next.js, focusing on performance and user experience."
+      },
+      {
+        "icon": "lucide:settings",
+        "title": "Back-End",
+        "description": "Building efficient and scalable APIs using Node.js, NestJS, and Express, with focus on modular architecture and high performance."
+      },
+      {
+        "icon": "lucide:database",
+        "title": "Database",
+        "description": "Data management and manipulation in PostgreSQL and MongoDB, with clear and secure queries via Drizzle ORM and Prisma."
+      },
+      {
+        "icon": "lucide:flask-conical",
+        "title": "Testing",
+        "description": "Implementation of unit tests using Vitest and Jest to ensure quality and stability."
+      }
+    ]
+  },
+  "technologies": {
+    "id": "technologies",
+    "title": "Tech Stack",
+    "subtitle": "Technologies and Tools",
+    "sections": {
+      "front-end": {
+        "label": "Front-End",
+        "items": {
+          "astro": {
+            "title": "Astro",
+            "description": "Modern architecture for static sites. Zero JS by default and interactivity only where it matters."
+          },
+          "solidjs": {
+            "title": "Solid.js",
+            "description": "True reactivity without a virtual DOM. Compiles to pure JS with high performance."
+          },
+          "nextjs": {
+            "title": "Next.js",
+            "description": "Complete React framework with SSR, SSG, and built-in routing."
+          },
+          "react": {
+            "title": "React",
+            "description": "Component-based UI library. Popular, but with indirect reactivity."
+          },
+          "tailwind": {
+            "title": "Tailwind CSS",
+            "description": "Utility-first CSS for fast and consistent UI building."
+          }
+        }
+      },
+      "back-end": {
+        "label": "Back-End",
+        "items": {
+          "nestjs": {
+            "title": "NestJS",
+            "description": "Modular framework with TypeScript. Solid and scalable architecture by default."
+          },
+          "deno": {
+            "title": "Deno",
+            "description": "Modern runtime with built-in security, ES Modules, and native tools."
+          },
+          "express": {
+            "title": "Express",
+            "description": "Minimalist framework for Node.js. Flexible, but unopinionated."
+          },
+          "node": {
+            "title": "Node.js",
+            "description": "Asynchronous runtime built on V8. Foundation of modern JS servers."
+          }
+        }
+      },
+      "database": {
+        "label": "Databases",
+        "items": {
+          "drizzle": {
+            "title": "Drizzle ORM",
+            "description": "Lightweight ORM with strong typing and zero overhead. Ideal for full control."
+          },
+          "prisma": {
+            "title": "Prisma",
+            "description": "Modern ORM focused on productivity. Safe, auto-generated queries."
+          },
+          "postgres": {
+            "title": "PostgreSQL",
+            "description": "Robust and reliable relational database. Supports JSON, ACID, and extensibility."
+          },
+          "mongodb": {
+            "title": "MongoDB",
+            "description": "NoSQL document-oriented database. Flexible, but less strict than SQL."
+          }
+        }
+      },
+      "tests": {
+        "label": "Testing",
+        "items": {
+          "vitest": {
+            "title": "Vitest",
+            "description": "Fast test runner with ESM, HMR, and Vite integration."
+          },
+          "jest": {
+            "title": "Jest",
+            "description": "Established framework with snapshot and coverage support."
+          }
+        }
+      },
+      "tools": {
+        "label": "Tools",
+        "items": {
+          "git": {
+            "title": "Git",
+            "description": "Distributed version control. Essential for collaboration and history tracking."
+          },
+          "docker": {
+            "title": "Docker",
+            "description": "Containers for isolated environments. Standardizes dev and production."
+          }
+        }
+      }
+    }
+  },
+  "projects": {
+    "id": "projects",
+    "title": "Projects",
+    "subtitle": "A selection of my most recent and relevant work",
+    "cta": "View Project",
+    "items": {
+      "utilify": {
+        "title": "Utilify",
+        "description": "A set of typed, safe, and lightweight utilities to speed up JavaScript and TypeScript development. Features an intuitive API, concise documentation, full test coverage, and native support for Node.js, Deno, Bun, and modern browsers.",
+        "technologies": [
+          "VitePress",
+          "Vitest"
+        ]
+      },
+      "nexon": {
+        "title": "Nexon Utilis",
+        "description": "A centralized hub of resources for developers and tech professionals. Organized by category, it brings together tutorials, courses, tools, and technical content for various development areas, focusing on accessibility and practicality.",
+        "technologies": [
+          "Solid.js",
+          "Tailwind CSS"
+        ]
+      },
+      "nowted": {
+        "title": "Nowted",
+        "description": "A complete note-taking application with backend integration, allowing users to create and manage their notes.",
+        "technologies": [
+          "Solid.js",
+          "Tailwind CSS",
+          "IndexedDB",
+          "Nest.js",
+          "Node.js",
+          "Drizzle ORM",
+          "PostgreSQL"
+        ]
+      },
+      "futuresphere": {
+        "title": "Futuresphere",
+        "description": "FutureSphere is a front-end demo application showcasing innovative technological solutions for businesses and individuals. The site features a modern design, information about services, team, blog, and contact. Its purpose is to illustrate features and layout for digital projects.",
+        "technologies": [
+          "Solid.js",
+          "Tailwind CSS",
+          "i18n"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "id": "contact",
+    "title": "Contact Me",
+    "subtitle": "Let's talk about your next project",
+    "info": {
+      "title": "Contact Information",
+      "location": {
+        "title": "Location",
+        "value": "Vitória, ES"
+      },
+      "email": {
+        "title": "Email",
+        "value": "pattuzzo@proton.me"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "value": "https://www.linkedin.com/in/pattuzzoj"
+      },
+      "freelance": "Available for Freelance",
+      "cta": "Let's build something amazing together!"
+    },
+    "form": {
+      "fields": {
+        "name": {
+          "label": "Name",
+          "error": "Name required"
+        },
+        "email": {
+          "label": "Email",
+          "error": "Invalid email"
+        },
+        "subject": {
+          "default": "Freelance or Job Opportunity",
+          "label": "Subject",
+          "error": "Subject required"
+        },
+        "message": {
+          "default": "Hi! I'd like to discuss a potential freelance or job opportunity with you.",
+          "label": "Message",
+          "error": "Message required"
+        }
+      },
+      "send": "Send Message",
+      "whatsapp": "Chat on Whatsapp"
+    }
+  }
+}
