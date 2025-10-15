@@ -13,6 +13,7 @@ export default function TestApi() {
         body: JSON.stringify({ name: "Reiden" }),
       });
 
+      
       const data = await res.json();
       setResponse(JSON.stringify(data, null, 2));
     } catch (err) {
