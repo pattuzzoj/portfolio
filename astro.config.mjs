@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
 import vercel from "@astrojs/vercel";
 import reactI18next from "astro-react-i18next";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +19,7 @@ export default defineConfig({
     include: {
       lucide: ["square-arrow-out-up-right", "monitor", "settings", "database", "flask-conical", "map-pin", "mail", "arrow-right"]
     }
-  })],
+  }), sitemap()],
   vite: {
     plugins: [tailwindcss()]
   },
