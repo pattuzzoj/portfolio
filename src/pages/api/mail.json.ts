@@ -1,8 +1,6 @@
 import nodemailer from 'nodemailer';
 import { getSecret } from 'astro:env/server';
 
-export const prerender = false;
-
 interface EmailForm {
   name: string;
   email: string;
