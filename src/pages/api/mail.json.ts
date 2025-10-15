@@ -37,7 +37,7 @@ export async function POST({ request }: { request: Request } ) {
       }
     );
   } catch (error) {
-    return new Response(null, 
+    return new Response(String(error), 
       {
         status: 500
       }
