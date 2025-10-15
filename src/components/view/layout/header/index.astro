@@ -1,0 +1,11 @@
+---
+import HeaderMenu from "./header-menu";
+import { t } from "i18next";
+---
+
+<header
+  class="sticky top-0 flex justify-between items-center py-4 px-8 border-b-1 border-b-slate-800 bg-slate-950"
+>
+  <h1 class="text-lg font-bold text-blue-400">{t("header.title")}</h1>
+  <HeaderMenu client:only="react"/>
+</header>

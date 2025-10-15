@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components";
+import Linkedin from "@/assets/icons/linkedin.svg";
+import CardContact from "@/components/card/card-contact.astro";
+import ContactForm from "@/components/form/contact-form";
+import { t } from "i18next";
+---
+
+<div class="flex flex-col lg:flex-row justify-center gap-8">
+  <div class="w-full lg:w-1/2 lg:max-w-xl flex flex-col justify-between gap-8">
+    <div class="flex flex-col max-md:items-center gap-8">
+      <h3 class="hidden lg:block">{t("home:contact.info.title")}</h3>
+      <CardContact
+        title={t("home:contact.info.location.title")}
+      >
+        <Icon slot="icon" name="lucide:map-pin" class="text-blue-400" />
+        <span>{t("home:contact.info.location.value")}</span>
+      </CardContact>
+      <CardContact
+        title={t("home:contact.info.email.title")}
+      >
+        <Icon slot="icon" name="lucide:mail" class="text-blue-400" />
+        <a class="text-blue-400 hover:text-blue-500" href={`mailto:${t("home:contact.info.email.value")}`}>{t("home:contact.info.email.value")}</a>
+      </CardContact>
+      <CardContact
+        title={t("home:contact.info.linkedin.title")}
+      >
+        <Linkedin slot="icon" class="text-blue-400" />
+        <a class="text-blue-400 hover:text-blue-500" href={t("home:contact.info.linkedin.value")}>{t("home:contact.info.linkedin.value")}</a>
+      </CardContact>
+    </div>
+    <div class="w-full text-center rounded-md p-6 space-y-4 bg-blue-600">
+      <h4>{t("home:contact.info.freelance")}</h4>
+      <p>{t("home:contact.info.cta")}</p>
+    </div>
+  </div>
+  <div class="w-full lg:w-1/2 lg:max-w-xl">
+    <ContactForm client:only="react"/>
+  </div>
+</div>

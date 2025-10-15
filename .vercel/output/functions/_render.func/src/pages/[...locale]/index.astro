@@ -1,0 +1,79 @@
+---
+import MainLayout from "@/layouts/index.astro";
+import TechsMenu from "@/components/view/sections/techs-menu";
+import Projects from "@/components/view/sections/projects.astro";
+import Contact from "@/components/view/sections/contact.astro";
+import Section from "@/components/view/layout/section.astro";
+import TechLabel from "@/components/tech-label.astro";
+import AboutSection from "@/components/view/sections/about.astro";
+import SocialMedia from "@/components/social-media.astro";
+import { Icon } from "astro-icon/components";
+import { t } from "i18next";
+---
+
+<MainLayout 
+  title={t("home:meta.title")} 
+  description={t("home:meta.description")}
+  author={t("home:meta.author")} 
+  keywords={t("home:meta.keywords")}
+  >
+  <section
+    id={t("home:hero.id")}
+    class="flex flex-col justify-center items-center gap-6 text-center"
+  >
+    <div class="space-y-4">
+      <h2 class="text-4xl! md:text-5xl! lg:text-6xl!">
+        {t("home:hero.title")} <span class="text-blue-400">Júlio Pattuzzo</span>
+      </h2>
+      <p class="text-2xl! text-slate-300">
+        {t("home:hero.description")}
+      </p>
+    </div>
+    <div class="space-x-4">
+      {(t("home:hero.skills", { returnObjects: true }) as unknown as string[]).map((item) => <TechLabel>{item}</TechLabel>)}
+    </div>
+    <nav
+      aria-label="navegação principal"
+      class="flex flex-col sm:flex-row items-center gap-4"
+    >
+      <a
+        class="w-64 flex justify-center items-center gap-2 rounded-md py-2 px-8 bg-blue-600 hover:bg-blue-700"
+        href="#projetos">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
+      >
+      <a
+        class="w-64 rounded-md py-2 px-8 bg-slate-800 hover:bg-slate-700 border-1 border-slate-700"
+        href="/curriculo.pdf"
+        download>{t("home:hero.buttons.cv")}</a
+      >
+    </nav>
+    <SocialMedia />
+  </section>
+  <Section
+    id={t("home:about.id")}
+    title={t("home:about.title")}
+    subtitle={t("home:about.subtitle")}
+  >
+    <AboutSection />
+  </Section>
+  <Section
+    id={t("home:technologies.id")}
+    title={t("home:technologies.title")}
+    subtitle={t("home:technologies.subtitle")}
+  >
+    <TechsMenu client:load />
+  </Section>
+  <Section
+    id={t("home:projects.id")}
+    title={t("home:projects.title")}
+    subtitle={t("home:projects.subtitle")}
+  >
+    <Projects />
+  </Section>
+  <Section
+    id={t("home:contact.id")}
+    title={t("home:contact.title")}
+    subtitle={t("home:contact.subtitle")}
+  >
+    <Contact />
+  </Section>
+</MainLayout>

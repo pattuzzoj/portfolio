@@ -1,0 +1,38 @@
+---
+import "@/styles/index.css";
+import Header from "@/components/view/layout/header/index.astro";
+import Footer from "@/components/view/layout/footer.astro";
+import i18n from "i18next";
+
+interface Props {
+	title: string;
+	description: string;
+	author: string;
+	keywords: string;
+}
+
+const props = Astro.props;
+
+---
+
+<html lang={i18n.language}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{props.title}</title>
+		<meta name="description" content={props.description}/>
+		<meta name="author" content={props.author} />
+		<meta name="keywords" content={props.keywords}/>
+		<meta name="robots" content="index, follow" />
+		<link rel="icon" href="/favicon.png"/>
+	</head>
+	<body
+		class={`bg-slate-950 flex flex-col gap-16 md:gap-32`}
+	>
+		<Header />
+		<main class="flex flex-col gap-24 md:gap-32 mt-8 md:mt-24 px-4">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

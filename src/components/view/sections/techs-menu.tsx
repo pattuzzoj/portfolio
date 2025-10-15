@@ -16,47 +16,135 @@ import Vitest from "@/assets/icons/Vitest.svg";
 import Jest from "@/assets/icons/Jest.svg";
 import Git from "@/assets/icons/Git.svg";
 import Docker from "@/assets/icons/Docker.svg";
-// import Deno from "@/assets/icons/Deno.svg";
+import Deno from "@/assets/icons/Deno.svg";
+import { useTranslation } from "react-i18next";
 
 export default function TechsMenu() {
+  const { t } = useTranslation();
+  
   return (
     <div>
       <Tabs.Root className="flex flex-col items-center gap-6" defaultValue="front-end">
         <Tabs.List className="w-fit flex justify-evenly items-center gap-4 rounded-lg p-2 bg-slate-800">
-          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="front-end">Front-End</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="back-end">Back-End</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="database">Database</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tests">Tests</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tools">Tools</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="front-end">{t("home:technologies.sections.front-end.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="back-end">{t("home:technologies.sections.back-end.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="database">{t("home:technologies.sections.database.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tests">{t("home:technologies.sections.tests.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-md p-0.5 md:p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tools">{t("home:technologies.sections.tools.label")}</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="front-end" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardTech icon={<Astro className="h-8 w-8" />} title="Astro" description="Arquitetura moderna para sites estáticos. Zero JS por padrão e interatividade apenas onde importa." />
-          <CardTech icon={<Solidjs className="h-8 w-8" />} title="Solid.js" description="Reatividade real sem virtual DOM. Compila para JS puro com alta performance." />
-          <CardTech icon={<Nextjs className="h-8 w-8" />} title="Next.js" description="Framework React completo com SSR, SSG e roteamento integrado." />
-          <CardTech icon={<ReactIcon className="h-8 w-8" />} title="React" description="Biblioteca de UI baseada em componentes. Popular, mas com reatividade indireta." />
-          <CardTech icon={<Tailwind className="h-8 w-8" />} title="Tailwind CSS" description="CSS utilitário para construir interfaces rápidas e consistentes." />
+          <CardTech
+            title={t("home:technologies.sections.front-end.items.astro.title")}
+            description={t("home:technologies.sections.front-end.items.astro.description")}
+          >
+            <img src={Astro.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.front-end.items.nextjs.title")}
+            description={t("home:technologies.sections.front-end.items.nextjs.description")}
+          >
+            <img src={Nextjs.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.front-end.items.solidjs.title")}
+            description={t("home:technologies.sections.front-end.items.solidjs.description")}
+          >
+            <img src={Solidjs.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.front-end.items.react.title")}
+            description={t("home:technologies.sections.front-end.items.react.description")}
+          >
+            <img src={ReactIcon.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.front-end.items.tailwind.title")}
+            description={t("home:technologies.sections.front-end.items.tailwind.description")}
+          >
+            <img src={Tailwind.src} className="h-8 w-8" />
+          </CardTech>
         </Tabs.Content>
         <Tabs.Content value="back-end" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardTech icon={<Nestjs className="h-8 w-8" />} title="NestJS" description="Framework modular com TypeScript. Arquitetura sólida e escalável por padrão." />
-          {/* <CardTech icon={<Deno className="h-8 w-8" />} title="Deno" description="Runtime moderno com segurança embutida, ES Modules e ferramentas nativas." /> */}
-          <CardTech icon={<Express className="h-8 w-8" />} title="Express" description="Framework minimalista para Node.js. Flexível, mas sem estrutura opinativa." />
-          <CardTech icon={<Nodejs className="h-8 w-8" />} title="Node.js" description="Runtime assíncrono baseado no V8. Base para servidores JS modernos." />
+          <CardTech
+            title={t("home:technologies.sections.back-end.items.nestjs.title")}
+            description={t("home:technologies.sections.back-end.items.nestjs.description")}
+          >
+            <img src={Nestjs.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.back-end.items.express.title")}
+            description={t("home:technologies.sections.back-end.items.express.description")}
+          >
+            <img src={Express.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.back-end.items.deno.title")}
+            description={t("home:technologies.sections.back-end.items.deno.description")}
+          >
+            <img src={Deno.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.back-end.items.node.title")}
+            description={t("home:technologies.sections.back-end.items.node.description")}
+          >
+            <img src={Nodejs.src} className="h-8 w-8" />
+          </CardTech>
         </Tabs.Content>
         <Tabs.Content value="database" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardTech icon={<Drizzle className="h-8 w-8" />} title="DrizzleORM" description="ORM leve com tipagem forte e zero overhead. Ideal para controle total." />
-          <CardTech icon={<Prisma className="h-8 w-8" />} title="Prisma" description="ORM moderno com foco em produtividade. Consultas seguras e geradas automaticamente." />
-          <CardTech icon={<Postgres className="h-8 w-8" />} title="PostgreSQL" description="Banco relacional robusto e confiável. Suporte a JSON, ACID e extensibilidade." />
-          <CardTech icon={<MongoDB className="h-8 w-8" />} title="MongoDB" description="Banco NoSQL orientado a documentos. Flexível, mas menos rígido que SQL." />
+          <CardTech
+            title={t("home:technologies.sections.database.items.drizzle.title")}
+            description={t("home:technologies.sections.database.items.drizzle.description")}
+          >
+            <img src={Drizzle.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.database.items.prisma.title")}
+            description={t("home:technologies.sections.database.items.prisma.description")}
+          >
+            <img src={Prisma.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.database.items.postgres.title")}
+            description={t("home:technologies.sections.database.items.postgres.description")}
+          >
+            <img src={Postgres.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.database.items.mongodb.title")}
+            description={t("home:technologies.sections.database.items.mongodb.description")}
+          >
+            <img src={MongoDB.src} className="h-8 w-8" />
+          </CardTech>
         </Tabs.Content>
         <Tabs.Content value="tests" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardTech icon={<Vitest className="h-8 w-8" />} title="Vitest" description="Test runner rápido com ESM, HMR e integração ao Vite." />
-          <CardTech icon={<Jest className="h-8 w-8" />} title="Jest" description="Framework consolidado com suporte a snapshots e coverage." />
+          <CardTech
+            title={t("home:technologies.sections.tests.items.vitest.title")}
+            description={t("home:technologies.sections.tests.items.vitest.description")}
+          >
+            <img src={Vitest.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.tests.items.jest.title")}
+            description={t("home:technologies.sections.tests.items.jest.description")}
+          >
+            <img src={Jest.src} className="h-8 w-8" />
+          </CardTech>
         </Tabs.Content>
         <Tabs.Content value="tools" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardTech icon={<Git className="h-8 w-8" />} title="Git" description="Controle de versão distribuído. Essencial para colaboração e histórico." />
-          <CardTech icon={<Docker className="h-8 w-8" />} title="Docker" description="Contêineres para ambientes isolados. Padroniza dev e produção." />
+          <CardTech
+            title={t("home:technologies.sections.tools.items.git.title")}
+            description={t("home:technologies.sections.tools.items.git.description")}
+          >
+            <img src={Git.src} className="h-8 w-8" />
+          </CardTech>
+          <CardTech
+            title={t("home:technologies.sections.tools.items.docker.title")}
+            description={t("home:technologies.sections.tools.items.docker.description")}
+          >
+            <img src={Docker.src} className="h-8 w-8" />
+          </CardTech>
         </Tabs.Content>
       </Tabs.Root>
     </div>
-  )
+  );
 }
