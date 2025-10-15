@@ -9,6 +9,11 @@ import AboutSection from "@/components/view/sections/about.astro";
 import SocialMedia from "@/components/social-media.astro";
 import { Icon } from "astro-icon/components";
 import { t } from "i18next";
+import { buildStaticPaths } from "astro-react-i18next/utils";
+
+export function getStaticPaths() {
+  return buildStaticPaths();
+}
 ---
 
 <MainLayout 

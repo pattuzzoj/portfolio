@@ -21,7 +21,8 @@ setOnSetGetEnv(() => {
 	
 });
 
-async function POST({ request }) {
+const prerender = false;
+const POST = async ({ request }) => {
   const body = await request.json();
   const { name, email, subject, message } = body;
   const transporter = nodemailer.createTransport({
@@ -56,11 +57,12 @@ Mensagem: ${message}`
       }
     );
   }
-}
+};
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 	__proto__: null,
-	POST
+	POST,
+	prerender
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const page = () => _page;

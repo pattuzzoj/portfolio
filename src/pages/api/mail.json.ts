@@ -1,5 +1,8 @@
+export const prerender = false;
+
 import nodemailer from 'nodemailer';
 import { getSecret } from 'astro:env/server';
+import type { APIRoute } from 'astro';
 
 interface EmailForm {
   name: string;
@@ -8,7 +11,7 @@ interface EmailForm {
   message: string;
 }
 
-export async function POST({ request }: { request: Request } ) {
+export const POST: APIRoute = async({ request }) => {
   const body = await request.json();
   const { name, email, subject, message } = body as EmailForm;
 

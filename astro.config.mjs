@@ -8,7 +8,6 @@ import reactI18next from "astro-react-i18next";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
   adapter: vercel(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
