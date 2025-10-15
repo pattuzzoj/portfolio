@@ -5,19 +5,17 @@ import Show from "@/components/flow/show";
 import { LoaderCircle, MessageCircle, Send } from "lucide-react";
 import Input from "./input";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 
 export default function ContactForm() {
-  const [response, setResponse] = useState<string>("");
   const { t } = useTranslation();
-
+  
   const formSchema = z.object({
     name: z.string().nonempty(t("home:contact.form.fields.name.error")),
     email: z.string().email(t("home:contact.form.fields.email.error")),
     subject: z.string().nonempty(t("home:contact.form.fields.subject.error")),
     message: z.string().nonempty(t("home:contact.form.fields.message.error"))
   });
-
+  
   type FormSchema = z.infer<typeof formSchema>;
   const { register, handleSubmit, formState: { isSubmitting, errors } } = useForm<FormSchema>({
     defaultValues: {
@@ -39,27 +37,9 @@ export default function ContactForm() {
 
       if (!response.ok) {
         throw new Error();
-      }
+      } 
     } catch (error) {
       console.log(error);
-    }
-  }
-
-  async function handleClick() {
-    try {
-      const res = await fetch("/api/test.json", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: "Reiden" }),
-      });
-
-
-      const data = await res.json();
-      setResponse(JSON.stringify(data, null, 2));
-    } catch (err) {
-      setResponse("Erro: " + String(err));
     }
   }
 
@@ -96,7 +76,7 @@ export default function ContactForm() {
         </Show>
       </label>
       <button className="flex justify-center items-center gap-2 rounded-md p-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600" disabled={isSubmitting} type="submit">
-        <Show when={isSubmitting} fallback={<><Send />{t("home:contact.form.send")}</>}>
+        <Show when={isSubmitting} fallback={<><Send/>{t("home:contact.form.send")}</>}>
           <LoaderCircle className="animate-spin" />
         </Show>
       </button>
@@ -104,20 +84,6 @@ export default function ContactForm() {
         <MessageCircle />
         {t("home:contact.form.whatsapp")}
       </a>
-      <div style={{ padding: "1rem" }}>
-        <button
-          onClick={handleClick}
-          style={{ background: "#333", color: "white", padding: "0.5rem 1rem" }}
-        >
-          Testar API
-        </button>
-
-        {response && (
-          <pre style={{ background: "#eee", padding: "1rem", marginTop: "1rem" }}>
-            {response}
-          </pre>
-        )}
-      </div>
     </form>
   )
 }
