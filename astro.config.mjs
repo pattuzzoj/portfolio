@@ -4,11 +4,12 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
 import vercel from "@astrojs/vercel";
-
 import reactI18next from "astro-react-i18next";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  adapter: vercel(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
     locales: ["en", "pt"],
@@ -22,6 +23,4 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  output: "server",
-  adapter: vercel()
 });

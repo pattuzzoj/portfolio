@@ -22,10 +22,6 @@
 		{
 			"src": "^/api/mail\\.json/?$",
 			"dest": "_render"
-		},
-		{
-			"src": "^(?:/(.*?))?/?$",
-			"dest": "_render"
 		}
 	]
 }
