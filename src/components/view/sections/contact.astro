@@ -4,7 +4,6 @@ import Linkedin from "@/assets/icons/linkedin.svg";
 import CardContact from "@/components/card/card-contact.astro";
 import ContactForm from "@/components/form/contact-form";
 import { t } from "i18next";
-import TestApi from "@/components/test";
 ---
 
 <div class="flex flex-col lg:flex-row justify-center gap-8">
@@ -36,7 +35,6 @@ import TestApi from "@/components/test";
     </div>
   </div>
   <div class="w-full lg:w-1/2 lg:max-w-xl">
-    <TestApi client:only="react"/>
     <ContactForm client:only="react"/>
   </div>
 </div>
