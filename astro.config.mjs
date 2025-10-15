@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 import reactI18next from "astro-react-i18next";
 
@@ -22,6 +22,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  output: "server",
-  adapter: vercel({})
+  adapter: vercel()
 });
