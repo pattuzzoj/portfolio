@@ -1,10 +1,10 @@
-import { C as decryptString, G as createSlotValueFromString, H as isAstroComponentFactory, r as renderComponent, a as renderTemplate, q as REROUTE_DIRECTIVE_HEADER, A as AstroError, J as i18nNoLocaleFoundInPath, K as ResponseSentError, O as originPathnameSymbol, P as RewriteWithBodyUsed, Q as GetStaticPathsRequired, S as InvalidGetStaticPathsReturn, T as InvalidGetStaticPathsEntry, V as GetStaticPathsExpectedParams, W as GetStaticPathsInvalidRouteParam, X as PageNumberParamNotFound, D as DEFAULT_404_COMPONENT, Y as NoMatchingStaticPathFound, Z as PrerenderDynamicEndpointPathCollide, _ as ReservedSlotName, $ as renderSlotToString, a0 as renderJSX, a1 as chunkToString, a2 as isRenderInstruction, a3 as MiddlewareNoDataOrNextCalled, a4 as MiddlewareNotAResponse, a5 as SessionStorageInitError, a6 as SessionStorageSaveError, R as ROUTE_TYPE_HEADER, a7 as ForbiddenRewrite, a8 as ASTRO_VERSION, a9 as CspNotEnabled, aa as LocalsReassigned, ab as generateCspDigest, ac as PrerenderClientAddressNotAvailable, w as clientAddressSymbol, ad as ClientAddressNotAvailable, ae as StaticClientAddressNotAvailable, af as AstroResponseHeadersReassigned, z as responseSentSymbol$1, ag as renderPage, ah as REWRITE_DIRECTIVE_HEADER_KEY, ai as REWRITE_DIRECTIVE_HEADER_VALUE, aj as renderEndpoint } from './astro/server_1mv0en1U.mjs';
+import { C as decryptString, G as createSlotValueFromString, H as isAstroComponentFactory, r as renderComponent, a as renderTemplate, q as REROUTE_DIRECTIVE_HEADER, A as AstroError, J as i18nNoLocaleFoundInPath, K as ResponseSentError, O as originPathnameSymbol, P as RewriteWithBodyUsed, Q as GetStaticPathsRequired, S as InvalidGetStaticPathsReturn, T as InvalidGetStaticPathsEntry, V as GetStaticPathsExpectedParams, W as GetStaticPathsInvalidRouteParam, X as PageNumberParamNotFound, D as DEFAULT_404_COMPONENT, Y as NoMatchingStaticPathFound, Z as PrerenderDynamicEndpointPathCollide, _ as ReservedSlotName, $ as renderSlotToString, a0 as renderJSX, a1 as chunkToString, a2 as isRenderInstruction, a3 as MiddlewareNoDataOrNextCalled, a4 as MiddlewareNotAResponse, a5 as SessionStorageInitError, a6 as SessionStorageSaveError, R as ROUTE_TYPE_HEADER, a7 as ForbiddenRewrite, a8 as ASTRO_VERSION, a9 as CspNotEnabled, aa as LocalsReassigned, ab as generateCspDigest, ac as PrerenderClientAddressNotAvailable, w as clientAddressSymbol, ad as ClientAddressNotAvailable, ae as StaticClientAddressNotAvailable, af as AstroResponseHeadersReassigned, z as responseSentSymbol$1, ag as renderPage, ah as REWRITE_DIRECTIVE_HEADER_KEY, ai as REWRITE_DIRECTIVE_HEADER_VALUE, aj as renderEndpoint } from './astro/server_D_SdHT_e.mjs';
 import { green } from 'kleur/colors';
 import 'clsx';
 import 'es-module-lexer';
-import { g as getActionQueryString, a as deserializeActionResult, D as DEFAULT_404_ROUTE, A as ActionError, s as serializeActionResult, b as ACTION_RPC_ROUTE_PATTERN, c as ACTION_QUERY_PARAMS } from './astro-designed-error-pages_Cvb7UTS2.mjs';
+import { g as getActionQueryString, a as deserializeActionResult, D as DEFAULT_404_ROUTE, A as ActionError, s as serializeActionResult, b as ACTION_RPC_ROUTE_PATTERN, c as ACTION_QUERY_PARAMS } from './astro-designed-error-pages_Hn4k0Z5x.mjs';
 import { serialize, parse } from 'cookie';
-import { a as appendForwardSlash, j as joinPaths, r as removeTrailingForwardSlash, p as prependForwardSlash, t as trimSlashes } from './path_CHWpbChn.mjs';
+import { a as appendForwardSlash, j as joinPaths, r as removeTrailingForwardSlash, p as prependForwardSlash, t as trimSlashes } from './path_De6Se6hL.mjs';
 import { unflatten as unflatten$1, stringify as stringify$1 } from 'devalue';
 import { createStorage, builtinDrivers } from 'unstorage';
 
@@ -349,6 +349,9 @@ function redirectToFallback({
         if (pathFallbackLocale === defaultLocale && strategy === "pathname-prefix-other-locales") {
           if (context.url.pathname.includes(`${base}`)) {
             newPathname = context.url.pathname.replace(`/${urlLocale}`, ``);
+            if (newPathname === "") {
+              newPathname = "/";
+            }
           } else {
             newPathname = context.url.pathname.replace(`/${urlLocale}`, `/`);
           }

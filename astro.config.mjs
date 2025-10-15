@@ -3,14 +3,14 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel";
 import reactI18next from "astro-react-i18next";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
-  adapter: vercel({}),
+  output: "server",
+  adapter: vercel(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
     locales: ["en", "pt"],

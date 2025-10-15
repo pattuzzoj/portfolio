@@ -1,18 +1,18 @@
-import { R as ROUTE_TYPE_HEADER, q as REROUTE_DIRECTIVE_HEADER, D as DEFAULT_404_COMPONENT, A as AstroError, v as ActionNotFoundError, w as clientAddressSymbol, x as LocalsNotAnObject, y as REROUTABLE_STATUS_CODES, z as responseSentSymbol, B as nodeRequestAbortControllerCleanupSymbol } from './astro/server_1mv0en1U.mjs';
+import { R as ROUTE_TYPE_HEADER, q as REROUTE_DIRECTIVE_HEADER, D as DEFAULT_404_COMPONENT, A as AstroError, v as ActionNotFoundError, w as clientAddressSymbol, x as LocalsNotAnObject, y as REROUTABLE_STATUS_CODES, z as responseSentSymbol, B as nodeRequestAbortControllerCleanupSymbol } from './astro/server_D_SdHT_e.mjs';
 import { bold, red, yellow, dim, blue } from 'kleur/colors';
 import 'clsx';
 import 'cookie';
-import { D as DEFAULT_404_ROUTE, d as default404Instance, e as ensure404Route } from './astro-designed-error-pages_Cvb7UTS2.mjs';
+import { D as DEFAULT_404_ROUTE, d as default404Instance, e as ensure404Route } from './astro-designed-error-pages_Hn4k0Z5x.mjs';
 import 'es-module-lexer';
 import buffer from 'node:buffer';
 import crypto$1 from 'node:crypto';
 import { Http2ServerResponse } from 'node:http2';
-import { f as fileExtension, j as joinPaths, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, a as appendForwardSlash, b as isInternalPath, c as collapseDuplicateTrailingSlashes, h as hasFileExtension } from './path_CHWpbChn.mjs';
-import { r as requestIs404Or500, i as isRequestServerIsland, n as notFound, a as redirectToFallback, b as redirectToDefaultLocale, c as requestHasLocale, d as normalizeTheLocale, e as defineMiddleware, S as SERVER_ISLAND_COMPONENT, f as SERVER_ISLAND_ROUTE, g as createEndpoint, R as RouteCache, s as sequence, h as findRouteToRewrite, m as matchRoute, j as RenderContext, P as PERSIST_SYMBOL, k as getSetCookiesFromResponse } from './index_glQiV7GV.mjs';
-import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_Ab8-IBJx.mjs';
+import { f as fileExtension, j as joinPaths, s as slash, p as prependForwardSlash, r as removeTrailingForwardSlash, a as appendForwardSlash, b as isInternalPath, c as collapseDuplicateTrailingSlashes, h as hasFileExtension } from './path_De6Se6hL.mjs';
+import { m as matchPattern } from './index_CYyG6us9.mjs';
+import { r as requestIs404Or500, i as isRequestServerIsland, n as notFound, a as redirectToFallback, b as redirectToDefaultLocale, c as requestHasLocale, d as normalizeTheLocale, e as defineMiddleware, S as SERVER_ISLAND_COMPONENT, f as SERVER_ISLAND_ROUTE, g as createEndpoint, R as RouteCache, s as sequence, h as findRouteToRewrite, m as matchRoute, j as RenderContext, P as PERSIST_SYMBOL, k as getSetCookiesFromResponse } from './index_DUaKKzoz.mjs';
+import { N as NOOP_MIDDLEWARE_FN } from './noop-middleware_D-cTwx2p.mjs';
 import { a as setGetEnv } from './runtime_1tkDUGik.mjs';
 import '@vercel/routing-utils';
-import './index_MaT6fT73.mjs';
 import 'deterministic-object-hash';
 import nodePath from 'node:path';
 
@@ -638,6 +638,31 @@ class App {
   getAdapterLogger() {
     return this.#adapterLogger;
   }
+  getAllowedDomains() {
+    return this.#manifest.allowedDomains;
+  }
+  get manifest() {
+    return this.#manifest;
+  }
+  set manifest(value) {
+    this.#manifest = value;
+  }
+  matchesAllowedDomains(forwardedHost, protocol) {
+    return App.validateForwardedHost(forwardedHost, this.#manifest.allowedDomains, protocol);
+  }
+  static validateForwardedHost(forwardedHost, allowedDomains, protocol) {
+    if (!allowedDomains || allowedDomains.length === 0) {
+      return false;
+    }
+    try {
+      const testUrl = new URL(`${protocol || "https"}://${forwardedHost}`);
+      return allowedDomains.some((pattern) => {
+        return matchPattern(testUrl, pattern);
+      });
+    } catch {
+      return false;
+    }
+  }
   /**
    * Creates a pipeline by reading the stored manifest
    *
@@ -720,13 +745,17 @@ class App {
     let pathname = void 0;
     const url = new URL(request.url);
     if (this.#manifest.i18n && (this.#manifest.i18n.strategy === "domains-prefix-always" || this.#manifest.i18n.strategy === "domains-prefix-other-locales" || this.#manifest.i18n.strategy === "domains-prefix-always-no-redirect")) {
-      let host = request.headers.get("X-Forwarded-Host");
+      let forwardedHost = request.headers.get("X-Forwarded-Host");
       let protocol = request.headers.get("X-Forwarded-Proto");
       if (protocol) {
         protocol = protocol + ":";
       } else {
         protocol = url.protocol;
       }
+      if (forwardedHost && !this.matchesAllowedDomains(forwardedHost, protocol?.replace(":", ""))) {
+        forwardedHost = null;
+      }
+      let host = forwardedHost;
       if (!host) {
         host = request.headers.get("Host");
       }
@@ -1078,14 +1107,17 @@ class NodeApp extends App {
   match(req, allowPrerenderedRoutes = false) {
     if (!(req instanceof Request)) {
       req = NodeApp.createRequest(req, {
-        skipBody: true
+        skipBody: true,
+        allowedDomains: this.manifest.allowedDomains
       });
     }
     return super.match(req, allowPrerenderedRoutes);
   }
   render(req, routeDataOrOptions, maybeLocals) {
     if (!(req instanceof Request)) {
-      req = NodeApp.createRequest(req);
+      req = NodeApp.createRequest(req, {
+        allowedDomains: this.manifest.allowedDomains
+      });
     }
     return super.render(req, routeDataOrOptions, maybeLocals);
   }
@@ -1102,7 +1134,10 @@ class NodeApp extends App {
    * })
    * ```
    */
-  static createRequest(req, { skipBody = false } = {}) {
+  static createRequest(req, {
+    skipBody = false,
+    allowedDomains = []
+  } = {}) {
     const controller = new AbortController();
     const isEncrypted = "encrypted" in req.socket && req.socket.encrypted;
     const getFirstForwardedValue = (multiValueHeader) => {
@@ -1111,8 +1146,15 @@ class NodeApp extends App {
     const forwardedProtocol = getFirstForwardedValue(req.headers["x-forwarded-proto"]);
     const providedProtocol = isEncrypted ? "https" : "http";
     const protocol = forwardedProtocol ?? providedProtocol;
-    const forwardedHostname = getFirstForwardedValue(req.headers["x-forwarded-host"]);
+    let forwardedHostname = getFirstForwardedValue(req.headers["x-forwarded-host"]);
     const providedHostname = req.headers.host ?? req.headers[":authority"];
+    if (forwardedHostname && !App.validateForwardedHost(
+      forwardedHostname,
+      allowedDomains,
+      forwardedProtocol ?? providedProtocol
+    )) {
+      forwardedHostname = void 0;
+    }
     const hostname = forwardedHostname ?? providedHostname;
     const port = getFirstForwardedValue(req.headers["x-forwarded-port"]);
     let url;

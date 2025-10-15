@@ -1,3 +1,59 @@
+function matchPattern(url, remotePattern) {
+  return matchProtocol(url, remotePattern.protocol) && matchHostname(url, remotePattern.hostname, true) && matchPort(url, remotePattern.port) && matchPathname(url, remotePattern.pathname, true);
+}
+function matchPort(url, port) {
+  return !port || port === url.port;
+}
+function matchProtocol(url, protocol) {
+  return !protocol || protocol === url.protocol.slice(0, -1);
+}
+function matchHostname(url, hostname, allowWildcard = false) {
+  if (!hostname) {
+    return true;
+  } else if (!allowWildcard || !hostname.startsWith("*")) {
+    return hostname === url.hostname;
+  } else if (hostname.startsWith("**.")) {
+    const slicedHostname = hostname.slice(2);
+    return slicedHostname !== url.hostname && url.hostname.endsWith(slicedHostname);
+  } else if (hostname.startsWith("*.")) {
+    const slicedHostname = hostname.slice(1);
+    const additionalSubdomains = url.hostname.replace(slicedHostname, "").split(".").filter(Boolean);
+    return additionalSubdomains.length === 1;
+  }
+  return false;
+}
+function matchPathname(url, pathname, allowWildcard = false) {
+  if (!pathname) {
+    return true;
+  } else if (!allowWildcard || !pathname.endsWith("*")) {
+    return pathname === url.pathname;
+  } else if (pathname.endsWith("/**")) {
+    const slicedPathname = pathname.slice(0, -2);
+    return slicedPathname !== url.pathname && url.pathname.startsWith(slicedPathname);
+  } else if (pathname.endsWith("/*")) {
+    const slicedPathname = pathname.slice(0, -1);
+    const additionalPathChunks = url.pathname.replace(slicedPathname, "").split("/").filter(Boolean);
+    return additionalPathChunks.length === 1;
+  }
+  return false;
+}
+function isRemoteAllowed(src, {
+  domains,
+  remotePatterns
+}) {
+  if (!URL.canParse(src)) {
+    return false;
+  }
+  const url = new URL(src);
+  if (url.protocol === "data:") {
+    return true;
+  }
+  if (!["http:", "https:"].includes(url.protocol)) {
+    return false;
+  }
+  return domains.some((domain) => matchHostname(url, domain)) || remotePatterns.some((remotePattern) => matchPattern(url, remotePattern));
+}
+
 const decoder = new TextDecoder();
 const toUTF8String = (input, start = 0, end = input.length) => decoder.decode(input.slice(start, end));
 const toHexString = (input, start = 0, end = input.length) => input.slice(start, end).reduce((memo, i) => memo + ("0" + i.toString(16)).slice(-2), "");
@@ -729,4 +785,4 @@ const typeHandlers = /* @__PURE__ */ new Map([
 ]);
 const types = Array.from(typeHandlers.keys());
 
-export { types as a, typeHandlers as t };
+export { types as a, isRemoteAllowed as i, matchPattern as m, typeHandlers as t };

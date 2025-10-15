@@ -1,6 +1,6 @@
-import { j as joinPaths, i as isRemotePath } from './path_CHWpbChn.mjs';
-import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, g as UnsupportedImageConversion, t as toStyleString, N as NoImageMetadata, h as FailedToFetchRemoteImageDimensions, i as ExpectedImageOptions, j as ExpectedNotESMImage, k as InvalidImageService, c as createComponent, d as createAstro, l as ImageMissingAlt, m as maybeRenderHead, e as addAttribute, s as spreadAttributes, a as renderTemplate, n as ExperimentalFontsNotEnabled, o as FontFamilyNotFound, u as unescapeHTML } from './astro/server_1mv0en1U.mjs';
-import { t as typeHandlers, a as types } from './index_MaT6fT73.mjs';
+import { j as joinPaths, i as isRemotePath } from './path_De6Se6hL.mjs';
+import { A as AstroError, E as ExpectedImage, L as LocalImageUsedWrongly, M as MissingImageDimension, U as UnsupportedImageFormat, I as IncompatibleDescriptorOptions, g as UnsupportedImageConversion, t as toStyleString, N as NoImageMetadata, h as FailedToFetchRemoteImageDimensions, i as ExpectedImageOptions, j as ExpectedNotESMImage, k as InvalidImageService, c as createComponent, d as createAstro, l as ImageMissingAlt, m as maybeRenderHead, e as addAttribute, s as spreadAttributes, a as renderTemplate, n as ExperimentalFontsNotEnabled, o as FontFamilyNotFound, u as unescapeHTML } from './astro/server_D_SdHT_e.mjs';
+import { i as isRemoteAllowed, t as typeHandlers, a as types } from './index_CYyG6us9.mjs';
 import * as mime from 'mrmime';
 import 'clsx';
 import 'kleur/colors';
@@ -127,56 +127,6 @@ const getSizesAttribute = ({
       return void 0;
   }
 };
-
-function matchPattern(url, remotePattern) {
-  return matchProtocol(url, remotePattern.protocol) && matchHostname(url, remotePattern.hostname, true) && matchPort(url, remotePattern.port) && matchPathname(url, remotePattern.pathname, true);
-}
-function matchPort(url, port) {
-  return !port || port === url.port;
-}
-function matchProtocol(url, protocol) {
-  return !protocol || protocol === url.protocol.slice(0, -1);
-}
-function matchHostname(url, hostname, allowWildcard = false) {
-  if (!hostname) {
-    return true;
-  } else if (!allowWildcard || !hostname.startsWith("*")) {
-    return hostname === url.hostname;
-  } else if (hostname.startsWith("**.")) {
-    const slicedHostname = hostname.slice(2);
-    return slicedHostname !== url.hostname && url.hostname.endsWith(slicedHostname);
-  } else if (hostname.startsWith("*.")) {
-    const slicedHostname = hostname.slice(1);
-    const additionalSubdomains = url.hostname.replace(slicedHostname, "").split(".").filter(Boolean);
-    return additionalSubdomains.length === 1;
-  }
-  return false;
-}
-function matchPathname(url, pathname, allowWildcard = false) {
-  if (!pathname) {
-    return true;
-  } else if (!allowWildcard || !pathname.endsWith("*")) {
-    return pathname === url.pathname;
-  } else if (pathname.endsWith("/**")) {
-    const slicedPathname = pathname.slice(0, -2);
-    return slicedPathname !== url.pathname && url.pathname.startsWith(slicedPathname);
-  } else if (pathname.endsWith("/*")) {
-    const slicedPathname = pathname.slice(0, -1);
-    const additionalPathChunks = url.pathname.replace(slicedPathname, "").split("/").filter(Boolean);
-    return additionalPathChunks.length === 1;
-  }
-  return false;
-}
-function isRemoteAllowed(src, {
-  domains,
-  remotePatterns
-}) {
-  if (!URL.canParse(src)) {
-    return false;
-  }
-  const url = new URL(src);
-  return domains.some((domain) => matchHostname(url, domain)) || remotePatterns.some((remotePattern) => matchPattern(url, remotePattern));
-}
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -527,7 +477,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_Cs8PUEbl.mjs'
+      './sharp_BamjWaJq.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -786,10 +736,10 @@ const $$Font = createComponent(($$result, $$props, $$slots) => {
       message: FontFamilyNotFound.message(cssVariable)
     });
   }
-  return renderTemplate`${preload && data.preloadData.map(({ url, type }) => renderTemplate`<link rel="preload"${addAttribute(url, "href")} as="font"${addAttribute(`font/${type}`, "type")} crossorigin>`)}<style>${unescapeHTML(data.css)}</style>`;
+  return renderTemplate`<style>${unescapeHTML(data.css)}</style>${preload && data.preloadData.map(({ url, type }) => renderTemplate`<link rel="preload"${addAttribute(url, "href")} as="font"${addAttribute(`font/${type}`, "type")} crossorigin>`)}`;
 }, "/run/media/reiden/9e7c9add-c823-456b-a164-c5b1810645ee/GitHub/portfolio/node_modules/astro/components/Font.astro", void 0);
 
 const imageConfig = {"endpoint":{"route":"/_image"},"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"responsiveStyles":false};
 							const getImage = async (options) => await getImage$1(options, imageConfig);
 
-export { $$Image as $, isRemoteAllowed as a, baseService as b, getConfiguredImageService as g, imageConfig as i, parseQuality as p };
+export { $$Image as $, baseService as b, getConfiguredImageService as g, imageConfig as i, parseQuality as p };

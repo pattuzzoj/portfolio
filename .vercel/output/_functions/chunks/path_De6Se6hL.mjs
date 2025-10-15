@@ -39,16 +39,56 @@ function joinPaths(...paths) {
     }
   }).join("/");
 }
-const URL_PROTOCOL_REGEX = /^(?:(?:http|ftp|https|ws):?\/\/|\/\/)/;
 function isRemotePath(src) {
-  const decoded = src.replace(/%5C/gi, "\\");
+  if (!src) return false;
+  const trimmed = src.trim();
+  if (!trimmed) return false;
+  let decoded = trimmed;
+  let previousDecoded = "";
+  let maxIterations = 10;
+  while (decoded !== previousDecoded && maxIterations > 0) {
+    previousDecoded = decoded;
+    try {
+      decoded = decodeURIComponent(decoded);
+    } catch {
+      break;
+    }
+    maxIterations--;
+  }
+  if (/^[a-zA-Z]:/.test(decoded)) {
+    return false;
+  }
+  if (decoded[0] === "/" && decoded[1] !== "/" && decoded[1] !== "\\") {
+    return false;
+  }
   if (decoded[0] === "\\") {
     return true;
   }
-  if (/^(?:http|https|ftp|ws):\\/.test(decoded)) {
+  if (decoded.startsWith("//")) {
     return true;
   }
-  return URL_PROTOCOL_REGEX.test(decoded) || decoded.startsWith("data:");
+  try {
+    const url = new URL(decoded, "http://n");
+    if (url.username || url.password) {
+      return true;
+    }
+    if (decoded.includes("@") && !url.pathname.includes("@") && !url.search.includes("@")) {
+      return true;
+    }
+    if (url.origin !== "http://n") {
+      const protocol = url.protocol.toLowerCase();
+      if (protocol === "file:") {
+        return false;
+      }
+      return true;
+    }
+    if (URL.canParse(decoded)) {
+      return true;
+    }
+    return false;
+  } catch {
+    return true;
+  }
 }
 function slash(path) {
   return path.replace(/\\/g, "/");

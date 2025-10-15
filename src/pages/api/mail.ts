@@ -1,5 +1,3 @@
-export const prerender = false;
-
 import nodemailer from 'nodemailer';
 import { getSecret } from 'astro:env/server';
 import type { APIRoute } from 'astro';
