@@ -9,7 +9,6 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
   adapter: netlify(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
@@ -24,5 +23,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://example.com'
+  site: "https://pattuzzoj.netlify.app"
 });
