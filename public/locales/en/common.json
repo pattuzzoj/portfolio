@@ -4,23 +4,23 @@
     "menu": {
       "home": {
         "label": "Home",
-        "href": ""
+        "href": "#"
       },
       "about": {
         "label": "About Me",
-        "href": "/about"
+        "href": "#about"
       },
       "technologies": {
         "label": "Technologies",
-        "href": "/technologies"
+        "href": "#technologies"
       },
       "projects": {
         "label": "Projects",
-        "href": "/projects"
+        "href": "#projects"
       },
       "contact": {
         "label": "Contact",
-        "href": "/contact"
+        "href": "#contact"
       }
     },
     "curriculum": "Download CV",

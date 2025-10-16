@@ -3,8 +3,6 @@ dist/
 # generated types
 .astro/
 
-.vercel/
-
 .vscode
 
 # dependencies
@@ -26,3 +24,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+.netlify

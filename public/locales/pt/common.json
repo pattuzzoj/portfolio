@@ -4,23 +4,23 @@
     "menu": {
       "home": {
         "label": "Início",
-        "href": ""
+        "href": "#"
       },
       "about": {
         "label": "Sobre Mim",
-        "href": "/sobre"
+        "href": "#about"
       },
       "technologies": {
         "label": "Tecnologias",
-        "href": "/tecnologias"
+        "href": "#technologies"
       },
       "projects": {
         "label": "Projetos",
-        "href": "/projetos"
+        "href": "#projects"
       },
       "contact": {
         "label": "Contato",
-        "href": "/contato"
+        "href": "#contact"
       }
     },
     "curriculum": "Baixar CV",

@@ -59,27 +59,27 @@ export default function MobileHeader() {
             data-menu-id="home"
             data-menu-active="false"
             className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-            href={`#${t("header.menu.home.href")}`}>{t("header.menu.home.label")}</a>
+            href={`${t("header.menu.home.href")}`}>{t("header.menu.home.label")}</a>
           <a
             data-menu-id="about"
             data-menu-active="false"
             className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-            href={`#${t("header.menu.about.href")}`}>{t("header.menu.about.label")}</a>
+            href={`${t("header.menu.about.href")}`}>{t("header.menu.about.label")}</a>
           <a
             data-menu-id="technologies"
             data-menu-active="false"
             className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-            href={`#${t("header.menu.technologies.href")}`}>{t("header.menu.technologies.label")}</a>
+            href={`${t("header.menu.technologies.href")}`}>{t("header.menu.technologies.label")}</a>
           <a
             data-menu-id="projects"
             data-menu-active="false"
             className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-            href={`#${t("header.menu.projects.href")}`}>{t("header.menu.projects.label")}</a>
+            href={`${t("header.menu.projects.href")}`}>{t("header.menu.projects.label")}</a>
           <a
             data-menu-id="contact"
             data-menu-active="false"
             className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-            href={`#${t("header.menu.contact.href")}`}>{t("header.menu.contact.label")}</a>
+            href={`${t("header.menu.contact.href")}`}>{t("header.menu.contact.label")}</a>
         </nav>
         <a className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md" href="/curriculo.pdf" download>{t("header.curriculum")}</a>
         <LanguagePicker />
@@ -96,27 +96,27 @@ export default function MobileHeader() {
               data-menu-id="home"
               data-menu-active="false"
               className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-              href={`#${t("header.menu.home.href")}`}>{t("header.menu.home.label")}</a>
+              href={`${t("header.menu.home.href")}`}>{t("header.menu.home.label")}</a>
             <a
               data-menu-id="about"
               data-menu-active="false"
               className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-              href={`#${t("header.menu.about.href")}`}>{t("header.menu.about.label")}</a>
+              href={`${t("header.menu.about.href")}`}>{t("header.menu.about.label")}</a>
             <a
               data-menu-id="technologies"
               data-menu-active="false"
               className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-              href={`#${t("header.menu.technologies.href")}`}>{t("header.menu.technologies.label")}</a>
+              href={`${t("header.menu.technologies.href")}`}>{t("header.menu.technologies.label")}</a>
             <a
               data-menu-id="projects"
               data-menu-active="false"
               className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-              href={`#${t("header.menu.projects.href")}`}>{t("header.menu.projects.label")}</a>
+              href={`${t("header.menu.projects.href")}`}>{t("header.menu.projects.label")}</a>
             <a
               data-menu-id="contact"
               data-menu-active="false"
               className="text-slate-400 data-[menu-active=true]:text-slate-50 hover:text-slate-50"
-              href={`#${t("header.menu.contact.href")}`}>{t("header.menu.contact.label")}</a>
+              href={`${t("header.menu.contact.href")}`}>{t("header.menu.contact.label")}</a>
           </nav>
           <div className="w-full flex flex-col gap-2">
             <a className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-center" href="/curriculo.pdf" download>{t("header.curriculum")}</a>
