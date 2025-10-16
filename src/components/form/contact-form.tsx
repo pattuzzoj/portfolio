@@ -5,6 +5,7 @@ import Show from "@/components/flow/show";
 import { LoaderCircle, MessageCircle, Send } from "lucide-react";
 import Input from "./input";
 import { useTranslation } from "react-i18next";
+import { actions } from "astro:actions";
 
 export default function ContactForm() {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ export default function ContactForm() {
   });
   
   type FormSchema = z.infer<typeof formSchema>;
+
   const { register, handleSubmit, formState: { isSubmitting, errors } } = useForm<FormSchema>({
     defaultValues: {
       name: '',
@@ -27,15 +29,11 @@ export default function ContactForm() {
     resolver: zodResolver(formSchema)
   });
 
-  async function onSubmit(data: any) {
+  async function onSubmit(data: FormSchema) {
     try {
-      const response = await fetch("/api/mail", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      const { error } = await actions.sendEmail(data);
 
-      if (!response.ok) {
+      if (error) {
         throw new Error();
       } 
     } catch (error) {

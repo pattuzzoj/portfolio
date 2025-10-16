@@ -5,11 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
 import reactI18next from "astro-react-i18next";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify";
+import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: netlify(),
+  adapter: vercel(),
   integrations: [react(), reactI18next({
     defaultLocale: "pt",
     locales: ["en", "pt"],
@@ -23,5 +23,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: "https://pattuzzoj.netlify.app"
+  site: "https://pattuzzoj.vercel.app"
 });
