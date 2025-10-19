@@ -1,7 +1,10 @@
 ---
 import SocialMedia from "@/components/social-media.astro";
 import TechLabel from "@/components/tech-label.astro";
+import { isArray } from "@utilify/core";
 import { t } from "i18next";
+
+const links = t("footer.usefulLinks.menu", { returnObjects: true }) as unknown as {label: string, href: string}[];
 ---
 
 <footer class="flex justify-center border-t-1 border-slate-700 py-8 px-8">
@@ -14,7 +17,7 @@ import { t } from "i18next";
       <div class="md:w-1/3 space-y-2">
         <h4 id="menu">{t("footer.usefulLinks.title")}</h4>
         <nav aria-labelledby="menu" class="flex flex-col gap-2">
-          {(t("footer.usefulLinks.menu", { returnObjects: true }) as unknown as {label: string, href: string}[]).map(({label, href}, index) => (
+          {isArray(links) && links.map(({label, href}) => (
             <a class="text-white/60 hover:text-white" href={`#${href}`}>{label}</a>
           ))}
         </nav>

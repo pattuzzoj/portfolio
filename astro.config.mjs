@@ -3,18 +3,21 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
-import reactI18next from "astro-react-i18next";
+import astroI18next from "astro-i18next";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: vercel(),
-  integrations: [react(), reactI18next({
+  adapter: vercel({
+    imageService: true
+  }),
+  output: "server",
+  integrations: [react(), astroI18next({
     defaultLocale: "pt",
     locales: ["en", "pt"],
-    defaultNamespace: "common",
-    namespaces: ["common", "home"]
+    namespaces: ["common", "home"],
+    defaultNamespace: "common"
   }), icon({
     include: {
       lucide: ["square-arrow-out-up-right", "monitor", "settings", "database", "flask-conical", "map-pin", "mail", "arrow-right"]

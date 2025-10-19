@@ -1,14 +1,24 @@
 import { Menu } from "@ark-ui/react";
-import { changeLocale } from "astro-react-i18next/utils";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "astro:transitions/client";
 
 export default function LanguagePicker() {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState<string>(i18n.language);
+  const { t } = useTranslation();
+  const [language, setLanguage] = useState<string>();
 
   useEffect(() => {
-    changeLocale(language, false);
+    if (language) {
+      const { pathname, search, hash } = window.location;
+      const segments = pathname.split('/').filter(Boolean);
+  
+      if (['en',].includes(segments[0])) {
+        segments.shift();
+      }
+  
+      const newPath = `${language === "pt" ? "" : language}/${segments.join('/')}${search}${hash}`;
+      navigate(newPath);
+    }
   }, [language]);
 
   return (

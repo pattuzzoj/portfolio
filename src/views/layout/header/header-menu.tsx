@@ -7,11 +7,15 @@ import LanguagePicker from "@/components/language-picker";
 
 
 export default function MobileHeader() {
-  const [isMobile, setIsMobile] = useState<boolean>(() => window.matchMedia("(max-width: 768px").matches);
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>();
+  const [menuIsOpen, setMenuIsOpen] = useState<boolean>(false);
   const { t } = useTranslation();
 
+
+
   useEffect(() => {
+    setIsMobile(() => window.matchMedia("(max-width: 768px").matches);
+
     function onMediaQuery(query: string, listener: (matches: boolean) => void): () => void {
       const mediaQuery = window.matchMedia(query);
       return on(mediaQuery, 'change', (e) => listener((e as MediaQueryListEvent).matches));

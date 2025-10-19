@@ -1,0 +1,20 @@
+---
+import CardStack from "@/components/card/card-stack.astro";
+import { isArray } from "@utilify/core";
+import { t } from "i18next";
+const paragraphs = t("home:about.paragraphs", { returnObjects: true }) as unknown as string[];
+const cards = t("home:about.cards", { returnObjects: true }) as unknown as { title: string; description: string; icon: string }[];
+---
+
+<div class="flex flex-col justify-center items-center gap-6">
+  {isArray(paragraphs) &&
+    paragraphs.map((item) => (
+      <p class="text-slate-300 max-w-4xl text-center">{item}</p>
+    ))}
+  <div class="w-fit place-self-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {isArray(cards) &&
+      cards.map(({ title, description, icon }) => (
+        <CardStack title={title} description={description} icon={icon} />
+      ))}
+  </div>
+</div>

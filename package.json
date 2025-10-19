@@ -19,12 +19,15 @@
     "@tailwindcss/vite": "^4.1.13",
     "@utilify/core": "^2.0.5",
     "astro": "^5.14.5",
-    "astro-react-i18next": "^0.3.2",
+    "astro-i18next": "^1.0.0-beta.21",
+    "i18next-http-backend": "^3.0.2",
     "lucide-react": "^0.544.0",
+    "mime": "^4.1.0",
     "nodemailer": "^7.0.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.63.0",
+    "react-i18next": "^16.1.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {

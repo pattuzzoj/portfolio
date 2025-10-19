@@ -29,6 +29,8 @@ export const server = {
           subject: subject,
           text: `Nome: ${name}\nEmail: ${email}\nMensagem: ${message}`,
         });
+
+        return { success: true }
       } catch (error) {
         throw new ActionError({code: "INTERNAL_SERVER_ERROR", message: "Internal Server Error"})
       }
