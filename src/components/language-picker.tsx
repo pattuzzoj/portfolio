@@ -2,22 +2,29 @@ import { Menu } from "@ark-ui/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "astro:transitions/client";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/i18n";
 
 export default function LanguagePicker() {
   const { t } = useTranslation();
   const [language, setLanguage] = useState<string>();
-
+  
   useEffect(() => {
     if (language) {
       const { pathname, search, hash } = window.location;
-      const segments = pathname.split('/').filter(Boolean);
-  
-      if (['en',].includes(segments[0])) {
-        segments.shift();
+      const segments = pathname.split("/");
+      const maybeLocale = segments[1];
+      
+      const isValidLocale = SUPPORTED_LOCALES.includes(maybeLocale);
+      const locale = isValidLocale ? maybeLocale : DEFAULT_LOCALE;
+
+      // Redirecionar se idioma estiver na URL mas for o padrão
+      if (language === DEFAULT_LOCALE) {
+        const newPath = `/${segments.slice(2).join("/")}${search}${hash}`;
+        navigate(newPath || "/");
+      } else {
+        const newPath = `/${language}${pathname}${search}${hash}`;
+        navigate(newPath);
       }
-  
-      const newPath = `${language === "pt" ? "" : language}/${segments.join('/')}${search}${hash}`;
-      navigate(newPath);
     }
   }, [language]);
 

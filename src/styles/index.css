@@ -31,7 +31,7 @@ body {
 }
 
 * {
-    transition: inherit;
+  transition: inherit;
 }
 
 html {

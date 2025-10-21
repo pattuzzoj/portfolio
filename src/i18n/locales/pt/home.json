@@ -33,22 +33,32 @@
       {
         "icon": "lucide:monitor",
         "title": "Front-End",
-        "description": "Desenvolvimento de interfaces modernas e responsivas com Solid.js, Astro, React e Next.js, focando em desempenho e experiência do usuário."
+        "description": "Desenvolvimento de interfaces modernas e responsivas com Astro, Next.js, Solid.js, React, Tailwind CSS e Web APIs."
       },
       {
         "icon": "lucide:settings",
         "title": "Back-End",
-        "description": "Construção de APIs eficientes e escaláveis utilizando Node.js, NestJS e Express, com foco em arquitetura modular e alta performance."
+        "description": "Criação de APIs RESTful e serviços GraphQL com Node.js, NestJS e Express, focando em escalabilidade e eficiência."
       },
       {
         "icon": "lucide:database",
-        "title": "Banco de Dados",
-        "description": "Gerenciamento e manipulação de dados em PostgreSQL e MongoDB, com consultas claras e seguras via Drizzle ORM e Prisma."
+        "title": "Bancos de Dados",
+        "description": "Planejamento e gerenciamento de bancos relacionais e NoSQL com PostgreSQL, MongoDB, Drizzle e Prisma."
       },
       {
         "icon": "lucide:flask-conical",
         "title": "Testes",
-        "description": "Implementação de testes unitários usando Vitest e Jest para garantir qualidade e estabilidade."
+        "description": "Garantia de qualidade com testes unitários, de integração e end-to-end usando Jest e Vitest."
+      },
+      {
+        "icon": "lucide:languages",
+        "title": "Internacionalização",
+        "description": "Desenvolvimento de aplicações multilíngues com soluções de i18n, garantindo acessibilidade e suporte global."
+      },
+      {
+        "icon": "lucide:book-open",
+        "title": "Documentação",
+        "description": "Criação de sites de documentação com Markdown, VitePress e JSDoc para facilitar o entendimento de sistemas."
       }
     ]
   },

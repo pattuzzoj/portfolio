@@ -33,22 +33,32 @@
       {
         "icon": "lucide:monitor",
         "title": "Front-End",
-        "description": "Development of modern and responsive interfaces with Solid.js, Astro, React, and Next.js, focusing on performance and user experience."
+        "description": "Building modern, responsive interfaces with Astro, Next.js, Solid.js, React, Tailwind CSS, and Web APIs."
       },
       {
         "icon": "lucide:settings",
         "title": "Back-End",
-        "description": "Building efficient and scalable APIs using Node.js, NestJS, and Express, with focus on modular architecture and high performance."
+        "description": "Developing RESTful APIs and GraphQL services with Node.js, NestJS, and Express, focusing on scalability and efficiency."
       },
       {
         "icon": "lucide:database",
         "title": "Database",
-        "description": "Data management and manipulation in PostgreSQL and MongoDB, with clear and secure queries via Drizzle ORM and Prisma."
+        "description": "Designing and managing relational and NoSQL databases with PostgreSQL, MongoDB, Drizzle, and Prisma."
       },
       {
         "icon": "lucide:flask-conical",
         "title": "Testing",
-        "description": "Implementation of unit tests using Vitest and Jest to ensure quality and stability."
+        "description": "Ensuring code quality with unit, integration, and end-to-end tests using Jest and Vitest."
+      },
+      {
+        "icon": "lucide:languages",
+        "title": "Internationalization",
+        "description": "Creating multilingual applications with i18n solutions for accessibility and global reach."
+      },
+      {
+        "icon": "lucide:book-open",
+        "title": "Documentation",
+        "description": "Writing documentation with Markdown, VitePress, and JSDoc to simplify system understanding."
       }
     ]
   },

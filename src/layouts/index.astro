@@ -1,8 +1,8 @@
 ---
 import "@/styles/index.css";
-import Header from "@/views/layout/header/index.astro";
+import Header from "@/views/layout/header.tsx";
 import Footer from "@/views/layout/footer.astro";
-import i18n from "i18next";
+import i18n from "@/i18n";
 
 interface Props {
 	title: string;
@@ -29,7 +29,7 @@ const props = Astro.props;
 	<body
 		class={`bg-slate-950 flex flex-col gap-16 md:gap-32`}
 	>
-		<Header />
+		<Header client:load />
 		<main class="flex flex-col gap-24 md:gap-32 mt-8 md:mt-24 px-4">
 			<slot />
 		</main>

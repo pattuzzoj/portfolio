@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+
 import MainLayout from "@/layouts/index.astro";
 import TechsMenu from "@/views/sections/techs-menu";
 import Projects from "@/views/sections/projects.astro";
@@ -10,12 +11,9 @@ import AboutSection from "@/views/sections/about.astro";
 import SocialMedia from "@/components/social-media.astro";
 import { Icon } from "astro-icon/components";
 import { isArray } from "@utilify/core";
-import { t, changeLanguage, loadResources } from "i18next";
+import i18n from "@/i18n";
 
-loadResources
-
-changeLanguage("pt");
-
+const t = i18n.t;
 const skills = t("home:hero.skills", { returnObjects: true }) as unknown as string[];
 ---
 
@@ -30,12 +28,12 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
     class="flex flex-col justify-center items-center gap-6 text-center"
   >
     <div class="space-y-4">
-      <h2 class="text-4xl! md:text-5xl! lg:text-6xl!">
+      <h1 class="text-4xl! md:text-5xl! lg:text-6xl!">
         {t("home:hero.title")} <span class="text-blue-400">Júlio Pattuzzo</span>
-      </h2>
-      <p class="text-2xl! text-slate-300">
+      </h1>
+      <h2 class="text-xl! text-slate-300">
         {t("home:hero.description")}
-      </p>
+      </h2>
     </div>
     <div class="space-x-4">
       {isArray(skills) && skills.map((skill) => <TechLabel>{skill}</TechLabel>)}
@@ -46,7 +44,7 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
     >
       <a
         class="w-64 flex justify-center items-center gap-2 rounded-md py-2 px-8 bg-blue-600 hover:bg-blue-700"
-        href="#projetos">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
+        href="#projects">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
       >
       <a
         class="w-64 rounded-md py-2 px-8 bg-slate-800 hover:bg-slate-700 border-1 border-slate-700"

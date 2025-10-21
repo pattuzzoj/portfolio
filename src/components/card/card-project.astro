@@ -1,11 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
-import For from "@/components/flow/for";
 import Github from "@/assets/icons/GitHub.svg";
 import TechLabel from "@/components/tech-label.astro";
 import { Image } from "astro:assets";
-import { t } from "i18next";
 import { isArray } from "@utilify/core";
+import i18n from "@/i18n";
+
+const t = i18n.t;
 
 interface Props {
   banner: ImageMetadata;
