@@ -72,23 +72,28 @@
         "items": {
           "astro": {
             "title": "Astro",
-            "description": "Modern architecture for static sites. Zero JS by default and interactivity only where it matters."
+            "description": "Modern architecture for static sites. Zero JS by default and interactivity only where it matters.",
+            "href": "https://astro.build/"
           },
           "solidjs": {
             "title": "Solid.js",
-            "description": "True reactivity without a virtual DOM. Compiles to pure JS with high performance."
+            "description": "True reactivity without a virtual DOM. Compiles to pure JS with high performance.",
+            "href": "https://www.solidjs.com/"
           },
           "nextjs": {
             "title": "Next.js",
-            "description": "Complete React framework with SSR, SSG, and built-in routing."
+            "description": "Complete React framework with SSR, SSG, and built-in routing.",
+            "href": "https://nextjs.org/"
           },
           "react": {
             "title": "React",
-            "description": "Component-based UI library. Popular, but with indirect reactivity."
+            "description": "Component-based UI library. Popular, but with indirect reactivity.",
+            "href": "https://react.dev/"
           },
           "tailwind": {
             "title": "Tailwind CSS",
-            "description": "Utility-first CSS for fast and consistent UI building."
+            "description": "Utility-first CSS for fast and consistent UI building.",
+            "href": "https://tailwindcss.com/"
           }
         }
       },
@@ -97,19 +102,23 @@
         "items": {
           "nestjs": {
             "title": "NestJS",
-            "description": "Modular framework with TypeScript. Solid and scalable architecture by default."
+            "description": "Modular framework with TypeScript. Solid and scalable architecture by default.",
+            "href": "https://nestjs.com/"
           },
           "deno": {
             "title": "Deno",
-            "description": "Modern runtime with built-in security, ES Modules, and native tools."
+            "description": "Modern runtime with built-in security, ES Modules, and native tools.",
+            "href": "https://deno.com/"
           },
           "express": {
             "title": "Express",
-            "description": "Minimalist framework for Node.js. Flexible, but unopinionated."
+            "description": "Minimalist framework for Node.js. Flexible, but unopinionated.",
+            "href": "https://expressjs.com/"
           },
           "node": {
             "title": "Node.js",
-            "description": "Asynchronous runtime built on V8. Foundation of modern JS servers."
+            "description": "Asynchronous runtime built on V8. Foundation of modern JS servers.",
+            "href": "https://nodejs.org/"
           }
         }
       },
@@ -118,19 +127,23 @@
         "items": {
           "drizzle": {
             "title": "Drizzle ORM",
-            "description": "Lightweight ORM with strong typing and zero overhead. Ideal for full control."
+            "description": "Lightweight ORM with strong typing and zero overhead. Ideal for full control.",
+            "href": "https://orm.drizzle.team/"
           },
           "prisma": {
             "title": "Prisma",
-            "description": "Modern ORM focused on productivity. Safe, auto-generated queries."
+            "description": "Modern ORM focused on productivity. Safe, auto-generated queries.",
+            "href": "https://www.prisma.io/"
           },
           "postgres": {
             "title": "PostgreSQL",
-            "description": "Robust and reliable relational database. Supports JSON, ACID, and extensibility."
+            "description": "Robust and reliable relational database. Supports JSON, ACID, and extensibility.",
+            "href": "https://www.postgresql.org/"
           },
           "mongodb": {
             "title": "MongoDB",
-            "description": "NoSQL document-oriented database. Flexible, but less strict than SQL."
+            "description": "NoSQL document-oriented database. Flexible, but less strict than SQL.",
+            "href": "https://www.mongodb.com/"
           }
         }
       },
@@ -139,11 +152,13 @@
         "items": {
           "vitest": {
             "title": "Vitest",
-            "description": "Fast test runner with ESM, HMR, and Vite integration."
+            "description": "Fast test runner with ESM, HMR, and Vite integration.",
+            "href": "https://vitest.dev/"
           },
           "jest": {
             "title": "Jest",
-            "description": "Established framework with snapshot and coverage support."
+            "description": "Established framework with snapshot and coverage support.",
+            "href": "https://jestjs.io/"
           }
         }
       },
@@ -152,11 +167,13 @@
         "items": {
           "git": {
             "title": "Git",
-            "description": "Distributed version control. Essential for collaboration and history tracking."
+            "description": "Distributed version control. Essential for collaboration and history tracking.",
+            "href": "https://git-scm.com/"
           },
           "docker": {
             "title": "Docker",
-            "description": "Containers for isolated environments. Standardizes dev and production."
+            "description": "Containers for isolated environments. Standardizes dev and production.",
+            "href": "https://www.docker.com/"
           }
         }
       }

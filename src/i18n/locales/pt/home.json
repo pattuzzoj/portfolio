@@ -72,23 +72,28 @@
         "items": {
           "astro": {
             "title": "Astro",
-            "description": "Arquitetura moderna para sites estáticos. Zero JS por padrão e interatividade apenas onde importa."
+            "description": "Arquitetura moderna para sites estáticos. Zero JS por padrão e interatividade apenas onde importa.",
+            "href": "https://astro.build/"
           },
           "solidjs": {
             "title": "Solid.js",
-            "description": "Reatividade real sem virtual DOM. Compila para JS puro com alta performance."
+            "description": "Reatividade real sem virtual DOM. Compila para JS puro com alta performance.",
+            "href": "https://www.solidjs.com/"
           },
           "nextjs": {
             "title": "Next.js",
-            "description": "Framework React completo com SSR, SSG e roteamento integrado."
+            "description": "Framework React completo com SSR, SSG e roteamento integrado.",
+            "href": "https://nextjs.org/"
           },
           "react": {
             "title": "React",
-            "description": "Biblioteca de UI baseada em componentes. Popular, mas com reatividade indireta."
+            "description": "Biblioteca de UI baseada em componentes. Popular, mas com reatividade indireta.",
+            "href": "https://react.dev/"
           },
           "tailwind": {
             "title": "Tailwind CSS",
-            "description": "CSS utilitário para construir interfaces rápidas e consistentes."
+            "description": "CSS utilitário para construir interfaces rápidas e consistentes.",
+            "href": "https://tailwindcss.com/"
           }
         }
       },
@@ -97,19 +102,23 @@
         "items": {
           "nestjs": {
             "title": "NestJS",
-            "description": "Framework modular com TypeScript. Arquitetura sólida e escalável por padrão."
+            "description": "Framework modular com TypeScript. Arquitetura sólida e escalável por padrão.",
+            "href": "https://nestjs.com/"
           },
           "deno": {
             "title": "Deno",
-            "description": "Runtime moderno com segurança embutida, ES Modules e ferramentas nativas."
+            "description": "Runtime moderno com segurança embutida, ES Modules e ferramentas nativas.",
+            "href": "https://deno.com/"
           },
           "express": {
             "title": "Express",
-            "description": "Framework minimalista para Node.js. Flexível, mas sem estrutura opinativa."
+            "description": "Framework minimalista para Node.js. Flexível, mas sem estrutura opinativa.",
+            "href": "https://expressjs.com/"
           },
           "node": {
             "title": "Node.js",
-            "description": "Runtime assíncrono baseado no V8. Base para servidores JS modernos."
+            "description": "Runtime assíncrono baseado no V8. Base para servidores JS modernos.",
+            "href": "https://nodejs.org/"
           }
         }
       },
@@ -118,19 +127,23 @@
         "items": {
           "drizzle": {
             "title": "Drizzle ORM",
-            "description": "ORM leve com tipagem forte e zero overhead. Ideal para controle total."
+            "description": "ORM leve com tipagem forte e zero overhead. Ideal para controle total.",
+            "href": "https://orm.drizzle.team/"
           },
           "prisma": {
             "title": "Prisma",
-            "description": "ORM moderno com foco em produtividade. Consultas seguras e geradas automaticamente."
+            "description": "ORM moderno com foco em produtividade. Consultas seguras e geradas automaticamente.",
+            "href": "https://www.prisma.io/"
           },
           "postgres": {
             "title": "PostgreSQL",
-            "description": "Banco relacional robusto e confiável. Suporte a JSON, ACID e extensibilidade."
+            "description": "Banco relacional robusto e confiável. Suporte a JSON, ACID e extensibilidade.",
+            "href": "https://www.postgresql.org/"
           },
           "mongodb": {
             "title": "MongoDB",
-            "description": "Banco NoSQL orientado a documentos. Flexível, mas menos rígido que SQL."
+            "description": "Banco NoSQL orientado a documentos. Flexível, mas menos rígido que SQL.",
+            "href": "https://www.mongodb.com/"
           }
         }
       },
@@ -139,11 +152,13 @@
         "items": {
           "vitest": {
             "title": "Vitest",
-            "description": "Test runner rápido com ESM, HMR e integração ao Vite."
+            "description": "Test runner rápido com ESM, HMR e integração ao Vite.",
+            "href": "https://vitest.dev/"
           },
           "jest": {
             "title": "Jest",
-            "description": "Framework consolidado com suporte a snapshots e coverage."
+            "description": "Framework consolidado com suporte a snapshots e coverage.",
+            "href": "https://jestjs.io/"
           }
         }
       },
@@ -152,11 +167,13 @@
         "items": {
           "git": {
             "title": "Git",
-            "description": "Controle de versão distribuído. Essencial para colaboração e histórico."
+            "description": "Controle de versão distribuído. Essencial para colaboração e histórico.",
+            "href": "https://git-scm.com/"
           },
           "docker": {
             "title": "Docker",
-            "description": "Contêineres para ambientes isolados. Padroniza dev e produção."
+            "description": "Contêineres para ambientes isolados. Padroniza dev e produção.",
+            "href": "https://www.docker.com/"
           }
         }
       }
