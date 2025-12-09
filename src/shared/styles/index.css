@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@layer utilities {
+  .max-w-8xl {
+    max-width: 88rem; /* ou o valor que você preferir */
+  }
+}
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  @apply
+  transition duration-100
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  @apply antialiased 
+}
+
+* {
+  transition: inherit;
+}
+
+html {
+  font-size: clamp(14px, 2vw, 16px);
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+h1 {
+  @apply
+  text-3xl md:text-4xl
+  font-semibold
+}
+
+h2 {
+  @apply
+  text-2xl md:text-3xl
+  font-semibold
+}
+
+h3 {
+  @apply
+  text-lg md:text-xl
+  font-medium
+}
+
+h4 {
+  @apply
+  text-lg md:text-xl
+  font-bold
+}
+
+h5 {
+  @apply
+  text-base md:text-lg
+  font-medium
+}
+
+h6 {
+  @apply
+  text-sm md:text-base
+  font-medium
+}
+
+a {
+  @apply
+  font-medium
+}
+
+a, button {
+  cursor: pointer;
+}

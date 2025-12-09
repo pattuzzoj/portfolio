@@ -1,7 +1,7 @@
 import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import nodemailer from 'nodemailer';
 import { getSecret } from 'astro:env/server';
+import nodemailer from 'nodemailer';
 
 export const server = {
   sendEmail: defineAction({

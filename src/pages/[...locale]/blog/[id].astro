@@ -1,0 +1,117 @@
+---
+export const prerender = true;
+import { render, getEntry, getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import MainLayout from "@/shared/layouts/index.astro";
+import TechLabel from "@/shared/components/tech-label.astro";
+import { buildHeadingTree, getRelatedPosts } from "@/features/blog/utils/blog";
+import HeadingTree from "@/features/blog/components/tree-list";
+import CardPost from "@/features/blog/components/card-post.astro";
+import i18n, { DEFAULT_LOCALE } from "@/shared/i18n";
+import "@/shared/styles/blog.css";
+import { isArray } from "@utilify/core";
+
+export const getStaticPaths = async () => {
+  const blog = await getCollection("blog");
+
+  return blog.flatMap((post) => {
+    return [
+      {
+        params: {
+          locale: "en",
+          id: post.id.slice(3),
+        },
+      },
+      {
+        params: {
+          locale: "pt",
+          id: post.id.slice(3),
+        },
+      },
+    ];
+  });
+};
+
+const { locale = DEFAULT_LOCALE, id } = Astro.params;
+const post = await getEntry("blog", locale + "/" + id)!;
+const { Content, headings } = await render(post);
+const t = i18n.t;
+
+const posts = await getCollection("blog", (post) => post.data.lang === locale);
+
+const relatedPosts = getRelatedPosts(posts, {
+  targetId: post.id,
+  category: post.data.category,
+});
+
+const tree = buildHeadingTree(headings.slice(1));
+const tags = post.data.tags?.split(",");
+---
+
+<MainLayout
+  language={post.data.lang}
+  title={post?.data.title}
+  description={post?.data.summary}
+  keywords={post.data.tags}
+>
+  <div class="flex flex-col gap-4">
+    <a
+      class="w-fit flex items-center gap-2 text-lg hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
+      href={t("blog:page.backToBlog.href")}
+    >
+      <Icon name="lucide:arrow-left" class="h-8" />
+      {t("blog:page.backToBlog.label")}
+    </a>
+    <div class="w-full flex gap-16">
+      <div class="flex flex-col justify-between gap-3">
+        <div class="relative -z-10 w-full">
+          <img
+            class="h-96 w-full object-cover overflow-hidden rounded-xl"
+            src={post.data.coverImage}
+            alt=""
+          />
+          <div class="absolute top-3 right-3 flex items-center justify-between">
+            <span
+              class="flex items-center gap-1 text-sm text-slate-400 bg-black/30 rounded-full px-2 py-1"
+            >
+              <Icon name="lucide:clock" class="h-5" />
+              {post.data.readingTime}
+            </span>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between gap-3">
+          <div class="flex items-center justify-between">
+            <span
+              class="w-fit text-xs border-1 border-slate-700 bg-blue-600 rounded-full px-2 py-1"
+              >{post.data.category}</span
+            >
+            <span class="flex items-center gap-1 text-sm text-slate-400">
+              <Icon name="lucide:calendar" class="h-5" />
+              {post.data.date}
+            </span>
+          </div>
+          <div class="space-x-2">
+            {isArray(tags) && tags.map((tag) => <TechLabel>{tag}</TechLabel>)}
+          </div>
+        </div>
+        <Content />
+      </div>
+      <aside
+        id="side-menu"
+        class="hidden min-md:sticky top-32 md:flex flex-col gap-8 h-fit"
+      >
+        <HeadingTree tree={tree} client:load />
+        <div class="space-y-4">
+          <h3>{t("blog:page.sidebar.relatedPosts")}</h3>
+          <div class="flex flex-col gap-4 w-96">
+            {
+              isArray(relatedPosts) &&
+                relatedPosts.length > 0 &&
+                relatedPosts.map((post) => <CardPost {...post} />)
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</MainLayout>

@@ -6,6 +6,22 @@ import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 
+const lucideIcons = [
+  "square-arrow-out-up-right",
+  "monitor",
+  "settings",
+  "database",
+  "flask-conical",
+  "map-pin",
+  "mail",
+  "arrow-right",
+  "languages",
+  "book-open",
+  "calendar",
+  "clock",
+  "arrow-left"
+]
+
 // https://astro.build/config
 export default defineConfig({
   adapter: vercel({
@@ -14,7 +30,7 @@ export default defineConfig({
   output: "server",
   integrations: [react(), icon({
     include: {
-      lucide: ["square-arrow-out-up-right", "monitor", "settings", "database", "flask-conical", "map-pin", "mail", "arrow-right", "languages", "book-open"]
+      lucide: lucideIcons
     }
   }), sitemap()],
   vite: {

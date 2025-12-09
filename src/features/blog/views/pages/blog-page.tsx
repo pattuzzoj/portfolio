@@ -1,0 +1,133 @@
+import { useEffect, useState } from "react";
+import { Menu, Toggle } from "@ark-ui/react";
+import { Calendar, Tag } from "lucide-react";
+import For from "@/shared/components/flow/for";
+import CardPost from "@/features/blog/components/card-post.astro";
+import type { Post } from "@/features/blog/types/blog";
+import { useTranslation } from "@/shared/i18n";
+import { isArray, isBrowser } from "@utilify/core";
+
+interface BlogPageProps {
+  posts: Post[];
+  search: string;
+  category: string;
+  tags: string[];
+  time: string;
+}
+
+export default function BlogPage(props: BlogPageProps) {
+  const [posts, setPosts] = useState(props.posts);
+  const [search, setSearch] = useState(props.search);
+  const [category, setCategory] = useState(props.category);
+  const [time, setTime] = useState(props.time);
+  const [tags, setTags] = useState<string[]>(props.tags);
+  const { t } = useTranslation();
+  const categoriesMenu = t("blog:form.categoryMenu.items", { returnObjects: true }) as { value: string, label: string }[];
+  const timeMenu = t("blog:form.timeMenu.items", { returnObjects: true }) as { value: string, label: string }[];
+  const tagsList = ["Astro", "Next.js", "React"];
+
+  useEffect(() => {
+    async function getPosts() {
+      try {
+        const url = new URL(window.location.href.replace(/\?.+/, ""));
+        const searchParams = url.searchParams;
+
+        if (search) {
+          searchParams.set("search", search);
+        } else {
+          searchParams.delete("search");
+        }
+
+        if (category) {
+          searchParams.set("category", category);
+        } else {
+          searchParams.delete("category");
+        }
+
+        if (tags.length > 0) {
+          searchParams.set("tags", tags.join(","));
+        } else {
+          searchParams.delete("tags");
+        }
+
+        if (time) {
+          searchParams.set("time", time);
+        } else {
+          searchParams.delete("time");
+        }
+
+        window.history.replaceState({}, "", url);
+        const response = await fetch(`/api/posts?${searchParams.toString()}`, {
+          credentials: "include"
+        });
+
+        if (!response.ok) {
+          throw new Error();
+        }
+
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (isBrowser()) {
+      getPosts();
+    }
+  }, [search, category, time, tags]);
+
+  return (
+    <div className="flex flex-col gap-16">
+      <div className="space-y-4 text-center">
+        <h1 className="text-4xl! md:text-5xl! lg:text-6xl!">
+          {t("blog:page.title")}
+        </h1>
+        <h2 className="text-xl! text-slate-300">
+          {t("blog:page.subtitle")}
+        </h2>
+      </div>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900">
+          <input className="flex-1 rounded-xl border-1 border-slate-600 p-2 bg-slate-800" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+          <Menu.Root onSelect={(details) => setCategory(details.value)}>
+            <Menu.Trigger className="w-full flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border-1 border-slate-700">
+              <Tag className="h-5" /> {category && categoriesMenu.find(({ value }) => value === category)?.label}
+            </Menu.Trigger>
+            <Menu.Positioner className="w-fit">
+              <Menu.Content className="flex flex-col p-1 border-1 rounded-xl border-slate-700 bg-slate-800">
+                {isArray(categoriesMenu) && categoriesMenu.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
+              </Menu.Content>
+            </Menu.Positioner>
+          </Menu.Root>
+          <Menu.Root onSelect={(details) => setTime(details.value)}>
+            <Menu.Trigger className="w-full flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border-1 border-slate-700">
+              <Calendar className="h-5" /> {time && timeMenu.find(({ value }) => value === time)?.label}
+            </Menu.Trigger>
+            <Menu.Positioner className="w-fit">
+              <Menu.Content className="flex flex-col p-1 border-1 rounded-xl border-slate-700 bg-slate-800">
+                {isArray(timeMenu) && timeMenu.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
+              </Menu.Content>
+            </Menu.Positioner>
+          </Menu.Root>
+        </div>
+        <span className="flex flex-wrap gap-2">
+          {tagsList.map((tag) => (
+            <Toggle.Root key={tag} defaultPressed={tags.includes(tag)} onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag]) : setTags((tags) => [...tags.filter((value) => value !== tag)])} className="border-1 border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
+              {tag}
+            </Toggle.Root>
+          ))}
+        </span>
+      </div>
+      <For each={posts} fallback={(
+        <span className="w-full text-center text-lg">
+          {t("blog:messages.emptySearch")}
+        </span>
+      )}>
+        {(post, index) => (
+          <CardPost key={index} {...post}/>
+        )}
+      </For>
+    </div>
+  );
+}

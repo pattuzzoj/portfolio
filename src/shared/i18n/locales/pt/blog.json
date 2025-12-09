@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "title": "Júlio Pattuzzo — Blog",
+    "description": "Artigos, tutoriais e ideias sobre desenvolvimento Full Stack, tecnologia e boas práticas. Explore conteúdos sobre TypeScript, React, Node.js e muito mais.",
+    "author": "Júlio Pattuzzo",
+    "keywords": "Blog,Desenvolvimento Web,Full Stack,TypeScript,React,Node.js,Next.js,JavaScript,Frontend,Backend,DevOps,Programação,Software,UI,UX,Tutoriais,Tecnologia"
+  },
+  "page": {
+    "title": "Blog",
+    "subtitle": "Artigos, tutoriais e ideias sobre programação",
+    "backToBlog": {
+      "label": "Voltar ao Blog",
+      "href": "/blog"
+    },
+    "sidebar": {
+      "index": "Índice",
+      "relatedPosts": "Posts Relacionados"
+    }
+  },
+  "form": {
+    "search": {
+      "label": "Buscar",
+      "placeholder": "Buscar por título, conteúdo ou autor..."
+    },
+    "categoryMenu": {
+      "label": "Categorias",
+      "items": [
+        { "value": "all", "label": "Todas as categorias" },
+        { "value": "frontend", "label": "Front-end" },
+        { "value": "backend", "label": "Back-end" },
+        { "value": "fullstack", "label": "Full Stack" },
+        { "value": "ai", "label": "Inteligência Artificial" },
+        { "value": "tips", "label": "Dicas e Boas Práticas" },
+        { "value": "webdevelopment", "label": "Desenvolvimento Web"}
+      ]
+    },
+    "timeMenu": {
+      "label": "Período",
+      "items": [
+        { "value": "all", "label": "Todo o tempo" },
+        { "value": "week", "label": "Esta semana" },
+        { "value": "month", "label": "Este mês" },
+        { "value": "year", "label": "Este ano" }
+      ]
+    }
+  },
+  "messages": {
+    "loading": "Carregando publicações...",
+    "error": "Ocorreu um erro ao carregar os posts.",
+    "emptySearch": "Nenhum resultado encontrado para sua pesquisa",
+    "notFoundPage": "A publicação que você procura não existe ou foi removida."
+  }
+}

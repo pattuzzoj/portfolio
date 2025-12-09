@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Post } from '@/features/blog/types/blog';
+import TechLabel from '@/shared/components/tech-label.astro';
+import { isArray } from '@utilify/core';
+
+type Props = Post;
+
+const post = Astro.props;
+const tags = post.data.tags.split(",") as string[];
+---
+
+<a href={post.data.url}>
+  <div class="relative">
+    <img src={post.data.coverImage} alt="">
+    <span class="absolute top-1 right-1"><Icon name="lucide:clock"/> {post.data.readingTime}</span>
+  </div>
+  <div class="flex justify-between items-center">
+    <h4>{post.data.category}</h4>
+    <span><Icon name="lucide:date"/>{post.data.date}</span>
+  </div>
+  <h3>{post.data.title}</h3>
+  <p>{post.data.summary}</p>
+  {isArray(tags) && tags.map((tag) => <TechLabel>{tag}</TechLabel>)}
+</a>

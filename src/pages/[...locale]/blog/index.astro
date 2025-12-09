@@ -1,0 +1,34 @@
+---
+export const prerender = false;
+
+import { getCollection } from "astro:content";
+import MainLayout from "@/shared/layouts/index.astro";
+import { DEFAULT_LOCALE } from "@/shared/i18n";
+import BlogPage from "@/features/blog/views/pages/blog-page";
+import { filterPostsByCategory, filterPostsBySearch, filterPostsByTags, filterPostsByTime } from "@/features/blog/utils/blog/filters";
+import i18n from "@/shared/i18n";
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "en" }},
+    { params: { locale: "pt" }}
+  ];
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.params;
+const { searchParams } = Astro.url;
+const search = searchParams.get("search") ?? "";
+const category = searchParams.get("category") ?? "all";
+const tags = searchParams.get("tags")?.split(",") ?? [];
+const time = searchParams.get("time") ?? "all";
+let posts = await getCollection("blog", (post) => post.data.lang === locale);
+posts = filterPostsByCategory(posts, category, locale);
+posts = filterPostsByTags(posts, tags);
+posts = filterPostsByTime(posts, time);
+posts = filterPostsBySearch(posts, search);
+const { t } = i18n;
+---
+<MainLayout language={locale} title={t("blog:meta.title")} description={t("blog:meta.description")} keywords={t("blog:meta.keywords")}>
+  <div>teste</div>
+  <BlogPage posts={posts} search={search} category={category} tags={tags} time={time} client:load />
+</MainLayout>

@@ -1,8 +1,8 @@
 export const prerender = false;
 
-import nodemailer from 'nodemailer';
-import { getSecret } from 'astro:env/server';
 import type { APIRoute } from 'astro';
+import { getSecret } from 'astro:env/server';
+import nodemailer from 'nodemailer';
 
 interface EmailForm {
   name: string;

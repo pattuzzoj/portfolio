@@ -1,0 +1,77 @@
+{
+  "header": {
+    "logo": "JP",
+    "menu": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "/en/#"
+      },
+      {
+        "id": "about",
+        "label": "About Me",
+        "href": "/en/#about"
+      },
+      {
+        "id": "technologies",
+        "label": "Technologies",
+        "href": "/en/#technologies"
+      },
+      {
+        "id": "projects",
+        "label": "Projects",
+        "href": "/en/#projects"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "href": "/en/#contact"
+      }
+    ],
+    "blog": {
+      "label": "Blog",
+      "href": "/en/blog"
+    },
+    "curriculum": "Download CV",
+    "languages": {
+      "english": "English",
+      "portuguese": "Portuguese"
+    }
+  },
+  "footer": {
+    "title": "Júlio Pattuzzo",
+    "description": "Full Stack Developer specialized in creating modern and responsive web experiences.",
+    "usefulLinks": {
+      "title": "Useful Links",
+      "menu": [
+        {
+          "id": "home",
+          "label": "Home",
+          "href": "/en/"
+        },
+        {
+          "id": "about",
+          "label": "About Me",
+          "href": "/en/#about"
+        },
+        {
+          "id": "technologies",
+          "label": "Technologies",
+          "href": "/en/#technologies"
+        },
+        {
+          "id": "projects",
+          "label": "Projects",
+          "href": "/en/#projects"
+        },
+        {
+          "id": "contact",
+          "label": "Contact",
+          "href": "/en/#contact"
+        }
+      ]
+    },
+    "connect": "Connect",
+    "copyright": "© 2025 Júlio Pattuzzo. All rights reserved."
+  }
+}
