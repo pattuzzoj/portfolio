@@ -1,5 +1,5 @@
 ---
-export const prerender = false;
+export const prerender = true;
 
 import { Icon } from "astro-icon/components";
 import MainLayout from "@/shared/layouts/index.astro";
@@ -53,7 +53,7 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
         href="#projects">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
       >
       <a
-        class="w-64 rounded-xl py-2 px-8 bg-slate-800 hover:bg-slate-700 border-1 border-slate-700"
+        class="w-64 rounded-xl py-2 px-8 bg-slate-800 hover:bg-slate-700 border border-slate-700"
         href="/curriculo.pdf"
         download>{t("home:hero.buttons.cv")}</a
       >

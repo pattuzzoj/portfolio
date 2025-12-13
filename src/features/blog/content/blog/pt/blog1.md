@@ -1,6 +1,6 @@
 ---
 lang: "pt"
-url: "/blog/blog1"
+url: "/pt/blog/blog1"
 title: "Next.js ou Astro: qual é melhor?"
 summary: "Next.js e Astro são dois frameworks modernos com filosofias distintas. Enquanto o primeiro é voltado para aplicações full-stack em React, o segundo se destaca pela arquitetura de ilhas e performance extrema. Este artigo explora suas diferenças e ajuda você a decidir qual usar."
 category: "Desenvolvimento Web"

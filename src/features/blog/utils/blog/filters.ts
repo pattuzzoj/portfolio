@@ -35,11 +35,13 @@ function filterPostsBySearch(posts: Post[], search: string) {
 }
 
 function filterPostsByCategory(posts: Post[], category: string, locale: "pt" | "en") {
-  if (category === "all") return posts;
+  const categories = categoryLabels[locale];
 
-  category = categoryLabels[locale]?.[category];
+  if (!Object.hasOwn(categories, category)) {
+    return posts;
+  }
 
-  if (!category) return posts;
+  category = categories[category];
 
   return posts.filter((post) => post.data.category === category);
 }
@@ -54,11 +56,9 @@ function filterPostsByTags(posts: Post[], tags: string[]) {
 }
 
 function filterPostsByTime(posts: Post[], time: string) {
-  if (time === "all") return posts;
+  if (!Object.hasOwn(comparisonDates, time)) return posts;
 
   const timeAgo = comparisonDates[time];
-
-  if (!timeAgo) return posts;
 
   return posts.filter((post) => {
     const publishedAt = new Date(post.data.date);

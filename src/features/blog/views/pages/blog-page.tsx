@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Menu, Toggle } from "@ark-ui/react";
 import { Calendar, Tag } from "lucide-react";
 import For from "@/shared/components/flow/for";
-import CardPost from "@/features/blog/components/card-post.astro";
+import CardPost from "../../components/card-post";
 import type { Post } from "@/features/blog/types/blog";
 import { useTranslation } from "@/shared/i18n";
 import { isArray, isBrowser } from "@utilify/core";
+import Show from "@/shared/components/flow/show";
 
 interface BlogPageProps {
   posts: Post[];
@@ -57,6 +58,7 @@ export default function BlogPage(props: BlogPageProps) {
         }
 
         window.history.replaceState({}, "", url);
+        
         const response = await fetch(`/api/posts?${searchParams.toString()}`, {
           credentials: "include"
         });
@@ -89,45 +91,57 @@ export default function BlogPage(props: BlogPageProps) {
       </div>
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900">
-          <input className="flex-1 rounded-xl border-1 border-slate-600 p-2 bg-slate-800" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+          <input className="flex-1 rounded-xl border border-slate-600 p-2 bg-slate-800" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
           <Menu.Root onSelect={(details) => setCategory(details.value)}>
-            <Menu.Trigger className="w-full flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border-1 border-slate-700">
-              <Tag className="h-5" /> {category && categoriesMenu.find(({ value }) => value === category)?.label}
+            <Menu.Trigger className="w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+              <Tag className="h-5" />
+              <span className="max-sm:hidden">
+                {category && categoriesMenu.find(({ value }) => value === category)?.label}
+              </span>
             </Menu.Trigger>
-            <Menu.Positioner className="w-fit">
-              <Menu.Content className="flex flex-col p-1 border-1 rounded-xl border-slate-700 bg-slate-800">
+            <Menu.Positioner className="relative w-fit">
+              <Menu.Content className="z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
                 {isArray(categoriesMenu) && categoriesMenu.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
           <Menu.Root onSelect={(details) => setTime(details.value)}>
-            <Menu.Trigger className="w-full flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border-1 border-slate-700">
-              <Calendar className="h-5" /> {time && timeMenu.find(({ value }) => value === time)?.label}
+            <Menu.Trigger className="w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+              <Calendar className="h-5" />
+              <span className="max-sm:hidden">
+                {time && timeMenu.find(({ value }) => value === time)?.label}
+              </span>
             </Menu.Trigger>
-            <Menu.Positioner className="w-fit">
-              <Menu.Content className="flex flex-col p-1 border-1 rounded-xl border-slate-700 bg-slate-800">
+            <Menu.Positioner className="relative w-fit">
+              <Menu.Content className="z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
                 {isArray(timeMenu) && timeMenu.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
         </div>
-        <span className="flex flex-wrap gap-2">
+        <span className="flex flex-wrap items-center gap-2">
           {tagsList.map((tag) => (
-            <Toggle.Root key={tag} defaultPressed={tags.includes(tag)} onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag]) : setTags((tags) => [...tags.filter((value) => value !== tag)])} className="border-1 border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
+            <Toggle.Root key={tag} defaultPressed={tags.includes(tag)} onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag]) : setTags((tags) => [...tags.filter((value) => value !== tag)])} className="border border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
               {tag}
             </Toggle.Root>
           ))}
         </span>
       </div>
-      <For each={posts} fallback={(
-        <span className="w-full text-center text-lg">
-          {t("blog:messages.emptySearch")}
-        </span>
-      )}>
-        {(post, index) => (
-          <CardPost key={index} {...post}/>
-        )}
-      </For>
+      <div className="min-h-96 flex justify-center items-center">
+        <Show when={posts.length > 0} fallback={(
+          <span className="text-lg">
+            {t("blog:messages.emptySearch")}
+          </span>
+        )}>
+          <div className="min-h-96 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <For each={posts}>
+              {(post, index) => (
+                <CardPost key={index} {...post}/>
+              )}
+            </For>
+          </div>
+        </Show>
+      </div>
     </div>
   );
 }

@@ -62,13 +62,13 @@ h2 {
 h3 {
   @apply
   text-lg md:text-xl
-  font-medium
+  font-semibold
 }
 
 h4 {
   @apply
   text-lg md:text-xl
-  font-bold
+  font-medium
 }
 
 h5 {

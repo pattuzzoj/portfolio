@@ -2,7 +2,7 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
-import { actions } from "astro:actions";
+// import { actions } from "astro:actions";
 import { LoaderCircle, MessageCircle, Send } from "lucide-react";
 import Show from "@/shared/components/flow/show";
 import Input from "./input";
@@ -31,11 +31,11 @@ export default function ContactForm() {
 
   async function onSubmit(data: FormSchema) {
     try {
-      const { error } = await actions.sendEmail(data);
+      // const { error } = await actions.sendEmail(data);
 
-      if (error) {
-        throw new Error();
-      } 
+      // if (error) {
+      //   throw new Error();
+      // } 
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +68,7 @@ export default function ContactForm() {
       </label>
       <label className="flex flex-col gap-1">
         {t("home:contact.form.fields.message.label")}
-        <textarea className="rounded-md border-1 border-slate-600 p-2 bg-slate-800" placeholder={t("home:contact.form.fields.message.label")} rows={5} {...register("message")} />
+        <textarea className="rounded-md border border-slate-600 p-2 bg-slate-800" placeholder={t("home:contact.form.fields.message.label")} rows={5} {...register("message")} />
         <Show when={Boolean(errors.message?.message)}>
           <p className="text-red-400">{errors.message?.message}</p>
         </Show>
@@ -78,7 +78,7 @@ export default function ContactForm() {
           <LoaderCircle className="animate-spin" />
         </Show>
       </button>
-      <a className="flex justify-center items-center gap-2 rounded-md border-1 border-green-400 p-2 text-green-400 hover:text-black hover:bg-green-400" href="https://wa.me/5527997991592" target="_blank" rel="noopener noreferrer">
+      <a className="flex justify-center items-center gap-2 rounded-md border border-green-400 p-2 text-green-400 hover:text-black hover:bg-green-400" href="https://wa.me/5527997991592" target="_blank" rel="noopener noreferrer">
         <MessageCircle />
         {t("home:contact.form.whatsapp")}
       </a>

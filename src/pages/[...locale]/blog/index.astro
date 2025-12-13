@@ -22,13 +22,13 @@ const category = searchParams.get("category") ?? "all";
 const tags = searchParams.get("tags")?.split(",") ?? [];
 const time = searchParams.get("time") ?? "all";
 let posts = await getCollection("blog", (post) => post.data.lang === locale);
-posts = filterPostsByCategory(posts, category, locale);
+posts = filterPostsByCategory(posts, category, locale as "pt" | "en");
 posts = filterPostsByTags(posts, tags);
 posts = filterPostsByTime(posts, time);
 posts = filterPostsBySearch(posts, search);
 const { t } = i18n;
+
 ---
 <MainLayout language={locale} title={t("blog:meta.title")} description={t("blog:meta.description")} keywords={t("blog:meta.keywords")}>
-  <div>teste</div>
   <BlogPage posts={posts} search={search} category={category} tags={tags} time={time} client:load />
 </MainLayout>

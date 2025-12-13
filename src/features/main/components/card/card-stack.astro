@@ -10,7 +10,7 @@ interface Props {
 const props = Astro.props;
 ---
 
-<div class="flex flex-col justify-center items-center gap-3 max-w-xs p-6 border-1 border-slate-700 rounded-lg bg-slate-900 text-center">
+<div class="flex flex-col justify-center items-center gap-3 max-w-xs p-6 border border-slate-700 rounded-lg bg-slate-900 text-center">
   <span class="text-blue-400">
     <slot name="icon"/>
       <Icon slot="icon" name={props.icon} class="h-12 w-12" />

@@ -1,0 +1,32 @@
+---
+export const prerender = true;
+
+import { Icon } from "astro-icon/components";
+import MainLayout from "@/shared/layouts/index.astro";
+import Section from "@/shared/views/layouts/section.astro";
+import Contact from "@/features/main/views/sections/contact.astro";
+import i18n from "@/shared/i18n";
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "en" }},
+    { params: { locale: "pt" }}
+  ];
+}
+
+const t = i18n.t;
+---
+
+<MainLayout 
+  title={t("home:meta.title")} 
+  description={t("home:meta.description")}
+  keywords={t("home:meta.keywords")}
+  >
+  <Section
+    id={t("home:contact.id")}
+    title={t("home:contact.title")}
+    subtitle={t("home:contact.subtitle")}
+  >
+    <Contact />
+  </Section>
+</MainLayout>
