@@ -31,16 +31,23 @@ function buildHeadingTree(items: MarkdownHeading[], tree = [] as any): Heading[]
 interface RelatedPostsMeta {
   targetId: string;
   category: string;
+  quantity: number;
 }
 
 function getRelatedPosts(posts: Post[], metadata: RelatedPostsMeta): (Post | undefined)[] {
-  const relatedPosts = posts.map((post) => {
+  let relatedPosts = [];
+
+  for (const post of posts) {
     if (post.id === metadata.targetId) {
       if (post.data.category === metadata.category) {
-        return post;
+        relatedPosts.push(post);
+        
+        if (relatedPosts.length === metadata.quantity) {
+          break;
+        }
       }
     }
-  });
+  }
 
   return relatedPosts;
 }

@@ -1,0 +1,82 @@
+---
+import i18n from "@/shared/i18n";
+import { isArray } from "@utilify/core";
+import LanguagePicker from "@/shared/components/language-picker";
+import MenuMobile from "@/shared/components/layout/menuMobile";
+
+const { t } = i18n;
+const menuLinks = t("header.menu", { returnObjects: true });
+---
+
+<header
+  class="sticky top-0 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-slate-800 bg-slate-950">
+  <a class="text-2xl md:text-3xl font-semibold! text-blue-400"
+    href={t("header.logo.href")}>{t("header.logo.label")}</a>
+  <nav aria-label="navegação principal" class="hidden lg:flex justify-center items-center gap-6">
+    {isArray(menuLinks) && menuLinks.map(({ id, label, href }) => (
+    <a
+      data-header-menu-id={id}
+      data-header-menu-active="false"
+      class="text-slate-400 data-[header-menu-active=true]:text-slate-50 hover:text-slate-50"
+      href={href}>
+      {label}
+    </a>
+    ))}
+  </nav>
+  <div class="hidden md:flex items-center justify-end gap-4">
+    <nav aria-label="navegação principal" class="lg:hidden flex items-center gap-6">
+      {isArray(menuLinks) && menuLinks.map(({ id, label, href }) => (
+      <a
+        data-header-menu-id={id}
+        data-header-menu-active="false"
+        class="text-slate-400 data-[header-menu-active=true]:text-slate-50 hover:text-slate-50"
+        href={href}>
+        {label}
+      </a>
+      ))}
+    </nav>
+    <div class="flex justify-end items-center gap-4">
+      <a class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
+        href={t("header.blog.href")}>{t("header.blog.label")}</a>
+      <span class="text-slate-500">|</span>
+      <LanguagePicker client:load />
+    </div>
+  </div>
+  <div class="md:hidden">
+    <MenuMobile client:load/>
+  </div>
+
+  <script type="module">
+    const menuLinks = document.querySelectorAll("[data-header-menu-id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+
+            menuLinks.forEach((link) => {
+              if (link.getAttribute("data-header-menu-id") === id) {
+                link.setAttribute("data-header-menu-active", "true");
+              } else {
+                link.setAttribute("data-header-menu-active", "false");
+              }
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px",
+      },
+    );
+
+    const sectionsID = ["home", "about", "technologies", "projects", "contact"];
+    sectionsID.forEach((sectionID) => {
+      const element = document.getElementById(sectionID);
+
+      if (!element) return;
+
+      observer.observe(element);
+    });
+  </script>
+</header>

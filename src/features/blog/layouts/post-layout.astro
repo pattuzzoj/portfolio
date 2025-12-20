@@ -1,0 +1,34 @@
+---
+import BaseLayout from "@/shared/layouts/index.astro";
+import Footer from "@/shared/components/layout/footer.astro";
+import Header from "@/features/blog/components/layout/header.astro";
+import "@/features/blog/styles/blog.css";
+
+interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+  banner: string;
+  category: string;
+}
+
+const props = Astro.props;
+---
+
+<BaseLayout title={props.title} description={props.description} keywords={props.keywords}>
+	<Fragment slot="head">
+		<meta name=og:image content={props.banner}>
+		<meta name=twitter:image content={props.banner}>
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Júlio Pattuzzo">
+    <meta property="article:section" content={props.category}>
+    <meta property="article:published_time">
+	</Fragment>
+	<Fragment slot="body">
+		<Header />
+		<main class="w-full flex flex-col gap-24 self-center max-w-8xl md:gap-32 px-4">
+			<slot />
+		</main>
+		<Footer />
+	</Fragment>
+</BaseLayout>

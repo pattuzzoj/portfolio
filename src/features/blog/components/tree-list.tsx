@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useTranslation } from "@/shared/i18n";
+import { useTranslation } from "react-i18next";
 import type { Heading } from "@/features/blog/utils/blog";
 
 interface TreeProps {
@@ -54,7 +54,7 @@ export default function HeadingTree(props: TreeProps) {
       <h5>{t("blog:page.sidebar.index")}</h5>
       <div className="flex">
         <div id="track-line" className="relative w-0.5 bg-slate-600">
-          <div id="track-mark" className="absolute top-0 left-0 h-8 w-full bg-blue-600 transition-all duration-300"></div>
+          <div id="track-mark" className="absolute top-0 left-0 z-0 h-8 w-full bg-blue-600 transition-all duration-300"></div>
         </div>
         <TreeList tree={props.tree} />
       </div>

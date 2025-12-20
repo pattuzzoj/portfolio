@@ -16,6 +16,7 @@ await i18n
       pt
     },
     fallbackLng: DEFAULT_LOCALE,
+    load: "languageOnly",
     supportedLngs: SUPPORTED_LOCALES,
     nonExplicitSupportedLngs: true,
     preload: SUPPORTED_LOCALES,

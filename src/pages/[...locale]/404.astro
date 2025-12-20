@@ -2,10 +2,10 @@
 export const prerender = true;
 
 import { Icon } from "astro-icon/components";
-import MainLayout from "@/shared/layouts/index.astro";
-import Section from "@/shared/views/layouts/section.astro";
+import Section from "@/shared/components/layout/section.astro";
 import Contact from "@/features/main/views/sections/contact.astro";
 import i18n from "@/shared/i18n";
+import MainLayout from "@/features/main/layouts/index.astro";
 
 export async function getStaticPaths() {
   return [

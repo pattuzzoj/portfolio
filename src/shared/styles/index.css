@@ -42,7 +42,7 @@ body {
 }
 
 html {
-  font-size: clamp(14px, 2vw, 16px);
+  font-size: clamp(13px, 2vw, 16px);
   scroll-behavior: smooth;
   user-select: none;
 }
@@ -90,4 +90,25 @@ a {
 
 a, button {
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  @apply
+  w-1 h-1
+}
+
+::-webkit-scrollbar-track {
+  @apply
+  bg-transparent
+}
+
+::-webkit-scrollbar-thumb {
+  @apply
+  bg-blue-600
+  rounded-xl
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply
+  bg-slate-500
 }

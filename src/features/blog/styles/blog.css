@@ -2,3 +2,7 @@ pre {
   padding: 0.5rem;
   border-radius: 0.75rem;
 }
+
+hr {
+  color: #45556c;
+}

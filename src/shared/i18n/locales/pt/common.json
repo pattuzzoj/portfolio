@@ -1,31 +1,34 @@
 {
   "header": {
-    "logo": "JP",
+    "logo": {
+      "label": "JP",
+      "href": "/pt"
+    },
     "menu": [
       {
         "id": "home",
         "label": "Início",
-        "href": "/#"
+        "href": "/pt/#"
       },
       {
         "id": "about",
         "label": "Sobre Mim",
-        "href": "/#about"
+        "href": "/pt/#about"
       },
       {
         "id": "technologies",
         "label": "Tecnologias",
-        "href": "/#technologies"
+        "href": "/pt/#technologies"
       },
       {
         "id": "projects",
         "label": "Projetos",
-        "href": "/#projects"
+        "href": "/pt/#projects"
       },
       {
         "id": "contact",
         "label": "Contato",
-        "href": "/#contact"
+        "href": "/pt/#contact"
       }
     ],
     "blog": {
@@ -47,27 +50,27 @@
         {
           "id": "home",
           "label": "Início",
-          "href": "/"
+          "href": "/pt/#"
         },
         {
           "id": "about",
           "label": "Sobre Mim",
-          "href": "/#about"
+          "href": "/pt/#about"
         },
         {
           "id": "technologies",
           "label": "Tecnologias",
-          "href": "/#technologies"
+          "href": "/pt/#technologies"
         },
         {
           "id": "projects",
           "label": "Projetos",
-          "href": "/#projects"
+          "href": "/pt/#projects"
         },
         {
           "id": "contact",
           "label": "Contato",
-          "href": "/#contact"
+          "href": "/pt/#contact"
         }
       ]
     },

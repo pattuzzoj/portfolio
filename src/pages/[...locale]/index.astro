@@ -1,24 +1,24 @@
 ---
-export const prerender = true;
+export const prerender = false;
 
 import { Icon } from "astro-icon/components";
-import MainLayout from "@/shared/layouts/index.astro";
-import Section from "@/shared/views/layouts/section.astro";
+import Section from "@/shared/components/layout/section.astro";
 import TechLabel from "@/shared/components/tech-label.astro";
+import SocialMedia from "@/shared/components/social-media.astro";
 import TechsMenu from "@/features/main/views/sections/techs-menu";
 import Projects from "@/features/main/views/sections/projects.astro";
 import Contact from "@/features/main/views/sections/contact.astro";
 import AboutSection from "@/features/main/views/sections/about.astro";
-import SocialMedia from "@/shared/components/social-media.astro";
+import MainLayout from "@/features/main/layouts/index.astro";
 import { isArray } from "@utilify/core";
 import i18n from "@/shared/i18n";
 
-export async function getStaticPaths() {
-  return [
-    { params: { locale: "en" }},
-    { params: { locale: "pt" }}
-  ];
-}
+// export async function getStaticPaths() {
+//   return [
+//     { params: { locale: "en" }},
+//     { params: { locale: "pt" }}
+//   ];
+// }
 
 const t = i18n.t;
 const skills = t("home:hero.skills", { returnObjects: true }) as unknown as string[];
@@ -72,7 +72,7 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
     title={t("home:technologies.title")}
     subtitle={t("home:technologies.subtitle")}
   >
-    <TechsMenu client:visible />
+    <TechsMenu client:load />
   </Section>
   <Section
     id={t("home:projects.id")}

@@ -5,6 +5,16 @@
     "author": "Júlio Pattuzzo",
     "keywords": "Blog,Web Development,Full Stack,TypeScript,React,Node.js,Next.js,JavaScript,Frontend,Backend,DevOps,Programming,Software,UI,UX,Tutorials,Technology"
   },
+  "header": {
+    "logo": {
+      "label": "Blog",
+      "href": "/pt/blog"
+    },
+    "portfolio": {
+      "label": "Portfolio",
+      "href": "/en"
+    }
+  },
   "page": {
     "title": "Blog",
     "subtitle": "Articles, tutorials, and ideas about programming",
@@ -20,7 +30,7 @@
   "form": {
     "search": {
       "label": "Search",
-      "placeholder": "Search by title, content, or author..."
+      "placeholder": "Search for article..."
     },
     "categoryMenu": {
       "label": "Categories",
@@ -32,6 +42,17 @@
         { "value": "ai", "label": "Artificial Intelligence" },
         { "value": "tips", "label": "Tips & Best Practices" },
         { "value": "webdevelopment", "label": "Web Development"}
+      ]
+    },
+    "tagsMenu": {
+      "label": "Tags",
+      "items": [
+        { "value": "javascript", "label": "JavaScript" },
+        { "value": "typescript", "label": "TypeScript" },
+        { "value": "react", "label": "React" },
+        { "value": "astro", "label": "Astro" },
+        { "value": "nextjs", "label": "Next.js" },
+        { "value": "sql", "label": "SQL" }
       ]
     },
     "timeMenu": {

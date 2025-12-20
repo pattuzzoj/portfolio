@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/shared/layouts/index.astro";
+import Header from "@/shared/components/layout/header.astro";
+import Footer from "@/shared/components/layout/footer.astro";
+
+interface Props {
+	title: string;
+	description: string;
+	keywords: string;
+}
+
+const props = Astro.props;
+---
+
+<BaseLayout title={props.title} description={props.description} keywords={props.keywords}>
+	<Fragment slot="head">
+		<meta name=og:image content="/favicon.png">
+		<meta name=twitter:image content="/favicon.png">
+	</Fragment>
+	<Fragment slot="body">
+		<Header />	
+		<main class="w-full flex flex-col gap-24 self-center max-w-8xl md:gap-32 px-4">
+			<slot />
+		</main>
+		<Footer />
+	</Fragment>
+</BaseLayout>

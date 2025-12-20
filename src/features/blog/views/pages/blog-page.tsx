@@ -4,7 +4,7 @@ import { Calendar, Tag } from "lucide-react";
 import For from "@/shared/components/flow/for";
 import CardPost from "../../components/card-post";
 import type { Post } from "@/features/blog/types/blog";
-import { useTranslation } from "@/shared/i18n";
+import { useTranslation } from "react-i18next";
 import { isArray, isBrowser } from "@utilify/core";
 import Show from "@/shared/components/flow/show";
 
@@ -17,15 +17,15 @@ interface BlogPageProps {
 }
 
 export default function BlogPage(props: BlogPageProps) {
-  const [posts, setPosts] = useState(props.posts);
-  const [search, setSearch] = useState(props.search);
-  const [category, setCategory] = useState(props.category);
-  const [time, setTime] = useState(props.time);
+  const [posts, setPosts] = useState<Post[]>(props.posts);
+  const [search, setSearch] = useState<string>(props.search);
+  const [category, setCategory] = useState<string>(props.category);
+  const [time, setTime] = useState<string>(props.time);
   const [tags, setTags] = useState<string[]>(props.tags);
   const { t } = useTranslation();
   const categoriesMenu = t("blog:form.categoryMenu.items", { returnObjects: true }) as { value: string, label: string }[];
   const timeMenu = t("blog:form.timeMenu.items", { returnObjects: true }) as { value: string, label: string }[];
-  const tagsList = ["Astro", "Next.js", "React"];
+  const tagsList = t("blog:form.tagsMenu.items", { returnObjects: true }) as { value: string, label: string }[];
 
   useEffect(() => {
     async function getPosts() {
@@ -80,7 +80,7 @@ export default function BlogPage(props: BlogPageProps) {
   }, [search, category, time, tags]);
 
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-16 mt-16">
       <div className="space-y-4 text-center">
         <h1 className="text-4xl! md:text-5xl! lg:text-6xl!">
           {t("blog:page.title")}
@@ -89,54 +89,58 @@ export default function BlogPage(props: BlogPageProps) {
           {t("blog:page.subtitle")}
         </h2>
       </div>
-      <div className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4">
         <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900">
           <input className="flex-1 rounded-xl border border-slate-600 p-2 bg-slate-800" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
           <Menu.Root onSelect={(details) => setCategory(details.value)}>
-            <Menu.Trigger className="w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+            <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
               <Tag className="h-5" />
               <span className="max-sm:hidden">
-                {category && categoriesMenu.find(({ value }) => value === category)?.label}
+                {category && categoriesMenu?.find(({ value }) => value === category)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                {isArray(categoriesMenu) && categoriesMenu.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
+              <Menu.Content className="w-56 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
+                {isArray(categoriesMenu) && categoriesMenu?.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
           <Menu.Root onSelect={(details) => setTime(details.value)}>
-            <Menu.Trigger className="w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+            <Menu.Trigger className="w-40 flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
               <Calendar className="h-5" />
               <span className="max-sm:hidden">
-                {time && timeMenu.find(({ value }) => value === time)?.label}
+                {time && timeMenu?.find(({ value }) => value === time)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                {isArray(timeMenu) && timeMenu.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
+              <Menu.Content className="w-40 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
+                {isArray(timeMenu) && timeMenu?.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
         </div>
         <span className="flex flex-wrap items-center gap-2">
-          {tagsList.map((tag) => (
-            <Toggle.Root key={tag} defaultPressed={tags.includes(tag)} onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag]) : setTags((tags) => [...tags.filter((value) => value !== tag)])} className="border border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
-              {tag}
+          {tagsList?.map((tag) => (
+            <Toggle.Root 
+            key={tag.value} 
+            defaultPressed={tags.includes(tag.value)} 
+            onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag.value]) : setTags((tags) => [...tags.filter((value) => value !== tag.value)])} 
+            className="border border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
+              {tag.label}
             </Toggle.Root>
           ))}
         </span>
-      </div>
+      </form>
       <div className="min-h-96 flex justify-center items-center">
         <Show when={posts.length > 0} fallback={(
           <span className="text-lg">
             {t("blog:messages.emptySearch")}
           </span>
         )}>
-          <div className="min-h-96 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="min-h-96 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <For each={posts}>
-              {(post, index) => (
-                <CardPost key={index} {...post}/>
+              {(post) => (
+                <CardPost key={post.id} {...post}/>
               )}
             </For>
           </div>

@@ -21,6 +21,14 @@ const categoryLabels = {
   }
 };
 
+const tagLabels = {
+  "javascript": "JavaScript",
+  "react": "React",
+  "astro": "Astro",
+  "nextjs": "Next.js",
+  "sql": "SQL"
+}
+
 const comparisonDates = {
   week: adjustDate(new Date(), { days: -7 }),
   month: adjustDate(new Date(), { months: -1 }),
@@ -51,7 +59,7 @@ function filterPostsByTags(posts: Post[], tags: string[]) {
 
   return posts.filter((post) => {
     const postTags = post.data.tags.replace(/\s*/g, "").split(",");
-    return tags.some((tag) => postTags.includes(tag));
+    return tags.some((tag) => postTags.includes(tagLabels[tag]));
   });
 }
 

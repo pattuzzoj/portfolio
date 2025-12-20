@@ -1,0 +1,65 @@
+---
+import i18n from "@/shared/i18n";
+import LanguagePicker from "@/shared/components/language-picker";
+import MenuMobile from "./menuMobile";
+import Form from "../form";
+
+const { t } = i18n;
+---
+
+<header
+  class="sticky top-0 z-10 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-slate-800 bg-slate-950"
+>
+  <a
+    class="text-2xl md:text-3xl font-semibold! text-blue-400"
+    href={t("blog:header.logo.href")}>{t("blog:header.logo.label")}</a
+  >
+  <div class="hidden md:block">
+    <Form client:load />
+  </div>
+  <div class="hidden md:flex justify-end items-center gap-4">
+    <a
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
+      href={t("blog:header.portfolio.href")}>{t("blog:header.portfolio.label")}</a
+    >
+    <span class="text-slate-500">|</span>
+    <LanguagePicker client:load />
+  </div>
+  <div class="md:hidden">
+    <MenuMobile client:load />
+  </div>
+</header>
+
+<script>
+  const menuLinks = document.querySelectorAll("[data-header-menu-id]");
+
+  const observer = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+
+          menuLinks.forEach((link) => {
+            if (link.getAttribute("data-header-menu-id") === id) {
+              link.setAttribute("data-header-menu-active", "true");
+            } else {
+              link.setAttribute("data-header-menu-active", "false");
+            }
+          });
+        }
+      });
+    },
+    {
+      rootMargin: "-50% 0px -50% 0px",
+    },
+  );
+
+  const sectionsID = ["home", "about", "technologies", "projects", "contact"];
+  sectionsID.forEach((sectionID) => {
+    const element = document.getElementById(sectionID) as Element;
+
+    if (!element) return;
+
+    observer.observe(element);
+  });
+</script>

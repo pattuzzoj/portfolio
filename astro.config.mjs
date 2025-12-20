@@ -19,7 +19,11 @@ const lucideIcons = [
   "book-open",
   "calendar",
   "clock",
-  "arrow-left"
+  "arrow-left",
+  "chevron-down",
+  "chevron-up",
+  "x",
+  "menu"
 ]
 
 // https://astro.build/config

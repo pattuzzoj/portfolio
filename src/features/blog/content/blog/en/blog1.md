@@ -14,15 +14,6 @@ coverImage: "/images/blog/astro_vs_nextjs.png"
 
 The choice between **Next.js** and **Astro** is one of the most relevant discussions in the modern web development ecosystem. Both tools have evolved to serve different paradigms — **Next.js** has established itself as a complete solution for **React full-stack applications**, while **Astro** emerged as a proposal **optimized for static and hybrid content**, prioritizing **performance and hydration control**.
 
-In this article, we'll explore their structural and conceptual differences in six main dimensions:
-
-1. File Structure
-2. Components (client and server)
-3. Hydration
-4. Routing
-5. Actions and form handling
-6. API and backend  
-
 ---
 
 ## 1. File Structure

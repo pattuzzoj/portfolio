@@ -1,6 +1,4 @@
 ---
-import Header from "@/shared/views/layouts/header";
-import Footer from "@/shared/views/layouts/footer.astro";
 import i18n from "@/shared/i18n";
 import "@/shared/styles/index.css";
 
@@ -8,30 +6,31 @@ interface Props {
 	title: string;
 	description: string;
 	keywords: string;
-	language?: string;
 }
 
 const props = Astro.props;
 ---
 
-<html lang={props.language ?? i18n.language}>
+<html lang={i18n.language}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{props.title}</title>
-		<meta name="description" content={props.description}/>
 		<meta name="author" content="Júlio Pattuzzo" />
+		<meta name="description" content={props.description}/>
 		<meta name="keywords" content={props.keywords}/>
 		<meta name="robots" content="index, follow" />
+		<meta name=og:title content={props.title}>
+		<meta name="og:description" content={props.description}>
+		<meta name=twitter:card content=summary>
+		<meta name=twitter:title content={props.title}>
+    <meta name="twitter:description" content={props.description}>
+		<slot name="head" />
 		<link rel="icon" href="/favicon.png"/>
 	</head>
 	<body
 		class="flex flex-col gap-8 bg-slate-950"
 	>
-		<Header client:load />
-		<main class="w-full flex flex-col gap-24 self-center max-w-8xl md:gap-32 px-4">
-			<slot />
-		</main>
-		<Footer />
+		<slot name="body"/>
 	</body>
 </html>
