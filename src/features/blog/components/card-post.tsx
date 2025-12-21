@@ -7,16 +7,16 @@ export default function CardPost(props: Post) {
   const tags = props.data.tags.split(",") as string[];
 
   return (
-  <article className="flex flex-col gap-4 max-w-md border border-slate-800 p-3 rounded-xl bg-slate-900 hover:bg-slate-800">
+  <article className="flex flex-col gap-4 max-w-md border border-outline p-3 rounded-xl bg-fill-surface hover:bg-fill-surface-hover">
     <a href={props.data.url} className="w-full relative">
       <img className='w-full max-h-48 aspect-square object-cover rounded-xl' src={props.data.coverImage} alt="" />
-      <span className="absolute top-1 right-1 flex items-center gap-1 text-sm text-slate-400 bg-black/30 rounded-full px-2 py-1">
+      <span className="absolute top-1 right-1 flex items-center gap-1 text-sm text-ink-soft bg-fill-surface-strong/50 rounded-full px-2 py-1">
         <Clock className='size-4' />{props.data.readingTime}
       </span>
     </a>
     <div className="flex justify-between items-center">
-      <strong className='text-xs border border-slate-700 bg-blue-600 rounded-full px-2 py-1'>{props.data.category}</strong>
-      <span className='flex items-center gap-1 text-sm text-slate-400'>
+      <strong className='text-xs border border-outline bg-fill-accent text-ink-on-accent rounded-full px-2 py-1'>{props.data.category}</strong>
+      <span className='flex items-center gap-1 text-sm text-ink-soft'>
         <Calendar className='size-4'/>
         {props.data.date}
       </span>
@@ -30,7 +30,7 @@ export default function CardPost(props: Post) {
     {isArray(tags) && (
       <span className='flex items-center gap-1'>
         {tags.map((tag, index) => (
-          <span key={index} className="text-xs border border-blue-400/20 text-blue-400 bg-blue-400/10 rounded-full px-2 py-1">
+          <span key={index} className="text-xs border border-outline-accent/20 text-ink-on-accent bg-fill-accent/10 rounded-full px-2 py-1">
             {tag}
           </span>
         ))}

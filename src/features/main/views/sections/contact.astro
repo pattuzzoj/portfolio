@@ -15,23 +15,23 @@ const t = i18n.t;
       <CardContact
         title={t("home:contact.info.location.title")}
       >
-        <Icon slot="icon" name="lucide:map-pin" class="text-blue-400" />
+        <Icon slot="icon" name="lucide:map-pin" class="text-ink-accent" />
         <span>{t("home:contact.info.location.value")}</span>
       </CardContact>
       <CardContact
         title={t("home:contact.info.email.title")}
       >
-        <Icon slot="icon" name="lucide:mail" class="text-blue-400" />
-        <a class="text-blue-400 hover:text-blue-500" href={`mailto:${t("home:contact.info.email.value")}`}>{t("home:contact.info.email.value")}</a>
+        <Icon slot="icon" name="lucide:mail" class="text-ink-accent" />
+        <a class="text-ink-accent hover:text-ink-hover" href={`mailto:${t("home:contact.info.email.value")}`}>{t("home:contact.info.email.value")}</a>
       </CardContact>
       <CardContact
         title={t("home:contact.info.linkedin.title")}
       >
-        <Linkedin slot="icon" class="text-blue-400" />
-        <a class="text-blue-400 hover:text-blue-500" href={t("home:contact.info.linkedin.value")}>{t("home:contact.info.linkedin.value")}</a>
+        <Linkedin slot="icon" class="text-ink-accent" />
+        <a class="text-ink-accent hover:text-ink-hover" href={t("home:contact.info.linkedin.value")}>{t("home:contact.info.linkedin.value")}</a>
       </CardContact>
     </div>
-    <div class="w-full text-center rounded-xl p-6 space-y-4 bg-blue-600">
+    <div class="w-full text-center rounded-xl p-6 space-y-4 bg-fill-accent text-ink-on-accent">
       <h4>{t("home:contact.info.freelance")}</h4>
       <p>{t("home:contact.info.cta")}</p>
     </div>

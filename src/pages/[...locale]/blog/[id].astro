@@ -63,7 +63,7 @@ const tags = post.data.tags?.split(",");
   <div class="flex flex-col gap-8">
     <div class="space-y-4">
       <a
-        class="w-fit flex items-center gap-2 hover:bg-blue-700 text-white p-2 rounded-xl"
+        class="w-fit flex items-center gap-2 hover:bg-fill-accent-hover text-link p-2 rounded-xl"
         href={t("blog:page.backToBlog.href")}
       >
         <Icon name="lucide:arrow-left" class="size-5" />
@@ -79,7 +79,7 @@ const tags = post.data.tags?.split(",");
             />
             <div class="absolute top-3 right-3 flex items-center justify-between">
               <span
-                class="flex items-center gap-1 text-sm text-slate-400 bg-black/30 rounded-full px-2 py-1"
+                class="flex items-center gap-1 text-sm text-ink-soft bg-black/30 rounded-full px-2 py-1"
               >
                 <Icon name="lucide:clock" class="h-5" />
                 {post.data.readingTime}
@@ -89,10 +89,10 @@ const tags = post.data.tags?.split(",");
           <div class="flex flex-col justify-between gap-3">
             <div class="flex items-center justify-between">
               <span
-                class="w-fit text-xs border border-slate-700 bg-blue-600 rounded-full px-2 py-1"
+                class="w-fit text-xs border border-outline bg-fill-accent text-ink-on-accent rounded-full px-2 py-1"
                 >{post.data.category}</span
               >
-              <span class="flex items-center gap-1 text-sm text-slate-400">
+              <span class="flex items-center gap-1 text-sm text-ink-soft">
                 <Icon name="lucide:calendar" class="h-5" />
                 {post.data.date}
               </span>
@@ -129,7 +129,7 @@ const tags = post.data.tags?.split(",");
       </div>
     </div>
     {isArray(relatedPosts) && relatedPosts.length > 0 && (
-      <hr class="text-slate-600">
+      <hr class="text-ink-muted">
       <div>
         <div class="space-y-8">
           <h3>{t("blog:page.sidebar.relatedPosts")}</h3>

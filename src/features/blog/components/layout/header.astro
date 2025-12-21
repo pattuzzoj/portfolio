@@ -8,10 +8,10 @@ const { t } = i18n;
 ---
 
 <header
-  class="sticky top-0 z-10 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-slate-800 bg-slate-950"
+  class="sticky top-0 z-10 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-outline bg-fill-base"
 >
   <a
-    class="text-2xl md:text-3xl font-semibold! text-blue-400"
+    class="text-2xl md:text-3xl font-semibold! text-ink-accent"
     href={t("blog:header.logo.href")}>{t("blog:header.logo.label")}</a
   >
   <div class="hidden md:block">
@@ -19,10 +19,10 @@ const { t } = i18n;
   </div>
   <div class="hidden md:flex justify-end items-center gap-4">
     <a
-      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl"
+      class="bg-fill-accent hover:bg-fill-accent-hover text-ink px-4 py-2 rounded-xl"
       href={t("blog:header.portfolio.href")}>{t("blog:header.portfolio.label")}</a
     >
-    <span class="text-slate-500">|</span>
+    <span class="text-ink-muted">|</span>
     <LanguagePicker client:load />
   </div>
   <div class="md:hidden">

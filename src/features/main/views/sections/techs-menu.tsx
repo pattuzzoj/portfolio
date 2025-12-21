@@ -25,12 +25,12 @@ export default function TechsMenu() {
   return (
     <div>
       <Tabs.Root className="flex flex-col items-center gap-6" defaultValue="front-end">
-        <Tabs.List className="w-fit flex justify-evenly items-center gap-4 rounded-xl p-2 bg-slate-800">
-          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="front-end">{t("home:technologies.sections.front-end.label")}</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="back-end">{t("home:technologies.sections.back-end.label")}</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="database">{t("home:technologies.sections.database.label")}</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tests">{t("home:technologies.sections.tests.label")}</Tabs.Trigger>
-          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-blue-600 hover:bg-slate-700" value="tools">{t("home:technologies.sections.tools.label")}</Tabs.Trigger>
+        <Tabs.List className="w-fit flex justify-evenly items-center gap-4 rounded-xl p-2 bg-fill-surface">
+          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-fill-accent data-selected:hover:bg-fill-accent-hover hover:bg-fill-surface-hover" value="front-end">{t("home:technologies.sections.front-end.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-fill-accent data-selected:hover:bg-fill-accent-hover hover:bg-fill-surface-hover" value="back-end">{t("home:technologies.sections.back-end.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-fill-accent data-selected:hover:bg-fill-accent-hover hover:bg-fill-surface-hover" value="database">{t("home:technologies.sections.database.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-fill-accent data-selected:hover:bg-fill-accent-hover hover:bg-fill-surface-hover" value="tests">{t("home:technologies.sections.tests.label")}</Tabs.Trigger>
+          <Tabs.Trigger className="rounded-xl p-1 text-sm md:text-base data-selected:bg-fill-accent data-selected:hover:bg-fill-accent-hover hover:bg-fill-surface-hover" value="tools">{t("home:technologies.sections.tools.label")}</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="front-end" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CardTech

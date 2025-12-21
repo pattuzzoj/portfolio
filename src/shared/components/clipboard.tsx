@@ -15,7 +15,7 @@ export default function Clipboard() {
   }
 
   return (
-    <button aria-label="copy" data-clicked={copied} className="rounded-xl p-2 hover:bg-slate-600 data-[clicked=true]:bg-green-500 data-[clicked=true]:scale-110 transition-all duration-200" onClick={handleCopy}>
+    <button aria-label="copy" data-clicked={copied} className="rounded-xl p-2 hover:bg-fill-surface-hover data-[clicked=true]:bg-green-500 data-[clicked=true]:scale-110 transition-all duration-200" onClick={handleCopy}>
       {
         copied ? <Check /> : <Copy />
       }

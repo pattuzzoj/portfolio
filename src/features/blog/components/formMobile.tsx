@@ -81,33 +81,33 @@ export default function FormMobile() {
 
   return (
     <form ref={menuRef} action="" className="group min-w-md" onFocus={() => setIsFocused(true)}>
-      <input type="text" data-form-open={isFocused} className="w-full rounded-xl data-[form-open=true]:rounded-b-none p-2 bg-slate-800 data-[form-open=true]:bg-slate-900 outline-none" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
-      <div data-form-open={isFocused} className="w-full hidden data-[form-open=true]:flex flex-col gap-2 rounded-t-none rounded-b-xl bg-slate-900">
+      <input type="text" data-form-open={isFocused} className="w-full rounded-xl data-[form-open=true]:rounded-b-none p-2 bg-fill-surface-soft data-[form-open=true]:bg-fill-surface outline-none" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+      <div data-form-open={isFocused} className="w-full hidden data-[form-open=true]:flex flex-col gap-2 rounded-t-none rounded-b-xl bg-fill-surface">
         <div className="flex flex-col gap-2 p-2">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
             <Menu.Root onSelect={(details) => setCategory(details.value)}>
-              <Menu.Trigger className="w-full flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+              <Menu.Trigger className="w-full flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
                 <Tag className="h-5" />
                 <span className="max-sm:hidden">
                   {category && categoriesMenu.find(({ value }) => value === category)?.label}
                 </span>
               </Menu.Trigger>
               <Menu.Positioner className="w-full">
-                <Menu.Content className="w-1/2 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                  {isArray(categoriesMenu) && categoriesMenu.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
+                <Menu.Content className="w-1/2 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
+                  {isArray(categoriesMenu) && categoriesMenu.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{category.label}</Menu.Item>)}
                 </Menu.Content>
               </Menu.Positioner>
             </Menu.Root>
             <Menu.Root onSelect={(details) => setTime(details.value)}>
-              <Menu.Trigger className="w-full flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+              <Menu.Trigger className="w-full flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
                 <Calendar className="h-5" />
                 <span className="max-sm:hidden">
                   {time && timeMenu.find(({ value }) => value === time)?.label}
                 </span>
               </Menu.Trigger>
               <Menu.Positioner className="w-full">
-                <Menu.Content className="w-1/2 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                  {isArray(timeMenu) && timeMenu.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
+                <Menu.Content className="w-1/2 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
+                  {isArray(timeMenu) && timeMenu.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{time.label}</Menu.Item>)}
                 </Menu.Content>
               </Menu.Positioner>
             </Menu.Root>
@@ -118,7 +118,7 @@ export default function FormMobile() {
                 key={tag.value}
                 defaultPressed={tags.includes(tag.value)}
                 onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag.value]) : setTags((tags) => [...tags.filter((value) => value !== tag.value)])}
-                className="border border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-2 py-1">
+                className="border border-outline bg-fill-surface-soft hover:bg-fill-surface-hover data-[state=on]:bg-fill-accent data-[state=on]:hover:bg-fill-accent-hover rounded-full px-2 py-1">
                 {tag.label}
               </Toggle.Root>
             ))}
@@ -137,7 +137,7 @@ export default function FormMobile() {
                 )}
               </For>
             </div>
-            <a className="w-full p-2 hover:bg-blue-600 text-center" href={url}>Ver todos os resultados</a>
+            <a className="w-full p-2 hover:bg-fill-accent text-center" href={url}>Ver todos os resultados</a>
           </Show>
         </div>
       </div>

@@ -35,9 +35,9 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
   >
     <div class="space-y-4">
       <h1 class="text-4xl! md:text-5xl! lg:text-6xl!">
-        {t("home:hero.title")} <span class="text-blue-400">Júlio Pattuzzo</span>
+        {t("home:hero.title")} <span class="text-ink-accent">Júlio Pattuzzo</span>
       </h1>
-      <h2 class="text-xl! text-slate-300">
+      <h2 class="text-xl! text-ink-soft">
         {t("home:hero.description")}
       </h2>
     </div>
@@ -49,11 +49,11 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
       class="flex flex-col sm:flex-row items-center gap-4"
     >
       <a
-        class="w-64 flex justify-center items-center gap-2 rounded-xl py-2 px-8 bg-blue-600 hover:bg-blue-700"
+        class="w-64 flex justify-center items-center gap-2 rounded-xl py-2 px-8 bg-fill-accent text-ink-on-accent hover:bg-fill-accent-hover"
         href="#projects">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
       >
       <a
-        class="w-64 rounded-xl py-2 px-8 bg-slate-800 hover:bg-slate-700 border border-slate-700"
+        class="w-64 rounded-xl py-2 px-8 bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline"
         href="/curriculo.pdf"
         download>{t("home:hero.buttons.cv")}</a
       >

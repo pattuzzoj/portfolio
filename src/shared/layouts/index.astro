@@ -11,7 +11,7 @@ interface Props {
 const props = Astro.props;
 ---
 
-<html lang={i18n.language}>
+<html lang={i18n.language} data-theme="dark">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +29,7 @@ const props = Astro.props;
 		<link rel="icon" href="/favicon.png"/>
 	</head>
 	<body
-		class="flex flex-col gap-8 bg-slate-950"
+		class="flex flex-col gap-8 bg-fill-base"
 	>
 		<slot name="body"/>
 	</body>

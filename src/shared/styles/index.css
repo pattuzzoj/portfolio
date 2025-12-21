@@ -1,45 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @layer utilities {
   .max-w-8xl {
-    max-width: 88rem; /* ou o valor que você preferir */
+    max-width: 88rem;
   }
 }
 
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-fill-base: var(--fill-base);
+  --color-fill-surface: var(--fill-surface);
+  --color-fill-surface-strong: var(--fill-surface-strong);
+  --color-fill-surface-soft: var(--fill-surface-soft);
+  --color-fill-surface-hover: var(--fill-surface-hover);
+  --color-fill-accent: var(--fill-accent);
+  --color-fill-accent-hover: var(--fill-accent-hover);
+  --color-fill-accent-soft: var(--fill-accent-soft);
+  --color-fill-muted: var(--fill-muted);
+  --color-fill-disabled: var(--fill-disabled);
+  --color-outline: var(--outline);
+  --color-outline-soft: var(--outline-soft);
+  --color-outline-strong: var(--outline-strong);
+  --color-outline-accent: var(--outline-accent);
+  --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-accent: var(--ink-accent);
+  --color-ink-accent-hover: var(--ink-accent-hover);
+  --color-ink-on-accent: var(--ink-on-accent);
+  --color-link: var(--ink-link);
+  --color-link-hover: var(--ink-link-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 * {
-  @apply
-  transition duration-100
+  @apply transition duration-100
 }
 
 body {
-  color: var(--foreground);
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
-  @apply antialiased 
+  @apply antialiased
 }
 
 * {
   transition: inherit;
 }
+
 
 html {
   font-size: clamp(13px, 2vw, 16px);
@@ -48,44 +56,31 @@ html {
 }
 
 h1 {
-  @apply
-  text-3xl md:text-4xl
-  font-semibold
+  @apply text-3xl md:text-4xl font-semibold
 }
 
 h2 {
-  @apply
-  text-2xl md:text-3xl
-  font-semibold
+  @apply text-2xl md:text-3xl font-semibold
 }
 
 h3 {
-  @apply
-  text-lg md:text-xl
-  font-semibold
+  @apply text-lg md:text-xl font-semibold
 }
 
 h4 {
-  @apply
-  text-lg md:text-xl
-  font-medium
+  @apply text-lg md:text-xl font-medium
 }
 
 h5 {
-  @apply
-  text-base md:text-lg
-  font-medium
+  @apply text-base md:text-lg font-medium
 }
 
 h6 {
-  @apply
-  text-sm md:text-base
-  font-medium
+  @apply text-sm md:text-base font-medium
 }
 
 a {
-  @apply
-  font-medium
+  @apply font-medium
 }
 
 a, button {
@@ -93,22 +88,17 @@ a, button {
 }
 
 ::-webkit-scrollbar {
-  @apply
-  w-1 h-1
+  @apply w-1 h-1
 }
 
 ::-webkit-scrollbar-track {
-  @apply
-  bg-transparent
+  @apply bg-transparent
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply
-  bg-blue-600
-  rounded-xl
+  @apply bg-fill-accent rounded-xl
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply
-  bg-slate-500
+  @apply bg-fill-accent-hover
 }

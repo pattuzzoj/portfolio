@@ -85,36 +85,36 @@ export default function BlogPage(props: BlogPageProps) {
         <h1 className="text-4xl! md:text-5xl! lg:text-6xl!">
           {t("blog:page.title")}
         </h1>
-        <h2 className="text-xl! text-slate-300">
+        <h2 className="text-xl! text-ink">
           {t("blog:page.subtitle")}
         </h2>
       </div>
       <form className="flex flex-col gap-4">
-        <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-900">
-          <input className="flex-1 rounded-xl border border-slate-600 p-2 bg-slate-800" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+        <div className="flex items-center gap-4 p-4 rounded-xl bg-fill-surface">
+          <input className="flex-1 rounded-xl border border-outline p-2 bg-fill-surface-soft" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
           <Menu.Root onSelect={(details) => setCategory(details.value)}>
-            <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+            <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
               <Tag className="h-5" />
               <span className="max-sm:hidden">
                 {category && categoriesMenu?.find(({ value }) => value === category)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="w-56 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                {isArray(categoriesMenu) && categoriesMenu?.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{category.label}</Menu.Item>)}
+              <Menu.Content className="w-56 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
+                {isArray(categoriesMenu) && categoriesMenu?.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{category.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
           <Menu.Root onSelect={(details) => setTime(details.value)}>
-            <Menu.Trigger className="w-40 flex justify-center items-center gap-1 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700">
+            <Menu.Trigger className="w-40 flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
               <Calendar className="h-5" />
               <span className="max-sm:hidden">
                 {time && timeMenu?.find(({ value }) => value === time)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="w-40 z-10 flex flex-col p-1 border rounded-xl border-slate-700 bg-slate-800">
-                {isArray(timeMenu) && timeMenu?.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-slate-700">{time.label}</Menu.Item>)}
+              <Menu.Content className="w-40 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
+                {isArray(timeMenu) && timeMenu?.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{time.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
@@ -125,7 +125,7 @@ export default function BlogPage(props: BlogPageProps) {
             key={tag.value} 
             defaultPressed={tags.includes(tag.value)} 
             onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag.value]) : setTags((tags) => [...tags.filter((value) => value !== tag.value)])} 
-            className="border border-slate-700 bg-slate-800 hover:bg-slate-700 data-[state=on]:bg-blue-600 data-[state=on]:hover:bg-blue-700 rounded-full px-4 py-2">
+            className="border border-outline bg-fill-surface-soft hover:bg-fill-surface-hover data-[state=on]:bg-fill-accent data-[state=on]:hover:bg-fill-accent-hover rounded-full px-4 py-2">
               {tag.label}
             </Toggle.Root>
           ))}
