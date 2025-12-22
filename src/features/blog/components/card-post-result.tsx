@@ -23,7 +23,7 @@ export default function CardPostResult(props: Post) {
         {isArray(tags) && (
           <span className='flex items-center gap-1'>
             {tags.map((tag, index) => (
-              <span key={index} className="text-xs border border-outline/20 text-ink-on-accent bg-fill-accent/10 rounded-full px-2 py-1">
+              <span key={index} className="text-xs border border-outline/20 text-ink-on-accent-soft bg-fill-accent-soft rounded-full px-2 py-1">
                 {tag}
               </span>
             ))}

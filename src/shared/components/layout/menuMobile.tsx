@@ -3,6 +3,7 @@ import i18n from "@/shared/i18n";
 import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
 import { isArray } from "@utilify/core";
 import { Menu } from "@ark-ui/react";
+import SwitchLanguage from "../switch-theme";
 
 
 export default function MenuMobile() {
@@ -16,7 +17,7 @@ export default function MenuMobile() {
       </Menu.Trigger>
       <Menu.Content className="absolute top-full left-0 z-10 w-full">
         <div
-          className="flex flex-col items-center gap-8 p-4 border-b border-outline bg-fill-base">
+          className="flex flex-col items-center gap-4 p-4 border-b border-outline bg-fill-base">
           <nav aria-label="navegação principal" className="w-full flex flex-col items-center gap-4">
             {isArray(menuLinks) && menuLinks.map(({ id, label, href }) => (
               <a
@@ -29,11 +30,14 @@ export default function MenuMobile() {
               </a>
             ))}
           </nav>
+          <hr className="w-full text-ink-muted" />
           <div className="w-full flex flex-col gap-2">
             <a className="w-full bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl text-center"
               href={t("header.blog.href")}>{t("header.blog.label")}</a>
-            <hr className="text-ink-muted" />
-            <LanguagePicker />
+            <div className="flex items-center gap-2">
+              <SwitchLanguage />
+              <LanguagePicker />
+            </div>
           </div>
         </div>
       </Menu.Content>

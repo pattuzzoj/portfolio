@@ -28,6 +28,7 @@
   --color-ink-accent: var(--ink-accent);
   --color-ink-accent-hover: var(--ink-accent-hover);
   --color-ink-on-accent: var(--ink-on-accent);
+  --color-ink-on-accent-soft: var(--ink-on-accent-soft);
   --color-link: var(--ink-link);
   --color-link-hover: var(--ink-link-hover);
   --font-sans: var(--font-geist-sans);

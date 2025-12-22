@@ -4,7 +4,7 @@ import { Calendar, Tag } from "lucide-react";
 import For from "@/shared/components/flow/for";
 import CardPost from "../../components/card-post";
 import type { Post } from "@/features/blog/types/blog";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/shared/i18n";
 import { isArray, isBrowser } from "@utilify/core";
 import Show from "@/shared/components/flow/show";
 
@@ -22,10 +22,10 @@ export default function BlogPage(props: BlogPageProps) {
   const [category, setCategory] = useState<string>(props.category);
   const [time, setTime] = useState<string>(props.time);
   const [tags, setTags] = useState<string[]>(props.tags);
-  const { t } = useTranslation();
-  const categoriesMenu = t("blog:form.categoryMenu.items", { returnObjects: true }) as { value: string, label: string }[];
-  const timeMenu = t("blog:form.timeMenu.items", { returnObjects: true }) as { value: string, label: string }[];
-  const tagsList = t("blog:form.tagsMenu.items", { returnObjects: true }) as { value: string, label: string }[];
+  const { t } = useTranslation("blog");
+  const categoriesMenu = t("form.categoryMenu.items", { returnObjects: true }) as { value: string, label: string }[];
+  const timeMenu = t("form.timeMenu.items", { returnObjects: true }) as { value: string, label: string }[];
+  const tagsList = t("form.tagsMenu.items", { returnObjects: true }) as { value: string, label: string }[];
 
   useEffect(() => {
     async function getPosts() {
@@ -83,15 +83,15 @@ export default function BlogPage(props: BlogPageProps) {
     <div className="flex flex-col gap-16 mt-16">
       <div className="space-y-4 text-center">
         <h1 className="text-4xl! md:text-5xl! lg:text-6xl!">
-          {t("blog:page.title")}
+          {t("page.title")}
         </h1>
         <h2 className="text-xl! text-ink">
-          {t("blog:page.subtitle")}
+          {t("page.subtitle")}
         </h2>
       </div>
       <form className="flex flex-col gap-4">
         <div className="flex items-center gap-4 p-4 rounded-xl bg-fill-surface">
-          <input className="flex-1 rounded-xl border border-outline p-2 bg-fill-surface-soft" type="text" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+          <input className="flex-1 rounded-xl border border-outline p-2 bg-fill-surface-soft" type="text" placeholder={t("form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
           <Menu.Root onSelect={(details) => setCategory(details.value)}>
             <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
               <Tag className="h-5" />
@@ -134,7 +134,7 @@ export default function BlogPage(props: BlogPageProps) {
       <div className="min-h-96 flex justify-center items-center">
         <Show when={posts.length > 0} fallback={(
           <span className="text-lg">
-            {t("blog:messages.emptySearch")}
+            {t("messages.emptySearch")}
           </span>
         )}>
           <div className="min-h-96 grid md:grid-cols-2 lg:grid-cols-3 gap-8">

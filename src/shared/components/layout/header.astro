@@ -3,6 +3,7 @@ import i18n from "@/shared/i18n";
 import { isArray } from "@utilify/core";
 import LanguagePicker from "@/shared/components/language-picker";
 import MenuMobile from "@/shared/components/layout/menuMobile";
+import SwitchTheme from "../switch-theme";
 
 const { t } = i18n;
 const menuLinks = t("header.menu", { returnObjects: true });
@@ -10,8 +11,10 @@ const menuLinks = t("header.menu", { returnObjects: true });
 
 <header
   class="sticky top-0 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-outline bg-fill-base">
-  <a class="text-2xl md:text-3xl font-semibold! text-ink-accent"
-    href={t("header.logo.href")}>{t("header.logo.label")}</a>
+  <div>
+    <a class="text-2xl md:text-2xl font-semibold! rounded-xl p-2 text-ink-accent bg-fill-accent/10"
+      href={t("header.logo.href")}>{t("header.logo.label")}</a>
+  </div>
   <nav aria-label="navegação principal" class="hidden lg:flex justify-center items-center gap-6">
     {isArray(menuLinks) && menuLinks.map(({ id, label, href }) => (
     <a
@@ -36,10 +39,13 @@ const menuLinks = t("header.menu", { returnObjects: true });
       ))}
     </nav>
     <div class="flex justify-end items-center gap-4">
+      <div class="flex items-center gap-2 rounded-xl p-1 bg-fill-surface-soft">
+        <LanguagePicker client:load />
+        <SwitchTheme client:load>
+      </div>
+      <span class="text-ink-muted">|</span>
       <a class="bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl"
         href={t("header.blog.href")}>{t("header.blog.label")}</a>
-      <span class="text-ink-muted">|</span>
-      <LanguagePicker client:load />
     </div>
   </div>
   <div class="md:hidden">

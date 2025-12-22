@@ -2,7 +2,8 @@
 import i18n from "@/shared/i18n";
 import LanguagePicker from "@/shared/components/language-picker";
 import MenuMobile from "./menuMobile";
-import Form from "../form";
+import Form from "@/features/blog/components/form/form.tsx";
+import SwitchTheme from "@/shared/components/switch-theme";
 
 const { t } = i18n;
 ---
@@ -18,12 +19,15 @@ const { t } = i18n;
     <Form client:load />
   </div>
   <div class="hidden md:flex justify-end items-center gap-4">
+    <div class="flex items-center gap-2 rounded-xl p-1 bg-fill-surface-soft">
+      <LanguagePicker client:load />
+      <SwitchTheme client:load />
+    </div>
+    <span class="text-ink-muted">|</span>
     <a
-      class="bg-fill-accent hover:bg-fill-accent-hover text-ink px-4 py-2 rounded-xl"
+      class="bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl"
       href={t("blog:header.portfolio.href")}>{t("blog:header.portfolio.label")}</a
     >
-    <span class="text-ink-muted">|</span>
-    <LanguagePicker client:load />
   </div>
   <div class="md:hidden">
     <MenuMobile client:load />

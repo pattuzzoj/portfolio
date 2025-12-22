@@ -1,9 +1,9 @@
 import i18n from "@/shared/i18n";
 import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
-import { isArray } from "@utilify/core";
 import LanguagePicker from "@/shared/components/language-picker";
 import { Menu } from "@ark-ui/react";
-import FormMobile from "../formMobile";
+import Form from "../form/form";
+import SwitchLanguage from "@/shared/components/switch-theme";
 
 
 export default function MenuMobile() {
@@ -17,13 +17,16 @@ export default function MenuMobile() {
       </Menu.Trigger>
       <Menu.Content className="absolute top-full left-0 z-50 isolate w-full">
         <div
-          className="flex flex-col items-center gap-8 p-4 border-b border-outline bg-fill-base">
-          <FormMobile />
+          className="flex flex-col items-center gap-4 p-4 border-b border-outline bg-fill-base">
+          <Form />
+          <hr className="w-full text-ink-muted" />
           <div className="w-full flex flex-col gap-2">
             <a className="w-full bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl text-center"
               href={t("blog:header.portfolio.href")}>{t("blog:header.portfolio.label")}</a>
-            <hr className="text-ink-muted" />
-            <LanguagePicker />
+            <div className="flex items-center gap-2">
+              <SwitchLanguage />
+              <LanguagePicker />
+            </div>
           </div>
         </div>
       </Menu.Content>

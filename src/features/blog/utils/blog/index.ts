@@ -38,7 +38,7 @@ function getRelatedPosts(posts: Post[], metadata: RelatedPostsMeta): (Post | und
   let relatedPosts = [];
 
   for (const post of posts) {
-    if (post.id === metadata.targetId) {
+    if (post.id !== metadata.targetId) {
       if (post.data.category === metadata.category) {
         relatedPosts.push(post);
         

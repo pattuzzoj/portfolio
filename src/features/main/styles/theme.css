@@ -20,6 +20,7 @@
   --ink-accent: #60a5fa;
   --ink-accent-hover: #3b82f6;
   --ink-on-accent: #ffffff;
+  --ink-on-accent-soft: #ffffff;
   --ink-link: var(--ink-accent);
   --ink-link-hover: var(--ink-accent-hover);
 }
@@ -46,6 +47,7 @@
   --ink-accent: #2563eb;
   --ink-accent-hover: #1d4ed8;
   --ink-on-accent: #ffffff;
+  --ink-on-accent-soft: #ffffff;
   --ink-link: var(--ink-accent);
   --ink-link-hover: var(--ink-accent-hover);
 }

@@ -7,7 +7,7 @@ import { pt } from "./locales/pt";
 export const DEFAULT_LOCALE = "pt";
 export const SUPPORTED_LOCALES = ["pt", "en"];
 
-await i18n
+i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -20,7 +20,7 @@ await i18n
     supportedLngs: SUPPORTED_LOCALES,
     nonExplicitSupportedLngs: true,
     preload: SUPPORTED_LOCALES,
-    ns: ["common", "home"],
+    ns: ["common", "home", "blog"],
     fallbackNS: "common",
     debug: false, // ativa debug em modo desenvolvimento
     detection: {

@@ -3,13 +3,13 @@ import Show from "@/shared/components/flow/show";
 import { useTranslation } from "react-i18next";
 import { isArray, isBrowser } from "@utilify/core";
 import { useEffect, useRef, useState } from "react";
-import CardPostResult from "./card-post-result";
-import type { Post } from "../types/blog";
+import CardPostResult from "../card-post-result";
+import type { Post } from "../../types/blog";
 import { Menu, Toggle } from "@ark-ui/react";
 import { Calendar, Tag } from "lucide-react";
 import { onClickOutside } from "@/shared/utils/onClickOutside";
 
-export default function Form() {
+export default function FormMobile() {
   const [isFocused, setIsFocused] = useState(false);
   const [posts, setPosts] = useState<Post[]>([]);
   const [search, setSearch] = useState<string>();
@@ -28,7 +28,6 @@ export default function Form() {
 
     if (isFocused) {
       closeEvent = onClickOutside(menuRef.current, () => {
-        console.log("teste")
         setIsFocused(false);
       });
     }
@@ -80,9 +79,9 @@ export default function Form() {
   }, [search, category, time, tags]);
 
   return (
-    <form ref={menuRef} action="" className="group relative min-w-md" onFocus={() => setIsFocused(true)}>
+    <form ref={menuRef} action="" className="group min-w-md" onFocus={() => setIsFocused(true)}>
       <input type="text" data-form-open={isFocused} className="w-full rounded-xl data-[form-open=true]:rounded-b-none p-2 bg-fill-surface-soft data-[form-open=true]:bg-fill-surface outline-none" placeholder={t("blog:form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
-      <div data-form-open={isFocused} className="w-full hidden data-[form-open=true]:flex flex-col gap-2 absolute top-full left-0 z-10 rounded-t-none rounded-b-xl bg-fill-surface">
+      <div data-form-open={isFocused} className="w-full hidden data-[form-open=true]:flex flex-col gap-2 rounded-t-none rounded-b-xl bg-fill-surface">
         <div className="flex flex-col gap-2 p-2">
           <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-2">
             <Menu.Root onSelect={(details) => setCategory(details.value)}>
