@@ -185,12 +185,23 @@
     "subtitle": "A selection of my most recent and relevant work",
     "cta": "View Project",
     "items": {
+      "indexeddb": {
+        "title": "Indexeddb Promisify",
+        "description": "npm package providing an async wrapper for IndexedDB with promises and transactions. Type-safe async wrapper offering ergonomic interface for browser databases. Every operation runs inside transactions for consistency.",
+        "technologies": [
+          "TypeScript",
+          "Vitest",
+          "Rollup",
+          "VitePress"
+        ]
+      },
       "utilify": {
         "title": "Utilify",
         "description": "A set of typed, safe, and lightweight utilities to speed up JavaScript and TypeScript development. Features an intuitive API, concise documentation, full test coverage, and native support for Node.js, Deno, Bun, and modern browsers.",
         "technologies": [
-          "VitePress",
-          "Vitest"
+          "TypeScript",
+          "Vitest",
+          "VitePress"
         ]
       },
       "nexon": {

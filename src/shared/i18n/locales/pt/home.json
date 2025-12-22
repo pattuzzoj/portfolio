@@ -185,12 +185,23 @@
     "subtitle": "Uma seleção dos meus trabalhos mais recentes e relevantes",
     "cta": "Ver Projeto",
     "items": {
+      "indexeddb": {
+        "title": "Indexeddb Promisify",
+        "description": "Pacote npm que fornece um wrapper assíncrono para IndexedDB com promises e transações. Interface ergonômica e tipada para trabalhar com bancos de dados do navegador. Todas as operações executam dentro de transações para garantir consistência.",
+        "technologies": [
+          "TypeScript",
+          "Vitest",
+          "Rollup",
+          "VitePress"
+        ]
+      },
       "utilify": {
         "title": "Utilify",
         "description": "Conjunto de utilitários tipados, seguros e leves para acelerar o desenvolvimento em JavaScript e TypeScript. Possui API intuitiva, documentação objetiva, testes completos e suporte nativo a Node.js, Deno, Bun e navegadores modernos.",
         "technologies": [
-          "VitePress",
-          "Vitest"
+          "TypeScript",
+          "Vitest",
+          "VitePress"
         ]
       },
       "nexon": {

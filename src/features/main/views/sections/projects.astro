@@ -1,6 +1,7 @@
 ---
 import CardProject from "@/features/main/components/card/card-project.astro";
 import Utilify from "@/features/main/assets/images/projects/utilify-banner.png";
+import Indexeddb from "@/features/main/assets/images/projects/indexeddb-banner.png";
 import NexonUtilis from "@/features/main/assets/images/projects/nexonutilis-banner.png";
 import Futuresphere from "@/features/main/assets/images/projects/futuresphere-banner.png";
 // import Nowted from "@/features/main/assets/images/projects/nowted-banner.png";
@@ -10,6 +11,14 @@ const t = i18n.t;
 ---
 
 <div class="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-self-center items-stretch gap-6">
+  <CardProject
+    banner={Indexeddb}
+    title={t("home:projects.items.indexeddb.title")}
+    description={t("home:projects.items.indexeddb.description")}
+    techs={t("home:projects.items.indexeddb.technologies", { returnObjects: true }) as unknown as string[]}
+    live="https://www.npmjs.com/package/indexeddb-promisify"
+    github="https://github.com/pattuzzoj/indexeddb-promisify"
+  />
   <CardProject
     banner={Utilify}
     title={t("home:projects.items.utilify.title")}
