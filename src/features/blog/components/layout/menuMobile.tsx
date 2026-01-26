@@ -1,5 +1,5 @@
 import i18n from "@/shared/i18n";
-import { Menu as MenuIcon, X as XIcon } from 'lucide-react';
+import { Menu as MenuIcon, X as CloseMenuIcon } from 'lucide-react';
 import LanguagePicker from "@/shared/components/language-picker";
 import { Menu } from "@ark-ui/react";
 import Form from "../form/form";
@@ -11,9 +11,9 @@ export default function MenuMobile() {
   
   return (
     <Menu.Root>
-      <Menu.Trigger className="w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
-        <MenuIcon
-          className="data-[header-menu-active=true]:hidden w-8 h-8 p-1 rounded-xl hover:bg-fill-surface-hover" />
+      <Menu.Trigger className="group w-fit flex items-center gap-1 md:w-auto p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
+        <MenuIcon className="block group-data-[state=open]:hidden w-8 h-8 p-1 rounded-xl hover:bg-fill-surface-hover" />
+        <CloseMenuIcon className="hidden group-data-[state=open]:block w-8 h-8 p-1 rounded-xl hover:bg-fill-surface-hover" />
       </Menu.Trigger>
       <Menu.Content className="absolute top-full left-0 z-50 isolate w-full">
         <div
