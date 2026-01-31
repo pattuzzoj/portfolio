@@ -1,6 +1,7 @@
 ---
 import i18n from "@/shared/i18n";
 import "@/shared/styles/index.css";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -27,6 +28,7 @@ const props = Astro.props;
     <meta name="twitter:description" content={props.description}>
 		<slot name="head" />
 		<link rel="icon" href="/favicon.png"/>
+		<ClientRouter />
 	</head>
 	<body
 		class="flex flex-col gap-8 bg-fill-base"
