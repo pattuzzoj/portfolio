@@ -14,6 +14,7 @@ const lucideIcons = [
   "flask-conical",
   "map-pin",
   "mail",
+  "phone",
   "arrow-right",
   "languages",
   "book-open",

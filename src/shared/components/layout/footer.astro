@@ -3,30 +3,56 @@ import SocialMedia from "@/shared/components/social-media.astro";
 import TechLabel from "@/shared/components/tech-label.astro";
 import i18n from "@/shared/i18n";
 import { isArray } from "@utilify/core";
+import { Icon } from "astro-icon/components";
 
 const t = i18n.t;
 
-const footerLinks = t("footer.usefulLinks.menu", { returnObjects: true }) as unknown as {label: string, href: string}[];
+const footerLinks = t("footer.usefulLinks.menu", {
+  returnObjects: true,
+}) as unknown as { label: string; href: string }[];
 ---
 
 <footer class="flex justify-center border-t border-outline py-8 px-8">
-  <div class="w-full max-w-7xl space-y-16">
-    <div class="flex flex-col gap-8 lg:flex-row">
-      <div class="md:w-1/3">
+  <div
+    class="w-full max-w-7xl flex flex-col justify-center items-center space-y-16"
+  >
+    <div class="w-full flex flex-col md:flex-row gap-8">
+      <div>
         <h3 class="font-semibold! text-ink-accent">{t("footer.title")}</h3>
         <p>{t("footer.description")}</p>
       </div>
-      <div class="md:w-1/3 space-y-2">
-        <h4 id="menu">{t("footer.usefulLinks.title")}</h4>
-        <nav aria-labelledby="menu" class="flex flex-col gap-2">
-          {isArray(footerLinks) && footerLinks.map(({label, href}) => (
-            <a class="text-ink-soft/90 hover:text-ink-hover" href={href}>{label}</a>
-          ))}
-        </nav>
-      </div>
-      <div class="md:w-1/3">
-        <h4 id="contact">{t("footer.connect")}</h4>
-        <SocialMedia />
+      <div
+        class="w-full flex flex-col sm:flex-row justify-between md:justify-around gap-8"
+      >
+        <div>
+          <h4 id="menu">{t("footer.usefulLinks.title")}</h4>
+          <nav aria-labelledby="menu" class="flex flex-col gap-2">
+            {
+              isArray(footerLinks) &&
+                footerLinks.map(({ label, href }) => (
+                  <a class="text-ink-soft/90 hover:text-ink-hover" href={href}>
+                    {label}
+                  </a>
+                ))
+            }
+          </nav>
+        </div>
+        <div class="w-1/2 flex flex-col gap-4">
+          <h4 id="contact">{t("footer.connect")}</h4>
+          <ul class="flex flex-col gap-2">
+            <li>
+              <a class='w-fit flex items-center gap-2 text-ink-soft hover:text-ink-accent-hover text-nowrap' target="_blank" href={"tel:+5527997991592"}>
+                <Icon name="lucide:phone" class='size-8 rounded-lg p-2 text-ink-accent bg-fill-accent-soft' /> +55 (27) 99799-1592
+              </a>
+            </li>
+            <li>
+              <a class='w-fit flex items-center gap-2 text-ink-soft hover:text-ink-accent-hover text-nowrap' target="_blank" href={"mailto:pattuzzo@protonmail.com"}>
+                <Icon name="lucide:mail" class='size-8 rounded-lg p-2 text-ink-accent bg-fill-accent-soft' /> pattuzzo@protonmail.com
+              </a>
+            </li>
+          </ul>
+          <SocialMedia />
+        </div>
       </div>
     </div>
     <div class="flex flex-col gap-2">
