@@ -61,13 +61,13 @@ export default function TechsMenu() {
           >
             <img src={ReactIcon.src} className="h-8 w-8" />
           </CardTech>
-          <CardTech
-            title={t("home:technologies.sections.front-end.items.tailwind.title")}
-            description={t("home:technologies.sections.front-end.items.tailwind.description")}
-            href={t("home:technologies.sections.front-end.items.tailwind.href")}
-          >
-            <img src={Tailwind.src} className="h-8 w-8" />
-          </CardTech>
+          {/*<CardTech*/}
+          {/*  title={t("home:technologies.sections.front-end.items.tailwind.title")}*/}
+          {/*  description={t("home:technologies.sections.front-end.items.tailwind.description")}*/}
+          {/*  href={t("home:technologies.sections.front-end.items.tailwind.href")}*/}
+          {/*>*/}
+          {/*  <img src={Tailwind.src} className="h-8 w-8" />*/}
+          {/*</CardTech>*/}
         </Tabs.Content>
         <Tabs.Content value="back-end" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CardTech

@@ -32,8 +32,8 @@ export default function MenuMobile() {
           </nav>
           <hr className="w-full text-ink-muted" />
           <div className="w-full flex flex-col gap-2">
-            <a className="w-full bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl text-center"
-              href={t("header.blog.href")}>{t("header.blog.label")}</a>
+            {/*<a className="w-full bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl text-center"*/}
+            {/*  href={t("header.blog.href")}>{t("header.blog.label")}</a>*/}
             <div className="flex items-center gap-2">
               <SwitchLanguage />
               <LanguagePicker />
