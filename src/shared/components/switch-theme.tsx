@@ -15,11 +15,11 @@ function SwitchTheme() {
   
   return (
     <Show when={theme == "light"} fallback={
-      <button title="Dark Mode" className="w-full flex justify-center md:w-auto p-2 rounded-xl hover:text-ink-accent-hover hover:bg-fill-accent/10" onClick={() => setTheme("light")}>
+      <button title="Dark Mode" className="w-full flex justify-center md:w-auto p-2 rounded-xl hover:text-accent-hover hover:bg-accent/10" onClick={() => setTheme("light")}>
         <Moon className="size-5"/>
       </button>
     }>
-      <button title="Light Mode" className="w-full flex justify-center md:w-auto p-2 rounded-xl hover:text-ink-accent-hover hover:bg-fill-accent/10" onClick={() => setTheme("dark")}>
+      <button title="Light Mode" className="w-full flex justify-center md:w-auto p-2 rounded-xl hover:text-accent-hover hover:bg-accent/10" onClick={() => setTheme("dark")}>
         <Sun className="size-5"/>
       </button>
     </Show>

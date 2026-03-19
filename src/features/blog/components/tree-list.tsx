@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import type { Heading } from "@/features/blog/utils/blog";
 
 interface TreeProps {
@@ -53,8 +53,8 @@ export default function HeadingTree(props: TreeProps) {
     <div className="space-y-4">
       <h5>{t("blog:page.sidebar.index")}</h5>
       <div className="flex">
-        <div id="track-line" className="relative w-0.5 bg-fill-muted">
-          <div id="track-mark" className="absolute top-0 left-0 z-0 h-8 w-full bg-fill-accent transition-all duration-300"></div>
+        <div id="track-line" className="relative w-0.5 bg-content-subtle">
+          <div id="track-mark" className="absolute top-0 left-0 z-0 h-8 w-full bg-accent transition-all duration-300"></div>
         </div>
         <TreeList tree={props.tree} />
       </div>
@@ -68,7 +68,7 @@ export function TreeList(props: TreeProps) {
       <ol className="space-y-1">
         {props.tree?.map(({ depth, slug, text, children }) => (
           <li key={slug} className="space-y-1" style={{ "marginLeft": depth > 1 ? "16px" : "" }}>
-            <a data-blog-menu-id={slug} data-blog-menu-active="false" className="block w-full px-2 py-1 text-left text-sm transition-all text-ink-soft hover:text-ink-accent-hover data-[blog-menu-active=true]:text-ink-accent data-[blog-menu-active=true]:font-semibold" href={`#${slug}`}>{text}</a>
+            <a data-blog-menu-id={slug} data-blog-menu-active="false" className="block w-full px-2 py-1 text-left text-sm transition-all text-content-subtle hover:text-accent-hover data-[blog-menu-active=true]:text-accent data-[blog-menu-active=true]:font-semibold" href={`#${slug}`}>{text}</a>
             {children?.length > 0 && <TreeList tree={children} />}
           </li>
         ))}

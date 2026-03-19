@@ -7,32 +7,37 @@
 }
 
 @theme inline {
-  --color-fill-base: var(--fill-base);
-  --color-fill-surface: var(--fill-surface);
-  --color-fill-surface-strong: var(--fill-surface-strong);
-  --color-fill-surface-soft: var(--fill-surface-soft);
-  --color-fill-surface-hover: var(--fill-surface-hover);
-  --color-fill-accent: var(--fill-accent);
-  --color-fill-accent-hover: var(--fill-accent-hover);
-  --color-fill-accent-soft: var(--fill-accent-soft);
-  --color-fill-muted: var(--fill-muted);
-  --color-fill-disabled: var(--fill-disabled);
-  --color-outline: var(--outline);
-  --color-outline-soft: var(--outline-soft);
-  --color-outline-strong: var(--outline-strong);
-  --color-outline-accent: var(--outline-accent);
-  --color-ink: var(--ink);
-  --color-ink-hover: var(--ink-hover);
-  --color-ink-soft: var(--ink-soft);
-  --color-ink-muted: var(--ink-muted);
-  --color-ink-accent: var(--ink-accent);
-  --color-ink-accent-hover: var(--ink-accent-hover);
-  --color-ink-on-accent: var(--ink-on-accent);
-  --color-ink-on-accent-soft: var(--ink-on-accent-soft);
-  --color-link: var(--ink-link);
-  --color-link-hover: var(--ink-link-hover);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-surface: var(--surface);
+    --color-surface-subtle: var(--surface-subtle);
+    --color-surface-elevated: var(--surface-elevated);
+
+    --color-content: var(--content);
+    --color-content-muted: var(--content-muted);
+    --color-content-subtle: var(--content-subtle);
+    --color-content-inverse: var(--content-inverse);
+
+    --color-border: var(--border);
+    --color-border-strong: var(--border-strong);
+
+    --color-ring: var(--ring);
+    --color-focus: var(--focus);
+
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-accent-active: var(--accent-active);
+
+    --color-hover: var(--hover);
+    --color-active: var(--active);
+    --color-selected: var(--selected);
+
+    --color-disabled: var(--disabled);
+    --color-disabled-content: var(--disabled-content);
+
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-danger: var(--danger);
+    --color-info: var(--info);
 }
 
 * {
@@ -40,7 +45,7 @@
 }
 
 body {
-  color: var(--ink);
+  color: var(--content);
   font-family: Arial, Helvetica, sans-serif;
   @apply antialiased
 }
@@ -97,9 +102,9 @@ a, button {
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-fill-accent rounded-xl
+  @apply bg-accent rounded-xl
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-fill-accent-hover
+  @apply bg-accent-hover
 }

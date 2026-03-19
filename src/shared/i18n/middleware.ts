@@ -4,7 +4,7 @@ import i18n, { DEFAULT_LOCALE, SUPPORTED_LOCALES } from ".";
 export const i18nMiddleware = defineMiddleware(async (context, next) => {
   const { pathname, search, hash } = context.url;
 
-  if (pathname.startsWith("/api/")) {
+  if (pathname.startsWith("/api/") || pathname.startsWith("/_")) {
     return next();
   }
   
@@ -18,8 +18,10 @@ export const i18nMiddleware = defineMiddleware(async (context, next) => {
     return context.redirect(newPath);
   }
 
-  await i18n.changeLanguage(locale);
-  context.cookies.set("i18next", locale, { path: "/" });
-  
+  if (locale) {
+    await i18n.changeLanguage(locale);
+    context.cookies.set("i18next", locale, { path: "/" });
+  }
+
   return next();
 });

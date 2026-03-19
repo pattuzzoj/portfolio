@@ -4,7 +4,7 @@ import { Calendar, Tag } from "lucide-react";
 import For from "@/shared/components/flow/for";
 import CardPost from "../../components/card-post";
 import type { Post } from "@/features/blog/types/blog";
-import { useTranslation } from "@/shared/i18n";
+import { useTranslation } from 'react-i18next';
 import { isArray, isBrowser } from "@utilify/core";
 import Show from "@/shared/components/flow/show";
 
@@ -85,36 +85,36 @@ export default function BlogPage(props: BlogPageProps) {
         <h1 className="text-4xl! md:text-5xl! lg:text-6xl!">
           {t("page.title")}
         </h1>
-        <h2 className="text-xl! text-ink">
+        <h2 className="text-xl! text-content">
           {t("page.subtitle")}
         </h2>
       </div>
       <form className="flex flex-col gap-4">
-        <div className="flex items-center gap-4 p-4 rounded-xl bg-fill-surface">
-          <input className="flex-1 rounded-xl border border-outline p-2 bg-fill-surface-soft" type="text" placeholder={t("form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
+        <div className="flex items-center gap-4 p-4 rounded-xl bg-surface">
+          <input className="flex-1 rounded-xl border border-border p-2 bg-surface-subtle" type="text" placeholder={t("form.search.placeholder")} value={search} onChange={e => setSearch(e.target.value)} />
           <Menu.Root onSelect={(details) => setCategory(details.value)}>
-            <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
+            <Menu.Trigger className="w-56 flex justify-center items-center gap-1 p-2 rounded-xl bg-surface-subtle hover:bg-hover border border-border">
               <Tag className="h-5" />
               <span className="max-sm:hidden">
                 {category && categoriesMenu?.find(({ value }) => value === category)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="w-56 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
-                {isArray(categoriesMenu) && categoriesMenu?.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{category.label}</Menu.Item>)}
+              <Menu.Content className="w-56 z-10 flex flex-col p-1 border rounded-xl border-border bg-surface-subtle">
+                {isArray(categoriesMenu) && categoriesMenu?.map((category) => <Menu.Item key={category.value} value={category.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-hover">{category.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
           <Menu.Root onSelect={(details) => setTime(details.value)}>
-            <Menu.Trigger className="w-40 flex justify-center items-center gap-1 p-2 rounded-xl bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline">
+            <Menu.Trigger className="w-40 flex justify-center items-center gap-1 p-2 rounded-xl bg-surface-subtle hover:bg-hover border border-border">
               <Calendar className="h-5" />
               <span className="max-sm:hidden">
                 {time && timeMenu?.find(({ value }) => value === time)?.label}
               </span>
             </Menu.Trigger>
             <Menu.Positioner className="relative w-fit">
-              <Menu.Content className="w-40 z-10 flex flex-col p-1 border rounded-xl border-outline bg-fill-surface-soft">
-                {isArray(timeMenu) && timeMenu?.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-fill-surface-hover">{time.label}</Menu.Item>)}
+              <Menu.Content className="w-40 z-10 flex flex-col p-1 border rounded-xl border-border bg-surface-subtle">
+                {isArray(timeMenu) && timeMenu?.map((time) => <Menu.Item key={time.value} value={time.value} className="max-md:text-center rounded-xl p-2 text-center hover:bg-hover">{time.label}</Menu.Item>)}
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
@@ -125,7 +125,7 @@ export default function BlogPage(props: BlogPageProps) {
             key={tag.value} 
             defaultPressed={tags.includes(tag.value)} 
             onPressedChange={(pressed) => pressed ? setTags((tags) => [...tags, tag.value]) : setTags((tags) => [...tags.filter((value) => value !== tag.value)])} 
-            className="border border-outline bg-fill-surface-soft hover:bg-fill-surface-hover data-[state=on]:bg-fill-accent data-[state=on]:hover:bg-fill-accent-hover rounded-full px-4 py-2">
+            className="border border-border bg-surface-subtle hover:bg-hover data-[state=on]:bg-accent data-[state=on]:hover:bg-accent-hover rounded-full px-4 py-2">
               {tag.label}
             </Toggle.Root>
           ))}

@@ -1,5 +1,14 @@
 ---
+export const prerender = false;
+
 import PortfolioPage from "@/features/main/pages/index.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { locale: "en" }},
+    { params: { locale: "pt" }}
+  ];
+}
 ---
 
 <PortfolioPage />

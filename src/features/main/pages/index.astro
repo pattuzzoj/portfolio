@@ -1,6 +1,4 @@
 ---
-export const prerender = false;
-
 import { Icon } from "astro-icon/components";
 import Section from "@/shared/components/layout/section.astro";
 import TechLabel from "@/shared/components/tech-label.astro";
@@ -12,13 +10,6 @@ import AboutSection from "@/features/main/views/sections/about.astro";
 import MainLayout from "@/features/main/layouts/index.astro";
 import { isArray } from "@utilify/core";
 import i18n from "@/shared/i18n";
-
-// export async function getStaticPaths() {
-//   return [
-//     { params: { locale: "en" }},
-//     { params: { locale: "pt" }}
-//   ];
-// }
 
 const t = i18n.t;
 const skills = t("home:hero.skills", { returnObjects: true }) as unknown as string[];
@@ -35,9 +26,9 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
   >
     <div class="space-y-4">
       <h1 class="text-4xl! md:text-5xl! lg:text-6xl!">
-        {t("home:hero.title")} <span class="text-ink-accent">Júlio Pattuzzo</span>
+        {t("home:hero.title")} <span class="text-accent">Júlio Pattuzzo</span>
       </h1>
-      <h2 class="text-xl! text-ink-soft">
+      <h2 class="text-xl! text-content-subtle">
         {t("home:hero.description")}
       </h2>
     </div>
@@ -49,11 +40,11 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
       class="flex flex-col sm:flex-row items-center gap-4"
     >
       <a
-        class="w-64 flex justify-center items-center gap-2 rounded-xl py-2 px-8 bg-fill-accent text-ink-on-accent hover:bg-fill-accent-hover"
+        class="w-64 flex justify-center items-center gap-2 rounded-xl py-2 px-8 bg-accent text-content-inverse hover:bg-accent-hover"
         href="#projects">{t("home:hero.buttons.projects")} <Icon name="lucide:arrow-right" class="h-5" /></a
       >
       <a
-        class="w-64 rounded-xl py-2 px-8 bg-fill-surface-soft hover:bg-fill-surface-hover border border-outline"
+        class="w-64 rounded-xl py-2 px-8 bg-surface-subtle hover:bg-hover border border-border"
         href="/curriculo.pdf"
         download>{t("home:hero.buttons.cv")}</a
       >
@@ -72,7 +63,7 @@ const skills = t("home:hero.skills", { returnObjects: true }) as unknown as stri
     title={t("home:technologies.title")}
     subtitle={t("home:technologies.subtitle")}
   >
-    <TechsMenu client:load />
+    <TechsMenu client:only="react" />
   </Section>
   <Section
     id={t("home:projects.id")}

@@ -9,28 +9,28 @@ const { t } = i18n;
 ---
 
 <header
-  class="sticky top-0 z-10 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-outline bg-fill-base"
+  class="sticky top-0 z-10 flex items-center justify-between lg:grid lg:grid-cols-3 lg:gap-8 py-2 px-8 border-b border-b-border bg-background"
 >
   <a
-    class="w-fit text-2xl md:text-2xl font-semibold! rounded-xl p-2 text-ink-accent bg-fill-accent/10"
+    class="w-fit text-2xl md:text-2xl font-semibold! rounded-xl p-2 text-accent bg-accent/10"
     href={t("blog:header.logo.href")}>{t("blog:header.logo.label")}</a
   >
   <div class="hidden md:block">
     <Form client:load />
   </div>
   <div class="hidden md:flex justify-end items-center gap-4">
-    <div class="flex items-center gap-2 rounded-xl p-1 bg-fill-surface-soft">
+    <div class="flex items-center gap-2 rounded-xl p-1 bg-surface-subtle">
       <LanguagePicker client:load />
-      <SwitchTheme client:load />
+      <SwitchTheme client:only="react" />
     </div>
-    <span class="text-ink-muted">|</span>
+    <span class="text-content-muted">|</span>
     <a
-      class="bg-fill-accent hover:bg-fill-accent-hover text-ink-on-accent px-4 py-2 rounded-xl"
+      class="bg-accent hover:bg-accent-hover text-content-inverse px-4 py-2 rounded-xl"
       href={t("blog:header.portfolio.href")}>{t("blog:header.portfolio.label")}</a
     >
   </div>
   <div class="md:hidden">
-    <MenuMobile client:load />
+    <MenuMobile client:only="react" />
   </div>
 </header>
 

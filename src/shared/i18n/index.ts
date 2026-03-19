@@ -19,15 +19,18 @@ i18n
     load: "languageOnly",
     supportedLngs: SUPPORTED_LOCALES,
     nonExplicitSupportedLngs: true,
-    preload: SUPPORTED_LOCALES,
     ns: ["common", "home", "blog"],
+    defaultNS: "common",
     fallbackNS: "common",
-    debug: false, // ativa debug em modo desenvolvimento
+    debug: import.meta.env.DEV,
     detection: {
       order: ['cookie', 'localStorage', 'navigator'],
       caches: ['cookie'],
     },
-  })
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;
 export { useTranslation };

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.25.1",
-    "@astrojs/react": "^4.4.0",
+    "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/ts-plugin": "^1.10.5",
     "@astrojs/vercel": "^8.2.10",
@@ -28,7 +28,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.63.0",
-    "react-i18next": "^16.1.0",
+    "react-i18next": "^16.5.8",
     "zod": "^3.25.76"
   },
   "devDependencies": {

@@ -12,13 +12,13 @@ const footerLinks = t("footer.usefulLinks.menu", {
 }) as unknown as { label: string; href: string }[];
 ---
 
-<footer class="flex justify-center border-t border-outline py-8 px-8">
+<footer class="flex justify-center border-t border-border py-8 px-8">
   <div
     class="w-full max-w-7xl flex flex-col justify-center items-center space-y-16"
   >
     <div class="w-full flex flex-col md:flex-row gap-8">
       <div>
-        <h3 class="font-semibold! text-ink-accent">{t("footer.title")}</h3>
+        <h3 class="font-semibold! text-accent">{t("footer.title")}</h3>
         <p>{t("footer.description")}</p>
       </div>
       <div
@@ -30,7 +30,7 @@ const footerLinks = t("footer.usefulLinks.menu", {
             {
               isArray(footerLinks) &&
                 footerLinks.map(({ label, href }) => (
-                  <a class="text-ink-soft/90 hover:text-ink-hover" href={href}>
+                  <a class="text-content-subtle/90 hover:text-content" href={href}>
                     {label}
                   </a>
                 ))
@@ -41,13 +41,13 @@ const footerLinks = t("footer.usefulLinks.menu", {
           <h4 id="contact">{t("footer.connect")}</h4>
           <ul class="flex flex-col gap-2">
             <li>
-              <a class='w-fit flex items-center gap-2 text-ink-soft hover:text-ink-accent-hover text-nowrap' target="_blank" href={"tel:+5527997991592"}>
-                <Icon name="lucide:phone" class='size-8 rounded-lg p-2 text-ink-accent bg-fill-accent-soft' /> +55 (27) 99799-1592
+              <a class='w-fit flex items-center gap-2 text-content-subtle hover:text-accent-hover text-nowrap' target="_blank" href={"tel:+5527997991592"}>
+                <Icon name="lucide:phone" class='size-8 rounded-lg p-2 text-accent bg-accent/10' /> +55 (27) 99799-1592
               </a>
             </li>
             <li>
-              <a class='w-fit flex items-center gap-2 text-ink-soft hover:text-ink-accent-hover text-nowrap' target="_blank" href={"mailto:pattuzzo@protonmail.com"}>
-                <Icon name="lucide:mail" class='size-8 rounded-lg p-2 text-ink-accent bg-fill-accent-soft' /> pattuzzo@protonmail.com
+              <a class='w-fit flex items-center gap-2 text-content-subtle hover:text-accent-hover text-nowrap' target="_blank" href={"mailto:pattuzzo@protonmail.com"}>
+                <Icon name="lucide:mail" class='size-8 rounded-lg p-2 text-accent bg-accent/10' /> pattuzzo@protonmail.com
               </a>
             </li>
           </ul>
@@ -56,7 +56,7 @@ const footerLinks = t("footer.usefulLinks.menu", {
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <p class="text-center text-ink">© 2025 Júlio Pattuzzo.</p>
+      <p class="text-center text-content">© 2026 Júlio Pattuzzo.</p>
       <p class="text-center space-x-2">
         <TechLabel>Astro</TechLabel>
         <TechLabel>React</TechLabel>

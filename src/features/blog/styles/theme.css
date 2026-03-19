@@ -37,6 +37,39 @@
 
   --ink-link: var(--ink-accent);
   --ink-link-hover: var(--ink-accent-hover);
+
+  --background: var(--fill-base);
+
+  --surface: var(--fill-surface);
+  --surface-subtle: var(--fill-surface-soft);
+  --surface-elevated: var(--fill-surface-strong);
+
+  --content: var(--ink);
+  --content-muted: var(--ink-muted);
+  --content-subtle: var(--ink-soft);
+  --content-inverse: var(--ink-on-accent);
+
+  --border: var(--outline);
+  --border-strong: var(--outline-strong);
+
+  --ring: var(--fill-accent);
+  --focus: var(--fill-accent-hover);
+
+  --accent: var(--fill-accent);
+  --accent-hover: var(--fill-accent-hover);
+  --accent-active: var(--fill-accent-hover);
+
+  --hover: var(--fill-surface-hover);
+  --active: var(--fill-surface-strong);
+  --selected: var(--fill-accent-soft);
+
+  --disabled: var(--fill-disabled);
+  --disabled-content: var(--fill-muted);
+
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --info: #38bdf8;
 }
 
 
@@ -79,4 +112,37 @@
 
   --ink-link: var(--ink-accent);
   --ink-link-hover: var(--ink-accent-hover);
+
+  --background: var(--fill-base);
+
+  --surface: var(--fill-surface);
+  --surface-subtle: var(--fill-surface-soft);
+  --surface-elevated: var(--fill-surface-strong);
+
+  --content: var(--ink);
+  --content-muted: var(--ink-muted);
+  --content-subtle: var(--ink-soft);
+  --content-inverse: var(--ink-on-accent);
+
+  --border: var(--outline);
+  --border-strong: var(--outline-strong);
+
+  --ring: var(--fill-accent);
+  --focus: var(--fill-accent-hover);
+
+  --accent: var(--fill-accent);
+  --accent-hover: var(--fill-accent-hover);
+  --accent-active: var(--fill-accent-hover);
+
+  --hover: var(--fill-surface-hover);
+  --active: var(--fill-surface-strong);
+  --selected: var(--fill-accent-soft);
+
+  --disabled: var(--fill-disabled);
+  --disabled-content: var(--fill-muted);
+
+  --success: #34d399;
+  --warning: #fbbf24;
+  --danger: #fb7185;
+  --info: #38bdf8;
 }
