@@ -24,7 +24,7 @@ i18n
     fallbackNS: "common",
     debug: import.meta.env.DEV,
     detection: {
-      order: ['cookie', 'localStorage', 'navigator'],
+      order: ['cookie', 'navigator'],
       caches: ['cookie'],
     },
     interpolation: {
